@@ -6,7 +6,7 @@
             <details>
                 <summary>Java의 정석</summary>
                 <ul>
-                    <li></li>
+                    <li><a href="Java/Java의정석.md#exception-handling">예외처리(exception handling)</a></li>
                 </ul>
             </details>
         </li>
