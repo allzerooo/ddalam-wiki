@@ -46,13 +46,13 @@
     </ul>
 </details>
 <details>
-    <summary>Design Pattern</summary>
+    <summary>객체 지향 프로그래밍</summary>
     <ul>
         <li>
             <details>
                 <summary>JAVA 객체지향 디자인패턴</summary>
                 <ul>
-                    <li><a href="DesignPattern/JAVA객체지향디자인패턴.md#object-oriented-principle">객체지향 원리</a></li>
+                    <li><a href="OOP/JAVA객체지향디자인패턴.md#object-oriented-principle">객체지향 원리</a></li>
                 </ul>
             </details>
         </li>
