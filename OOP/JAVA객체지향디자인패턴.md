@@ -1,6 +1,6 @@
 # JAVA 객체지향 디자인패턴
 
-- [객체지향 원리](#exception-handling)
+- [객체지향 원리](#object-oriented-principle)
 
 <br/>
 
