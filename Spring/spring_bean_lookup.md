@@ -4,22 +4,22 @@
 
   ```java
   @Test
-      @DisplayName("빈 이름으로 조회")
-      void findBeanByName() {
-          MemberService memberService = ac.getBean("memberService", MemberService.class);
-          assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
-      }
+  @DisplayName("빈 이름으로 조회")
+  void findBeanByName() {
+      MemberService memberService = ac.getBean("memberService", MemberService.class);
+      assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
+  }
   ```
 
 - `annotationConfigApplicationContext.getBean(타입)`
 
   ```java
   @Test
-      @DisplayName("타입으로 조회")
-      void findBeanByType() {
-          MemberService memberService = ac.getBean(MemberService.class);
-          assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
-      }
+  @DisplayName("타입으로 조회")
+  void findBeanByType() {
+      MemberService memberService = ac.getBean(MemberService.class);
+      assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
+  }
   ```
 
 - 조회하려는 빈이 없을 때 예외
