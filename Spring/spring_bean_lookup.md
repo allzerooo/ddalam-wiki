@@ -42,6 +42,7 @@
     ```
 
 - 특정 타입을 모두 조회
+
   ```java
   @Test
   @DisplayName("특정 타입을 모두 조회하기")
@@ -50,6 +51,7 @@
       assertThat(beansOfType.size()).isEqualTo(2);
   }
   ```
+
 - 조회하려는 빈이 없을 때 예외
 
   - `NoSuchBeanDefinitionException: No bean named 'xxxxx' available`
@@ -62,6 +64,26 @@
                 () -> ac.getBean("xxxx", MemberService.class));
     }
     ```
+
+- 부모 타입으로 조회하면 자식 타입도 함께 조회된다
+  ```java
+  @Test
+  @DisplayName("부모 타입으로 모두 조회하기")
+  void findAllByParentType() {
+      Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);
+      assertThat(beansOfType.size()).isEqualTo(2);
+  }
+  ```
+  ```java
+  @Test
+  @DisplayName("부모 타입으로 모두 조회하기 - Object")
+  void findAllBeanByObjectType() {
+      Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
+      for (String key : beansOfType.keySet()) {
+          System.out.println("key = " + key + " value=" + beansOfType.get(key));
+      }
+  }
+  ```
 
 <br/>
 
