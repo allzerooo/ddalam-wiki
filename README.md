@@ -75,6 +75,7 @@
         <li><a href="Spring/미분류.md">미분류...🤔</a></li>
         <li><a href="Spring/Build_Tool.md">Build Tool</a></li>
         <li><a href="Spring/IoC_DI_Container.md">IoC, DI, 컨테이너</a></li>
+        <li><a href="Spring/spring_bean_lookup.md">스프링 빈 조회</a></li>
     </ul>
 </details>
 <details>
