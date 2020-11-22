@@ -22,6 +22,34 @@
   }
   ```
 
+  - 같은 타입이 둘 이상이면 예외 발생
+    ```java
+    @Test
+    @DisplayName("같은 타입이 둘 이상 있으면 예외가 발생한다")
+    void findBeanByTypeDuplicate() {
+        assertThrows(NoUniqueBeanDefinitionException.class,
+                () -> ac.getBean(MemberRepository.class));
+    }
+    ```
+  - 예외 해결 : 같은 타입이 둘 이상이면 빈 이름을 지정
+    ```java
+    @Test
+    @DisplayName("같은 타입이 둘 이상 있으면 빈 이름을 지정하면 된다")
+    void findBeanByName() {
+        MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);
+        assertThat(memberRepository).isInstanceOf(MemberRepository.class);
+    }
+    ```
+
+- 특정 타입을 모두 조회
+  ```java
+  @Test
+  @DisplayName("특정 타입을 모두 조회하기")
+  void findAllBeanByType() {
+      Map<String, MemberRepository> beansOfType = ac.getBeansOfType(MemberRepository.class);
+      assertThat(beansOfType.size()).isEqualTo(2);
+  }
+  ```
 - 조회하려는 빈이 없을 때 예외
 
   - `NoSuchBeanDefinitionException: No bean named 'xxxxx' available`
