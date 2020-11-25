@@ -57,6 +57,9 @@
     <summary>객체 지향 프로그래밍</summary>
     <ul>
         <li>
+            <a href="OOP/미분류.md">미분류...⭐️</a>
+        </li>
+        <li>
             <details>
                 <summary>JAVA 객체지향 디자인패턴</summary>
                 <ul>
@@ -65,7 +68,7 @@
             </details>
         </li>
         <li>
-            <a href="OOP/미분류.md">미분류...⭐️</a>
+            <a href="OOP/SOLID.md">객체 지향 설계의 5가지 원칙(SOLID)</a>
         </li>
     </ul>
 </details>
@@ -73,6 +76,8 @@
     <summary>Spring</summary>
     <ul>
         <li><a href="Spring/미분류.md">미분류...🤔</a></li>
+        <li><a href="Spring/BeanDefinition.md">BeanDefinition - 스프링 빈 설정 메타 정보</a></li>
+        <li><a href="Spring/BeanFactory_ApplicationContext.md">BeanFactory, ApplicationContext</a></li>
         <li><a href="Spring/Build_Tool.md">Build Tool</a></li>
         <li><a href="Spring/IoC_DI_Container.md">IoC, DI, 컨테이너</a></li>
         <li><a href="Spring/spring_bean_lookup.md">스프링 빈 조회</a></li>
