@@ -89,6 +89,7 @@
         <li><a href="Spring/spring_bean_lookup.md">스프링 빈 조회</a></li>
         <li><a href="Spring/singleton_container.md">싱글톤 컨테이너</a></li>
         <li><a href="Spring/component_scan.md">컴포넌트 스캔</a></li>
+        <li><a href="Spring/automatic_dependency_injection.md">의존관계 자동 주입</a></li>
     </ul>
 </details>
 <details>
