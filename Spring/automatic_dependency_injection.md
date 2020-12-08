@@ -16,8 +16,16 @@
     * 의존관계 주입을 위한 메서드를 사용할 때 객체 생성 시 어떤 의존관계를 주입해야 되는지 확인하기 어렵다
     * 프레임워크 없이 순수한 자바 코드를 단위테스트 할 수 있다
     * 필드에 `final` 키워드를 사용할 수 있기 떄문에 의존관계 주입이 누락된 경우 컴파일 시점에 오류를 확인할 수 있다
-* 생성자가 1개인 경우 `@Autowired`를 생략하고,  
-
+* 생성자가 1개인 경우 Lombok 라이브러리의 `@RequiredArgsConstructor`를 사용하면 `final`이 있는 필드들의 생성자를 자동으로 만들어준다
+    * Lombok이 Java의 애노테이션 프로세서 기능을 이용해 컴파일 시점에 생성자 코드를 자동으로 생성
+    ```java
+    @Component
+    @RequiredArgsConstructor
+    public class OrderServiceImpl implements OrderService {
+        private final MemberRepository memberRepository;
+        private final DiscountPolicy discountPolicy;
+    }
+    ```
 
 
 <br/>
