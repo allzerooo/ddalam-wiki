@@ -40,7 +40,6 @@ public void setMemberRepository(MemberRepository memberRepository) {
     this.memberRepository = memberRepository;
 }
 ```
-* `@Autowired`는 주입할 대상이 없으면 오류가 발생하는데, `@Autowired(required = false)`로 지정하면 주입할 대상이 없어도 동작한다
 
 <br/>
 
@@ -48,6 +47,53 @@ public void setMemberRepository(MemberRepository memberRepository) {
 * 필드에 `@Autowired`를 사용해 바로 주입하는 방법
 * DI 프레임워크가 없으면 주입할 수 없음 → 외부에서 변경이 불가능해 테스트하기 어려움 (`@SpringBootTest`처럼 스프링 컨테이너를 테스트에 통합한 경우에만 가능)
 * `@Configuration` 같은 곳에서만 특별한 용도로 사용
+
+<br/>
+
+### 일반 메서드 주입
+* 한번에 여러 필드를 주입할 수 있지만, 일반적으로 잘 사용하지 않음
+```java
+@Autowired
+public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    this.memberRepository = memberRepository;
+    this.discountPolicy = discountPolicy;
+}
+```
+
+<br/>
+
+---
+
+<br/>
+
+### 주입할 스프링 빈이 없어도 동작하도록, 자동 주입 대상을 옵션으로 처리하는 방법
+* `@Autowired(requried = false) : 주입할 대상이 없으면 메서드 자체가 호출이 안됨
+    ```java
+    @Autowired(required = false)
+    public void setNoBean(Member member) { // 메서드가 호출 안됨
+        System.out.println(member);         // 출력 안됨
+    }
+    ```
+* `org.springframework.lang.@Nullable` : 주입할 대상이 없으면 `null`이 입력
+    ```java
+    @Autowired
+    public void setNoBean(@Nullable Member member) {
+        System.out.println(member);     // null 출력
+    }
+    ```
+* `Optional<>` : 주입할 대상이 없으면 `Optional.empty`가 입력
+    ```java
+    @Autowired(required = false)
+    public void setNoBean(Optional<Member> member) {
+        System.out.println(member);     // Optional.empty 출력
+    }
+    ```
+
+<br/>
+
+--- 
+
+<br/>
 
 [출처]
 
