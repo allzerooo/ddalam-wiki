@@ -2,7 +2,7 @@
 
 ### 의존관계 주입 방법
 1. 생성자 주입
-2. 수정자 주입(setter 메서드를 사용한)
+2. 수정자 주입(setter 주입)
 3. 필드 주입
 4. 일반 메서드 주입
 
@@ -27,6 +27,16 @@
     }
     ```
 
+### 수정자 주입(setter 주입)
+* 자바빈 프로퍼티 규약의 수정자 메서드 방식을 사용해 의존관계를 주입하는 방법
+* 선택, 변경 가능성이 있는 의존관계에 사용
+```java
+@Autowired
+public void setMemberRepository(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+}
+```
+* `@Autowired`는 주입할 대상이 없으면 오류가 발생하는데, `@Autowired(required = false)`로 지정하면 주입할 대상이 없어도 동작한다
 
 <br/>
 
