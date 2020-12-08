@@ -88,7 +88,7 @@ public void init(MemberRepository memberRepository, DiscountPolicy discountPolic
         System.out.println(member);     // Optional.empty 출력
     }
     ```
-
+* `@Nullable`, `Optional`은 생성자 자동 주입에서 특정 필드에만 사용해도 된다
 <br/>
 
 --- 
