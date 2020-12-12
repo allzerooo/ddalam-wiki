@@ -177,6 +177,8 @@ public OrderServiceImpl(@Qualifier("mainDiscountPolicy") DiscountPolicy discount
 public class RateDiscountPolicy implements DiscountPolicy {}
 ```
 
+<br/>
+
 ### `@Qualifier` 대신 애노테이션 만들어 사용하기
 
 `@Qualifier("mainDiscountPolicy")` 이렇게 문자를 적으면 컴파일시 타입 체크가 안된다
