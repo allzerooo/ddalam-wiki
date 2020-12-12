@@ -27,6 +27,9 @@
     <summary>Java</summary>
     <ul>
         <li>
+            <a href="Java/abstract_class.md">추상클래스</a>
+        </li>
+        <li>
             <details>
                 <summary>Java의 정석</summary>
                 <ul>
