@@ -99,11 +99,6 @@ public void init(MemberRepository memberRepository, DiscountPolicy discountPolic
 ## 조회된 빈이 2개 이상일 때
 
 ```java
-@Autowired
-private DiscountPolicy discountPolicy
-```
-
-```java
 @Component
 public class FixDiscountPolicy implements DiscountPolicy {}
 ```
@@ -111,6 +106,92 @@ public class FixDiscountPolicy implements DiscountPolicy {}
 ```java
 @Component
 public class RateDiscountPolicy implements DiscountPolicy {
+```
+
+```java
+@Autowired
+private DiscountPolicy discountPolicy
+```
+
+`@Autowired`는 타입으로 조회하기 때문에 `DiscountPolicy`의 하위 타입인 `FixDiscountPolicy`, `RateDiscountPolicy` 둘다 스프링 빈으로 등록되면 의존관계 자동 주입 시 `NoUniqueBeanDefinitionException` 오류가 발생한다
+
+<br/>
+
+하위 타입으로 지정하는 방법이 있지만
+
+- DIP 위배, 유연성이 떨어진다
+- 이름만 다르고 완전히 똑같은 타입의 스프링 빈이 2개 있을 때 해결이 안된다
+- 스프링 빈을 수동 등록해서 문제를 해결할 수 있다
+
+<br/>
+
+의존관계 자동 주입으로 해결하는 방법
+
+- `@Autowired` 필드 명 매칭
+- `@Qualifier` 사용
+- `@Primary` 사용
+
+<br/>
+
+### `@Autowired` 필드 명 매칭
+
+타입 매칭을 시도하고, 여러 빈이 있으면 필드 이름, 파라미터 이름으로 빈 이름을 매칭
+
+```java
+@Autowired
+private DiscontPolicy rateDiscountPolicy
+```
+
+`RateDiscountPolicy`가 정상 주입된다
+
+<br/>
+
+### `@Qualifier`
+
+- 빈 등록시 추가 구분자를 붙여주는 방법. 빈 이름을 변경하는 것은 아니다
+- `@Qualifier`로 등록한 이름의 스프링 빈을 추가로 찾는다
+- `NoSuchBeanDefinitionException` 예외 발생
+
+```java
+@Component
+@Qualifier("mainDiscountPolicy")
+public class RateDiscountPolicy implements DiscountPolicy {}
+```
+
+```java
+@Autowired
+public OrderServiceImpl(@Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+    this.discountPolicy = discountPolicy;
+}
+```
+
+<br/>
+
+### `@Primary`
+
+여러 빈이 매칭되면 우선순위를 정하는 방법
+
+```java
+@Component
+@Primary
+public class RateDiscountPolicy implements DiscountPolicy {}
+```
+
+### `@Qualifier` 대신 애노테이션 만들어 사용하기
+
+`@Qualifier("mainDiscountPolicy")` 이렇게 문자를 적으면 컴파일시 타입 체크가 안된다
+
+```java
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE, ElementType.ANNOTATION_TYPE}) @Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Qualifier("mainDiscountPolicy")
+public @interface MainDiscountPolicy {}
+```
+
+```java
+@Component
+@MainDiscountPolicy
+public class RateDiscountPolicy implements DiscountPolicy {}
 ```
 
 ---
