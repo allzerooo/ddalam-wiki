@@ -196,6 +196,40 @@ public @interface MainDiscountPolicy {}
 public class RateDiscountPolicy implements DiscountPolicy {}
 ```
 
+<br/>
+
+## 같은 타입의 빈이 모두 필요할 때
+```java
+@Component
+public class FixDiscountPolicy implements DiscountPolicy {}
+```
+
+```java
+@Component
+public class RateDiscountPolicy implements DiscountPolicy {
+```
+
+```java
+@Autowired
+private DiscountPolicy discountPolicy
+```
+
+```java
+public class DiscountService {
+  private final Map<String, DiscountPolicy> policyMap;
+  private final List<DiscountPolicy> policies;
+
+  @Autowired
+  public DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> policies) {
+    this.policyMap = policyMap;
+    this.policies = policies;
+  }
+}
+```
+- `Map`으로 모든 `DiscountPolicy`를 주입 → `fixDiscountPolicy`, `rateDiscountPolicy`가 주입
+- map의 키는 스프링 빈 이름, 값은 타입으로 조회된 스프링 빈
+- `policyMap.get("fixDiscountPolicy")` 또는 `policyMap.get("radeDiscountPolicy")`와 같이 map에서 찾는다
+
 ---
 
 <br/>
