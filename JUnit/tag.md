@@ -15,6 +15,50 @@
 
 ### 원하는 테스트 그룹만 실행하는 방법
 
+<b>IntelliJ</b><br/>
+Edit configurations - JUnit - Configuration - Test kind 선택
+
+- class : 해당 클래스의 모든 테스트를 실행
+- tags : 선택한 태그가 있는 테스트만 실행
+
+<br/>
+<b>pom.xml</b><br/>
+
+```xml
+<profiles>
+   <profile>
+        <id>default</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <build>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <groups>fast</groups>
+                </configuration>
+            </plugin>
+        </build>
+    </profile>
+    <profile>
+        <id>ci</id>
+        <build>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <groups>fast | slow</groups>
+                </configuration>
+            </plugin>
+        </build>
+    </profile>
+</profiles>
+```
+
+```bash
+# ci 로 빌드
+./mvnw test -P ci
+```
+
 <br/>
 
 ---
