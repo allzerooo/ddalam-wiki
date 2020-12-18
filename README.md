@@ -21,6 +21,8 @@
     <summary>JUnit</summary>
     <ul>
         <li><a href="JUnit/assumption.md">조건에 따라 테스트 실행하기</a></li>
+        <li><a href="JUnit/tag.md">태그</a></li>
+        <li><a href="JUnit/custom_tag.md">커스텀 태그</a></li>
     </ul>
 </details>
 <details>
