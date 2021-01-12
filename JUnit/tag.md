@@ -65,6 +65,18 @@ Edit configurations - JUnit - Configuration - Test kind 선택
 
 JUnit5가 제공하는 애노테이션은 메타 에노테이션으로 사용할 수 있다. 따라서 커스텀 태그 애노테이션도 만들 수 있다
 
+```java
+@Tag("fast")
+@Test
+public @interface FastTest() {
+}
+```
+
+```java
+@FastTest
+void create() {}
+```
+
 <br/>
 
 ---
