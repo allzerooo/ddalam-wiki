@@ -1,27 +1,22 @@
 # TIL
 
 <details>
-    <summary>Front-end</summary>
+    <summary>객체 지향 프로그래밍</summary>
     <ul>
         <li>
+            <a href="OOP/미분류.md">미분류...⭐️</a>
+        </li>
+        <li>
             <details>
-                <summary>Vue</summary>
+                <summary>JAVA 객체지향 디자인패턴</summary>
                 <ul>
-                    <li><a href="Front-end/vue.md#lifecycle">라이프사이클</a></li>
-                </ul>
-                <summary>미분류</summary>
-                <ul>
-                    <li><a href="Front-end/미분류.md">라이프사이클</a></li>
+                    <li><a href="OOP/JAVA객체지향디자인패턴.md#object-oriented-principle">객체지향 원리</a></li>
                 </ul>
             </details>
         </li>
-    </ul>
-</details>
-<details>
-    <summary>JUnit</summary>
-    <ul>
-        <li><a href="JUnit/assumption.md">조건에 따라 테스트 실행하기</a></li>
-        <li><a href="JUnit/tag.md">태그</a></li>
+        <li>
+            <a href="OOP/SOLID.md">객체 지향 설계의 5가지 원칙(SOLID)</a>
+        </li>
     </ul>
 </details>
 <details>
@@ -62,31 +57,6 @@
     </ul>
 </details>
 <details>
-    <summary>VCS</summary>
-    <ul>
-        <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
-    </ul>
-</details>
-<details>
-    <summary>객체 지향 프로그래밍</summary>
-    <ul>
-        <li>
-            <a href="OOP/미분류.md">미분류...⭐️</a>
-        </li>
-        <li>
-            <details>
-                <summary>JAVA 객체지향 디자인패턴</summary>
-                <ul>
-                    <li><a href="OOP/JAVA객체지향디자인패턴.md#object-oriented-principle">객체지향 원리</a></li>
-                </ul>
-            </details>
-        </li>
-        <li>
-            <a href="OOP/SOLID.md">객체 지향 설계의 5가지 원칙(SOLID)</a>
-        </li>
-    </ul>
-</details>
-<details>
     <summary>Spring</summary>
     <ul>
         <li><a href="Spring/미분류.md">미분류...🤔</a></li>
@@ -99,6 +69,51 @@
         <li><a href="Spring/component_scan.md">컴포넌트 스캔</a></li>
         <li><a href="Spring/automatic_dependency_injection.md">의존관계 자동 주입</a></li>
         <li><a href="Spring/bean_life_cycle_callback.md">빈 생명주기 콜백</a></li>
+    </ul>
+</details>
+<details>
+    <summary>Front-end</summary>
+    <ul>
+        <li>
+            <details>
+                <summary>Vue</summary>
+                <ul>
+                    <li><a href="Front-end/vue.md#lifecycle">라이프사이클</a></li>
+                </ul>
+                <summary>미분류</summary>
+                <ul>
+                    <li><a href="Front-end/미분류.md">라이프사이클</a></li>
+                </ul>
+            </details>
+        </li>
+    </ul>
+</details>
+<details>
+    <summary>Test</summary>
+    <ul>
+        <li>
+            <details>
+                <summary>JUnit</summary>
+                <ul>
+                    <li><a href="JUnit/assumption.md">조건에 따라 테스트 실행하기</a></li>
+                    <li><a href="JUnit/tag.md">태그</a></li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary>성능 테스트</summary>
+                <ul>
+                    <li><a href="Test/performanceTestTool.md">성능 테스트 툴</a></li>
+                </ul>
+            </details>
+        </li>
+    </ul>
+</details>
+<details>
+    <summary>VCS</summary>
+    <ul>
+        <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
     </ul>
 </details>
 <details>
