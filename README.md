@@ -1,6 +1,14 @@
 # TIL
 
 <details>
+    <summary>Computer Science</summary>
+    <ul>
+        <li>
+            <a href="CS/etc.md">기타</a>
+        </li>
+    </ul>
+</details>
+<details>
     <summary>객체 지향 프로그래밍</summary>
     <ul>
         <li>
@@ -33,6 +41,14 @@
                     <li><a href="Java/Java의정석.md#array">배열</a></li>
                     <li><a href="Java/Java의정석.md#object-oriented-programming">객체지향프로그래밍</a></li>
                     <li><a href="Java/Java의정석.md#exception-handling">예외처리(exception handling)</a></li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary>Effective Java</summary>
+                <ul>
+                    <li><a href="Java/EffectiveJava.md#item7">객체 생성과 파괴 - 아이템 7. 다 쓴 객체 참조를 헤제하라</a></li>
                 </ul>
             </details>
         </li>
