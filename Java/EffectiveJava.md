@@ -5,6 +5,7 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 <br/>
 
 - [다 쓴 객체 참조를 해제하라](#item7)
+- [finalizer와 cleaner 사용을 피하라](#item8)
 
 <br/>
 
@@ -17,3 +18,7 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 1. 자기 메모리를 직접 관리하는 클래스
 2. 객체 참조를 캐시에 넣고 사용했을 때
 3. 클라이언트가 콜백(callback)을 등록했을 때
+
+<br/>
+
+### <a name="itme8"></a>finalizer와 cleaner 사용을 피하라
