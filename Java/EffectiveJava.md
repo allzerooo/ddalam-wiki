@@ -75,9 +75,8 @@ static void copy(String src, String dst) {
 
 `eqauls` 메서드를 재정의할 때 지켜야 하는 규약
 
-`null`이 아닌 모든 참조값 x, y, z에 대해
-
 ```
+null이 아닌 모든 참조값 x, y, z에 대해
 x.eqauls(x)는 true
 x.eqauls(y)가 true면 y.equals(x)도 true
 x.equals(y)가 true이고, y.equals(z)도 true면, x.eqauls(z)도 true
