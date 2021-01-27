@@ -51,6 +51,7 @@
                     <li><a href="Java/EffectiveJava.md#item7">객체 생성과 파괴 - 아이템 7. 다 쓴 객체 참조를 헤제하라</a></li>
                     <li><a href="Java/EffectiveJava.md#item8">객체 생성과 파괴 - 아이템 8. finalizer와 cleaner 사용을 피하라</a></li>
                     <li><a href="Java/EffectiveJava.md#item9">객체 생성과 파괴 - 아이템 9. try-finally 보다는 try-with-resources를 사용하라</a></li>
+                    <li><a href="Java/EffectiveJava.md#item10">모든 객체의 공통 메서드 - 아이템 10. equals는 일반 규약을 지켜 재정의하라</a></li>
                 </ul>
             </details>
         </li>

@@ -13,7 +13,7 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 
 ## 객체 생성과 파괴
 
-### <a name="itme7"></a>다 쓴 객체 참조를 해제하라
+### <a name="itme7"></a>아이템 7. 다 쓴 객체 참조를 해제하라
 
 가비지 컬렉터는 다 쓴 객체의 참조를 해제하지 않았을 때 해당 참조가 유효한지 알 수 없는 경우가 있다. 따라서, 해당 참조를 다 썼을 때 null 처리를 해줘야 된다. 하지만 모든 객체를 다 쓰자마자 일일이 null 처리를 할 필요는 없다. 객체 참조를 null 처리해야 되는 경우는 대표적으로 다음 3가지 경우이다.
 
@@ -23,11 +23,11 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 
 <br/>
 
-### <a name="itme8"></a>finalizer와 cleaner 사용을 피하라
+### <a name="itme8"></a>아이템 8. finalizer와 cleaner 사용을 피하라
 
 <br/>
 
-### <a name="itme9"></a>try-finally 보다는 try-with-resources를 사용하라
+### <a name="itme9"></a>아이템 9. try-finally 보다는 try-with-resources를 사용하라
 
 `try-with-resources` 구조를 사용하려면 닫아야 하는 자원 클래스는 반드시 `AutoCloseable` 인터페이스를 구현해야 한다.
 (AutoCloseable 인터페이스는 void를 반환하는 `close` 메서드 하나만 정의된 인터페이스다)
