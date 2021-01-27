@@ -4,9 +4,9 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 
 <br/>
 
-- [다 쓴 객체 참조를 해제하라](#item7)
-- [finalizer와 cleaner 사용을 피하라](#item8)
-- [try-finally 보다는 try-with-resources를 사용하라](#item9)
+- [객체 생성과 파괴 - 아이템7. 다 쓴 객체 참조를 해제하라](#item7)
+- [객체 생성과 파괴 - 아이템8. finalizer와 cleaner 사용을 피하라](#item8)
+- [객체 생성과 파괴 - 아이템9. try-finally 보다는 try-with-resources를 사용하라](#item9)
 
 <br/>
 
