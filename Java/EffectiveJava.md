@@ -7,6 +7,7 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 - [객체 생성과 파괴 - 아이템7. 다 쓴 객체 참조를 해제하라](#item7)
 - [객체 생성과 파괴 - 아이템8. finalizer와 cleaner 사용을 피하라](#item8)
 - [객체 생성과 파괴 - 아이템9. try-finally 보다는 try-with-resources를 사용하라](#item9)
+- [모든 객체의 공통 메서드 - 아이템10. equals는 일반 규약을 지켜 재정의하라](#item10)
 
 <br/>
 
@@ -45,3 +46,41 @@ static void copy(String src, String dst) {
 
 `close`는 코드에 나타나지 않지만, `close`에서 발생한 예외는 숨겨지고(스택 추적 내역에서 찾을 수 있고, `Throwable`의 `getSuppressed` 메서드를 이용하면 프로그램 코드에서 가져올 수 있다) try문 안에서 발생한 예외가 기록된다.
 `try-with-resources`에서도 예외는 던질 수 있고, `catch` 절을 쓸 수도 있다.
+
+<br/>
+<br/>
+
+## 모든 객체의 공통 메서드
+
+`Object`클래스의 `final`이 아닌 메서드(`equals`, `hashCode`, `toString`, `clone`, `finalize`)는 모두 재정의(`overriding`)를 염두에 두고 설계되었고, 재정의 시 지켜야 하는 규약이 명확히 정의되어 있다. 그래서 `Object를` 상속하는 모든 클래스는 이 메서드들을 규약에 맞게 재정의해야 한다. 메서드를 잘못 구현하면 클래스가 이 규약을 준수한다고 가정하는 클래스를 오작동하게 만들 수 있다
+
+<br/>
+
+### <a name="itme10"></a>아이템 10. equals는 일반 규약을 지켜 재정의하라
+
+재정의하지 않아도 되는 경우
+
+- 클래스가 값을 표현하는게 아니라 동작하는 개체를 표현하는 클래스일 때 (ex. Thread. Object의 equals 메서드는 이러한 클래스에 적합하게 구현되었다)
+- 물리적으로 같은가가 아닌 논리적으로 같은가를 검사할 일이 없을 때 (ex. java.util.regex.Pattern은 equals를 재정의해서 두 Pattern의 인스턴스가 같은 정규표현식을 나타내는지 검사한다)
+- 상위 클래스에서 재정의한 `equals`가 하위 클래스에도 딱 들어맞을 때 (ex. Set의 구현체는 AbstractSet이 구현한 equals를 상속받아 쓰고, List 구현체는 AbstractList로 부터, Map 구현체는 AbstractMap으로부터 상속받아 그대로 쓴다)
+- 클래스가 `private`이거나 `package-private`이고 `equals` 메서드를 호출할 일이 없을 때
+
+<br/>
+
+재정의해야 하는 경우
+
+- 두 객체가 논리적으로 같은가를 확인해야 하는데 상위 클래스의 `equals`가 논리적 동치성을 비교하도록 재정의되지 않았을 때 (주로 값 클래스들이 해당됨)
+
+<br/>
+
+`eqauls` 메서드를 재정의할 때 지켜야 하는 규약
+
+`null`이 아닌 모든 참조값 x, y, z에 대해
+
+```
+x.eqauls(x)는 true
+x.eqauls(y)가 true면 y.equals(x)도 true
+x.equals(y)가 true이고, y.equals(z)도 true면, x.eqauls(z)도 true
+x.equals(y)를 반복해서 호출하면 항상 true 또는 항상 false를 반환
+x.equals(null)은 false
+```
