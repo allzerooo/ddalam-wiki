@@ -8,6 +8,7 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 - [객체 생성과 파괴 - 아이템8. finalizer와 cleaner 사용을 피하라](#item8)
 - [객체 생성과 파괴 - 아이템9. try-finally 보다는 try-with-resources를 사용하라](#item9)
 - [모든 객체의 공통 메서드 - 아이템10. equals는 일반 규약을 지켜 재정의하라](#item10)
+- [모든 객체의 공통 메서드 - 아이템11. equals를 재정의하려거든 hashCode도 재정의하라](#item11)
 
 <br/>
 
@@ -83,3 +84,16 @@ x.equals(y)가 true이고, y.equals(z)도 true면, x.eqauls(z)도 true
 x.equals(y)를 반복해서 호출하면 항상 true 또는 항상 false를 반환
 x.equals(null)은 false
 ```
+
+<br/>
+
+### <a name="itme11"></a>아이템11. equals를 재정의하려거든 hashCode도 재정의하라
+
+논리적으로 같은 객체는 같은 해시코드를 반환해야 한다. equals는 물리적으로 다른 두 객체를 논리적으로 같다고 할 수 있지만 Object의 기본 hashCode 메서드는 두 객체를 다르다고 판단한다. 따라서 equals를 재정의할 때는 hashCode도 반드시 재정의해야 한다.
+
+<br/>
+
+hashCode를 재정의 할 때 지켜야 하는 규약
+
+- equals 비교에 사용되는 정보가 변경되지 않았다면 hashCode 메서드는 몇 번을 호출해도 항상 같은 값을 반환해야 한다. 단, 애플리케이션을 다시 실행한다면 달라져도 상관없다.
+- equals(Object)가 두 객체를
