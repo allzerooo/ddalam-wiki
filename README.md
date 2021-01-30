@@ -34,7 +34,7 @@
             <a href="Java/abstract_class.md">추상클래스</a>
         </li>
         <li>
-            <a href="Java/regular_espression.md">정규식</a>
+            <a href="Java/regular_expression.md">정규식</a>
         </li>
         <li>
             <details>
