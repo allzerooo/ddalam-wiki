@@ -11,6 +11,7 @@ Effective Java(조슈아 블로크)를 읽고, 정리
 - [모든 객체의 공통 메서드 - 아이템11. equals를 재정의하려거든 hashCode도 재정의하라](#item11)
 - [모든 객체의 공통 메서드 - 아이템12. toString을 항상 재정의하라](#item12)
 - [모든 객체의 공통 메서드 - 아이템13. clone 재정의는 주의해서 진행하라](#item13)
+- [모든 객체의 공통 메서드 - 아이템14. Comparable을 구현할지 고려하라](#item14)
 
 <br/>
 
@@ -129,7 +130,7 @@ hashCode를 재정의 할 때 지켜야 하는 규약
 
 ### <a name="itme13"></a>아이템13. clone 재정의는 주의해서 진행하라
 
-clone 보다 복사 생성자와 복사 팩터리가 더 나은 객체 복사 방식을 제공할 수 있다. 인터페이스 기반 복사 생성자와 복사 팩터리의 더 장확한 이름은 '변환 생성자(conversion constructor)'와 '변환 팩터리(conversion factory)'다. 
+clone 보다 복사 생성자와 복사 팩터리가 더 나은 객체 복사 방식을 제공할 수 있다. 인터페이스 기반 복사 생성자와 복사 팩터리의 더 장확한 이름은 '변환 생성자(conversion constructor)'와 '변환 팩터리(conversion factory)'다.
 
 - 복사 생성자
 
@@ -146,3 +147,28 @@ public static Yum newInstance(Yum yum) { ... }
 <br/>
 
 배열만이 clone 메서드 방식에 가장 합당한 경우이다
+
+<br/>
+
+### <a name="itme14"></a>아이템14. Comparable을 구현할지 고려하라
+
+Comparable을 구현했다는 것은 그 클래스의 인스턴스들에는 순서가 있음을 뜻한다. 그래서 Comparable을 구현한 객체들의 배열은 손쉽게 정렬할 수 있다
+
+```java
+Arrays.sort(a);
+```
+
+<br/>
+
+순서가 명확한 값 클래스를 작성한다면 반드시 Comparable 인터페이스를 구현하자.
+
+<br/>
+
+compareTo()
+
+- Comparable 인터페이스의 유일한 메서드
+- 단순 동치성 비교에 더해 순서까지 비교할 수 있으며, 제네릭하다
+
+<br/>
+
+compareTo 메서드의 일반 규약
