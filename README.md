@@ -3,9 +3,7 @@
 <details>
     <summary>Computer Science</summary>
     <ul>
-        <li>
-            <a href="CS/etc.md">기타</a>
-        </li>
+        <li><a href="CS/etc.md#imemory-leak">메모리 누수</a></li>
     </ul>
 </details>
 <details>
