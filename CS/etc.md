@@ -1,6 +1,7 @@
 - [<a name="memory-leak"></a>메모리 누수](#메모리-누수)
 - [<a name="computer-runs-program"></a>컴퓨터가 프로그램을 실행하는 과정](#컴퓨터가-프로그램을-실행하는-과정)
 - [<a name="ip-address"></a>IP 주소](#ip-주소)
+- [<a name="url"></a>URL](#url)
 
 <br/>
 
@@ -29,6 +30,29 @@ CPU의 속도가 아무리 빨라도 프로세스를 실행하기 위해 하드�
 - 호스트 주소가 0인 것은 네트워크 자신을 나타내고, 255는 브로드캐스트 주소로 사용된다
 
 <br/>
+
+## <a name="url"></a>URL
+Uniform Resource Locator
+
+인터넷에 존재하는 여러 서버들이 제공하는 자원에 접근할 수 있는 주소를 표현하기 위한 것
+
+<br/>
+
+형태
+
+```text
+프로토콜://호스트명:포트번호/경로명/파일명?쿼리스트링#참조
+http://www.codechobo.com:80/sample/hello.html?referer=codechobo#index1
+```
+
+
+- 프로토콜 : 자원에 접근하기 위해 서버와 통신하는데 사용되는 통신규약 (http)
+- 호스트명 : 자원을 제공하는 서버의 이름 (www.codechobo.com)
+- 포트번호 : 통신에 사용되는 서버의 포트번호 (80)
+- 경로명 : 접근하려는 자원이 저장된 서버상의 위치 (/sample/)
+- 파일명 : 접근하려는 자원의 이름 (hello.html)
+- 쿼리(query) : URL에서 ? 이후의 부분 (referer=codechobo)
+- 참조(anchor) : URL에서 # 이후의 부분 (index1)
 
 ---
 
