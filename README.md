@@ -32,6 +32,9 @@
     <summary>Java</summary>
     <ul>
         <li>
+            <a href="Java/JVM.md">JVM</a>
+        </li>
+        <li>
             <a href="Java/abstract_class.md">추상클래스</a>
         </li>
         <li>
