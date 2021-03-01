@@ -47,7 +47,6 @@
                 <summary>Java의 정석</summary>
                 <ul>
                     <li><a href="Java/Java의정석.md#iteration">반복문</a></li>
-                    <li><a href="Java/Java의정석.md#array">배열</a></li>
                     <li><a href="Java/Java의정석.md#object-oriented-programming">객체지향프로그래밍</a></li>
                     <li><a href="Java/Java의정석.md#exception-handling">예외처리(exception handling)</a></li>
                 </ul>
