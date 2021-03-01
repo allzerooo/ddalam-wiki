@@ -40,6 +40,7 @@
         <li>
             <a href="Java/abstract_class.md">추상클래스</a>
         </li>
+        <li><a href="Java/CollectionsFramework.md">컬렉션 프레임워크</a></li>
         <li>
             <a href="Java/regular_expression.md">정규식</a>
         </li>
