@@ -35,6 +35,7 @@
             <a href="Java/JVM.md">JVM</a>
         </li>
         <li><a href="Java/Scanner.md">Scanner</a></li>
+        <li><a href="Java/Array.md">Array</a></li>
         <li><a href="Java/optinal.md">Optinal</a></li>
         <li>
             <a href="Java/abstract_class.md">추상클래스</a>
