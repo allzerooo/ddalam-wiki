@@ -1,6 +1,9 @@
 # Network
 
-### 인터넷 통신
+- [<a name="internet-network"></a>인터넷 통신](#internet-network)
+- [<a name="IP"></a>IP(인터넷 프로토콜)](#IP)
+
+### <a name="internet-network"></a>인터넷 통신
 
 네트워크 디바이스들은 어떻게 통신을 할까? 
 
@@ -12,7 +15,7 @@
 
 <br/>
 
-### IP(인터넷 프로토콜)
+### <a name="IP"></a>IP(인터넷 프로토콜)
 
 
 

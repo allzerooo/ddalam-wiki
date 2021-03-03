@@ -7,6 +7,14 @@
         <li><a href="CS/etc.md#computer-runs-program">컴퓨터가 프로그램을 실행하는 과정</a></li>
         <li><a href="CS/etc.md#ip-address">IP주소</a></li>
         <li><a href="CS/etc.md#url">URL</a></li>
+        <li><a href="CS/network.md#internet-network">인터넷</a></li>
+        <li>
+            <details>
+                <summary>네트워크</summary>
+                <ul><li><a href="CS/network.md#internet-network"">인터넷 통신</a></li></ul>
+                <ul><li><a href="CS/network.md#IP"">IP(인터넷 프로토콜)</a></li></ul>
+            </details>
+        </li>
     </ul>
 </details>
 <details>
