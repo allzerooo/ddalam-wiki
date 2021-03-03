@@ -12,7 +12,7 @@
             <details>
                 <summary>네트워크</summary>
                 <ul><li><a href="CS/network.md#internet-network"">인터넷 통신</a></li></ul>
-                <ul><li><a href="CS/network.md#IP"">IP(인터넷 프로토콜)</a></li></ul>
+                <ul><li><a href="CS/network.md#IP"">IP(Internet Protocol)</a></li></ul>
             </details>
         </li>
     </ul>
