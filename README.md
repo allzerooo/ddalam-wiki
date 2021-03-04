@@ -1,5 +1,3 @@
-# TIL
-
 <details>
     <summary>Computer Science</summary>
     <ul>
