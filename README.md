@@ -44,14 +44,10 @@
         </li>
         <li><a href="Java/Scanner.md">Scanner</a></li>
         <li><a href="Java/Array.md">Array</a></li>
-        <li><a href="Java/optinal.md">Optinal</a></li>
-        <li>
-            <a href="Java/abstract_class.md">추상클래스</a>
-        </li>
         <li><a href="Java/CollectionsFramework.md">컬렉션 프레임워크</a></li>
-        <li>
-            <a href="Java/regular_expression.md">정규식</a>
-        </li>
+        <li><a href="Java/regular_expression.md">정규식</a></li>
+        <li><a href="Java/optinal.md">Optinal</a></li>
+        <li><a href="Java/stream.md">Stream</a></li>
         <li>
             <details>
                 <summary>Java의 정석</summary>
@@ -82,6 +78,7 @@
                 <summary>객체 지향 프로그래밍</summary>
                 <ul>
                     <li><a href="Java/객체지향프로그래밍.md#polymorphism">다형성</a></li>
+                    <li><a href="Java/abstract_class.md">추상클래스</a></li>
                 </ul>
             </details>
         </li>
