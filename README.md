@@ -110,6 +110,7 @@
     <li><a href="Spring/component_scan.md">컴포넌트 스캔</a></li>
     <li><a href="Spring/automatic_dependency_injection.md">의존관계 자동 주입</a></li>
     <li><a href="Spring/bean_life_cycle_callback.md">빈 생명주기 콜백</a></li>
+    <li><a href="Spring/AOP.md">AOP</a></li>
     <li><a href="Spring/HTTP.md">HTTP 통신</a></li>
 </ul>
 
