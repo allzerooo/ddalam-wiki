@@ -38,9 +38,7 @@
 
 ## 🐶 Java
 <ul>
-    <li>
-        <a href="Java/JVM.md">JVM</a>
-    </li>
+    <li><a href="Java/JVM.md">JVM</a></li>
     <li><a href="Java/Scanner.md">Scanner</a></li>
     <li><a href="Java/Array.md">Array</a></li>
     <li><a href="Java/stream.md">Stream</a></li>
@@ -93,6 +91,7 @@
             </ul>
         </details>
     </li>
+    <li><a href="Java/Queue-class.md">Queue 클래스</a></li>
 </ul>
 
 <br/>
