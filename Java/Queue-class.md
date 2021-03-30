@@ -23,7 +23,3 @@ queue.isEmpty();    // 비어있는지 확인
 ```
 
 ---
-
-출처
-
-- [[Java] 자바 Queue 클래스 사용법 & 예제 총정리](https://coding-factory.tistory.com/602)
