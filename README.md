@@ -92,6 +92,7 @@
         </details>
     </li>
     <li><a href="Java/Queue-class.md">Queue 클래스</a></li>
+    <li><a href="Java/algorithm.md">Algorithm</a></li>
 </ul>
 
 <br/>
