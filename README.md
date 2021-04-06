@@ -1,4 +1,4 @@
-<span style="font-size: 3em;">ddalam Wiki</span>
+<p style="font-size: 3em;">ddalam Wiki</p>
 
 <br/>
 
