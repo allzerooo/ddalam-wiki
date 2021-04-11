@@ -74,6 +74,7 @@
                 <li><a href="Java/EffectiveJava.md#item11">모든 객체의 공통 메서드 - 아이템 11. equals를 재정의하려거든 hashCode도 재정의하라</a></li>
                 <li><a href="Java/EffectiveJava.md#item12">모든 객체의 공통 메서드 - 아이템12. toString을 항상 재정의하라</a></li>
                 <li><a href="Java/EffectiveJava.md#item12">모든 객체의 공통 메서드 - 아이템13. clone 재정의는 주의해서 진행하라</a></li>
+                <li><a href="Java/EffectiveJava.md#item61">일반적인 프로그래밍 원칙 - 아이템61. 박싱된 기본 타입보다는 기본 타입을 사용하라</a></li>
                 <li><a href="Java/EffectiveJava.md#item69">예외 - 예외는 진짜 예외 상황에만 사용하라</a></li>
             </ul>
         </details>
