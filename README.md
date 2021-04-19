@@ -50,6 +50,7 @@
     <li><a href="Java/CollectionsFramework.md">컬렉션 프레임워크</a></li>
     <li><a href="Java/Queue-class.md">Queue Class</a></li>
     <li><a href="Java/regular_expression.md">정규식</a></li>
+    <li><a href="Java/enums.md">enums(열거형)</a></li>
     <li><a href="Java/tcp_socket.md">소켓 프로그래밍</a></li>
     <li><a href="Java/string_stringBuffer_stringBuilder.md">String, StringBuffer, StringBuilder</a></li>
     <li><a href="Java/modifier.md">제어자</a></li>
