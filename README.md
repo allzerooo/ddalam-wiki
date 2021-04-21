@@ -44,6 +44,7 @@
 ## 🐶 Java
 <ul>
     <li><a href="Java/JVM.md">JVM</a></li>
+    <li><a href="Java/variable.md">변수</a></li>
     <li><a href="Java/Scanner.md">Scanner</a></li>
     <li><a href="Java/Array.md">Array</a></li>
     <li><a href="Java/stream.md">Stream</a></li>
