@@ -1,6 +1,4 @@
-# JAVA 객체지향 디자인패턴
-
-- [객체지향 원리](#object-oriented-principle)
+# 객체지향프로그래밍
 
 <br/>
 

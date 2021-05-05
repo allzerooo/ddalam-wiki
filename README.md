@@ -17,25 +17,14 @@
             <ul><li><a href="CS/network.md#socket_and_port"">Socket과 Port</a></li></ul>
         </details>
     </li>
-</ul>
-
-<br/>
-
-## 🙊 객체 지향 프로그래밍
-<ul>
-    <li>
-        <a href="OOP/미분류.md">미분류...⭐️</a>
-    </li>
     <li>
         <details>
-            <summary>JAVA 객체지향 디자인패턴</summary>
+            <summary>객체지향프로그래밍</summary>
             <ul>
-                <li><a href="OOP/JAVA객체지향디자인패턴.md#object-oriented-principle">객체지향 원리</a></li>
+                <li><a href="CS/oop.md"">객체지향프로그래밍<a>
+                </li>
             </ul>
         </details>
-    </li>
-    <li>
-        <a href="OOP/SOLID.md">객체 지향 설계의 5가지 원칙(SOLID)</a>
     </li>
 </ul>
 
