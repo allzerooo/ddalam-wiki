@@ -180,4 +180,5 @@
     <li><a href="etc/framework_library.md">프레임워크, 라이브러리</a></li>
     <li><a href="etc/refactoring.md">리팩토링</a></li>
     <li><a href="etc/programming_language.md">프로그래밍 언어</a></li>
+    <li><a href="etc/design_pattern.md">디자인 패턴</a></li>
 </ul>
