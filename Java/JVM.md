@@ -6,9 +6,9 @@ Java로 작성된 애플리케이션은 모두 이 가상 컴퓨터(JVM)에서�
 
 <br/>
 
-<!-- <p align="center">
+<p align="center">
     <img src="../image/JVM.png"  width="220" height="auto">
-</p> -->
+</p>
 
 <br/>
 
@@ -19,7 +19,7 @@ Java 애플리케이션은 JVM을 거쳐 OS → 하드웨어로 전달된다. �
 ### JVM 구동
 
 <p align="center">
-    <img src="../image/steps_to_run_java.png"  width="600" height="auto">
+    <img src="../image/steps_to_run_java.png"  width="800" height="auto">
 </p>
 
 <br/>
