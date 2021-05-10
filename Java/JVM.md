@@ -6,9 +6,9 @@ Java로 작성된 애플리케이션은 모두 이 가상 컴퓨터(JVM)에서�
 
 <br/>
 
-<p align="center">
+<!-- <p align="center">
     <img src="../image/JVM.png"  width="220" height="auto">
-</p>
+</p> -->
 
 <br/>
 
