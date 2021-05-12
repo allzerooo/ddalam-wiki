@@ -98,6 +98,7 @@
     </li>
     <li><a href="Java/Queue-class.md">Queue 클래스</a></li>
     <li><a href="Java/algorithm.md">Algorithm</a></li>
+    <li><a href="Java/passing_code_with_behavior_parameterization.md">동적 파라미터화 코드 전달하기</a></li>
 </ul>
 
 <br/>
