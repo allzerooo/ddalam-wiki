@@ -84,18 +84,6 @@
             </ul>
         </details>
     </li>
-    <li>
-        <details>
-            <summary>JPA</summary>
-            <ul>
-                <li>
-                    <a href="JPA/Spring_Boot+Multiple_Schema.md#Spring_Boot+Multiple_Schema">
-                        Spring Boot + Multiple Schema
-                    </a>
-                </li>
-            </ul>
-        </details>
-    </li>
     <li><a href="Java/Queue-class.md">Queue 클래스</a></li>
     <li><a href="Java/algorithm.md">Algorithm</a></li>
     <li><a href="Java/passing_code_with_behavior_parameterization.md">동적 파라미터화 코드 전달하기</a></li>
@@ -118,6 +106,20 @@
     <li><a href="Spring/bean_life_cycle_callback.md">빈 생명주기 콜백</a></li>
     <li><a href="Spring/AOP.md">AOP</a></li>
     <li><a href="Spring/HTTP.md">HTTP 통신</a></li>
+    <li><a href="Spring/Spring_Boot+Multiple_Schema.md">Spring Boot + Multiple Schema</a></li>
+</ul>
+
+<br/>
+
+## 😛 ORM
+<ul>
+    <li>
+        <details>
+            <summary>JPA</summary>
+            <ul>
+            </ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
