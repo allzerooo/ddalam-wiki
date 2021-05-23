@@ -16,7 +16,7 @@ Java 애플리케이션은 JVM을 거쳐 OS → 하드웨어로 전달된다. �
 
 <br/>
 
-### JVM 구동
+## JVM 구동
 
 <p align="center">
     <img src="../image/steps_to_run_java.png"  width="800" height="auto">
@@ -28,9 +28,25 @@ java.exe 명령어가 실행되면서 JVM은 바이트 코드 파일(Hello.class
 
 <br/>
 
-### JVM의 메모리 구조
+## JVM의 메모리 구조
 
 java.exe로 JVM이 시작되면 JVM은 운영체제로부터 프로그램을 수행하는데 필요한 메모리영역(Runtime Data Area)을 할당받고, 이 메모리를 여러 영역으로 나누어 관리한다
+
+<p align="center">
+    <img src="../image/JVM_memory.png"  width="300" height="auto">
+</p>
+
+### Method(Static) Area
+- 모든 스레드가 공유하는 영역
+- 클래스에 대한 정보
+
+### Stack Area
+- 스레드 마다 자신의 스택 영역을 가진다
+- 메서드가 호출되면 메서드를 위한 메모리가 할당되며, 이 메모리에는 메서드의 지역변수, 중간 결과 등을 저장하는데 사용되고, 메서드가 작업을 마치면 반환된다.
+- 인스턴스에 대한 참조값이 저장되며, 인스턴스는 Heap Area에 생성된다.
+
+### Heap Area
+- 모든 스레드가 공유하는 영역
 
 
 <br/>
