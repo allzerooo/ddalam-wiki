@@ -63,6 +63,8 @@ String str2 = new String("hello");
 
 내부적으로 편집을 위한 버퍼를 가지고 있으며, 인스턴스를 생성할 때 버퍼의 크기를 지정할 수 있다. 문자열이 버퍼의 길이를 넘어서게 되면 버퍼의 길이를 늘려주는 작업이 추가로 수행되어야하기 때문에 효율이 떨어질 수 있으니, 버퍼의 길이를 충분히 잡아주는 것이 좋다. (기본 크기 : 16)
 
+또한, 동기화를 지원하는데 이 말은 멀티스레드 환경에서 안전하다는 것을 뜻한다. 한 스레드가 `StringBuffer` A객체에 접근 중일 때 다른 스레드의 접근을 막는다.
+
 <br/>
 <br/>
 
@@ -70,7 +72,7 @@ String str2 = new String("hello");
 
 "그저 동기화하지 않은 `StringBuffer`다"
 
-`StringBuffer`는 멀티쓰레드에 안전하도록 동기화되어 있는데, 동기화가 StringBuffer의 성능을 떨어뜨린다. `StringBuilder`는 `StringBuffer`에서 쓰레드 동기화를 뺀 것 외에 완전히 똑같은 기능으로 동작한다.
+동기화가 StringBuffer의 성능을 떨어뜨린다. `StringBuilder`는 `StringBuffer`에서 스레드 동기화를 뺀 것 외에 완전히 똑같은 기능으로 동작한다.
 
 <br/>
 
