@@ -8,6 +8,7 @@
 
 ## 🐱 Computer Science
 <ul>
+    <li><a href="CS/etc.md#what-is-programming">프로그래밍이란?</a></li>
     <li><a href="CS/etc.md#imemory-leak">메모리 누수</a></li>
     <li><a href="CS/etc.md#computer-runs-program">컴퓨터가 프로그램을 실행하는 과정</a></li>
     <li><a href="CS/etc.md#ip-address">IP주소</a></li>
