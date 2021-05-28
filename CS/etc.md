@@ -7,7 +7,7 @@
 <br/>
 
 ## <a name="what-is-programming"></a>프로그래밍이란?
-- 기계가 실행할 정도로 요구사항을 명시하는 작업
+- 기계가 실행할 정도로 요구사항을 명시하는 작업 [Clean Code - Robert C. Martin](https://digital.kyobobook.co.kr/digital/ebook/ebookDetail.ink?selectedLargeCategory=001&barcode=4808966260959&orderClick=LEH&Kc=)
 
 ## <a name="memory-leak"></a>메모리 누수
 
@@ -65,4 +65,3 @@ http://www.codechobo.com:80/sample/hello.html?referer=codechobo#index1
 - [위키백과 - 메모리 누수](https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98)
 - [클래스101 강의 - 현직 대기업 개발자 푸와 함께하는 진짜 백엔드 시스템 실무!](https://class101.net/products/T6HT0bUDKIH1V5i3Ji2M)
 - Java의 정석 - 남궁 성
-- [NEXTSTEP - 자바 플레이그래운드 with TDD, 클린코드 2021](https://edu.nextstep.camp/s/RFY359FE)
