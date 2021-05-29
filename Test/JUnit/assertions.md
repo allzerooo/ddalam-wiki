@@ -76,6 +76,23 @@ void assertIterableOrArray() {
 
 <br/>
 
+### Character Assertions
+```java
+@Test
+void assertCharacter() {
+    char someCharacter = 'c';
+
+    // someCharacter가 a가 아니고, 유니코드 테이블에 있는지, b보다 크고, 소문자인지 확인
+    assertThat(someCharacter)
+            .isNotEqualTo('a')
+            .inUnicode()
+            .isGreaterThanOrEqualTo('b')
+            .isLowerCase();
+}
+```
+
+<br/>
+
 ---
 
 <br/>
