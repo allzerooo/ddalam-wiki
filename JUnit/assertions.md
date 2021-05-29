@@ -1,3 +1,5 @@
+# Assertions
+
 ## Object Assertions
 
 ### 1. `isEqualTo()` : 객체의 참조를 비교
@@ -25,5 +27,19 @@
     }
 ```
 
+<br/>
+
 ### 더 다양한 객체 비교
 [AbstractObjectAssert](https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractObjectAssert.html)
+
+<br/>
+
+## Boolean Assertions
+
+### 1. `isTrue()`, `isFalse()`
+```java
+@Test
+void assertBoolean() {
+    assertThat("".isEmpty()).isTrue();
+}
+```
