@@ -8,6 +8,7 @@
 
 ## 🐱 Computer Science
 <ul>
+    <li><a href="CS/etc.md#what-is-programming">프로그래밍이란?</a></li>
     <li><a href="CS/etc.md#imemory-leak">메모리 누수</a></li>
     <li><a href="CS/etc.md#computer-runs-program">컴퓨터가 프로그램을 실행하는 과정</a></li>
     <li><a href="CS/etc.md#ip-address">IP주소</a></li>
@@ -145,6 +146,7 @@
             <ul>
                 <li><a href="JUnit/assumption.md">조건에 따라 테스트 실행하기</a></li>
                 <li><a href="JUnit/tag.md">태그</a></li>
+                <li><a href="JUnit/etc.md">etc</a></li>
             </ul>
         </details>
     </li>
@@ -158,6 +160,7 @@
             </ul>
         </details>
     </li>
+    <li><a href="Test/etc.md">etc</a></li>
 </ul>
 
 <br/>

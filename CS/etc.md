@@ -1,9 +1,13 @@
+- [<a name="what-is-programming"></a>프로그래밍이란?](#프로그래밍이란)
 - [<a name="memory-leak"></a>메모리 누수](#메모리-누수)
 - [<a name="computer-runs-program"></a>컴퓨터가 프로그램을 실행하는 과정](#컴퓨터가-프로그램을-실행하는-과정)
 - [<a name="ip-address"></a>IP 주소](#ip-주소)
 - [<a name="url"></a>URL](#url)
 
 <br/>
+
+## <a name="what-is-programming"></a>프로그래밍이란?
+- 기계가 실행할 정도로 요구사항을 명시하는 작업 [Clean Code - Robert C. Martin](https://digital.kyobobook.co.kr/digital/ebook/ebookDetail.ink?selectedLargeCategory=001&barcode=4808966260959&orderClick=LEH&Kc=)
 
 ## <a name="memory-leak"></a>메모리 누수
 

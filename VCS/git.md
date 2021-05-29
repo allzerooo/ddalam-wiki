@@ -1,5 +1,6 @@
 # Git
-- [Terminal에서 현재 계정 확인하기](#git-account-in-terminal)
+- [Git](#git)
+  - [<a name="git-account-in-terminal"></a> Terminal에서 현재 계정 확인하기](#-terminal에서-현재-계정-확인하기)
 
 <br/>
 
