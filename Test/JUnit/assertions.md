@@ -93,6 +93,25 @@ void assertCharacter() {
 
 <br/>
 
+[AbstractCharacterAssert](https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractCharacterAssert.html)
+
+<br/>
+
+### Class Assertions
+```java
+@Test
+void assertClass() {
+    // Runnable 클래스가 인터페이스인지 확인
+    assertThat(Runnable.class).isInterface();
+
+    // NoSuchElementException 타입을 Exception 타입에 할당 가능한지 확인
+    assertThat(Exception.class).isAssignableFrom(NoSuchElementException.class);
+}
+```
+
+
+<br/>
+
 ---
 
 <br/>
