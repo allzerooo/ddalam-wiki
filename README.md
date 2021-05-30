@@ -131,31 +131,31 @@
 </ul>
 
 ## 🦄 Test
+<details>
+    <summary>TDD</summary>
+    <ul>
+        <li><a href="Test/TDD/rhythm.md">TDD 리듬</a></li>
+    </ul>
+</details>
+<details>
+    <summary>JUnit</summary>
+    <ul>
+        <li><a href="Test/JUnit/assertions.md">Assertions</a></li>
+        <li><a href="Test/JUnit/assumption.md">조건에 따라 테스트 실행하기</a><Test//li>
+        <li><a href="Test/JUnit/tag.md">태그</a></li>
+        <li><a href="Test/JUnit/etc.md">etc</a></li>
+    </ul>
+</details>
+<details>
+    <summary>성능 테스트</summary>
+    <ul>
+        <li><a href="Test/performancTest/performanceTestTool.md">성능 테스트 툴</a></li>
+        <li><a href="Test/performancTest/apacheBench.md">ApacheBench</a></li>
+        <li><a href="Test/performancTest/jMeter.md">JMeter</a></li>
+    </ul>
+</details>
 <ul>
-    <details>
-        <summary>TDD</summary>
-        <ul>
-            <li><a href="Test/TDD/rhythm.md">TDD 리듬</a></li>
-        </ul>
-    </details>
-    <details>
-        <summary>JUnit</summary>
-        <ul>
-            <li><a href="Test/JUnit/assertions.md">Assertions</a></li>
-            <li><a href="Test/JUnit/assumption.md">조건에 따라 테스트 실행하기</a><Test//li>
-            <li><a href="Test/JUnit/tag.md">태그</a></li>
-            <li><a href="Test/JUnit/etc.md">etc</a></li>
-        </ul>
-    </details>
-    <details>
-        <summary>성능 테스트</summary>
-        <ul>
-            <li><a href="Test/performancTest/performanceTestTool.md">성능 테스트 툴</a></li>
-            <li><a href="Test/performancTest/apacheBench.md">ApacheBench</a></li>
-            <li><a href="Test/performancTest/jMeter.md">JMeter</a></li>
-        </ul>
-    </details>
-    <li><a href="Test/etc.md">etc</a></li>
+<li><a href="Test/etc.md">etc</a></li>
 </ul>
 
 <br/>
