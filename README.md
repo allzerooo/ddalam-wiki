@@ -144,10 +144,10 @@
         <details>
             <summary>JUnit</summary>
             <ul>
-                <li><a href="JUnit/assertions.md">Assertions</a></li>
-                <li><a href="JUnit/assumption.md">조건에 따라 테스트 실행하기</a></li>
-                <li><a href="JUnit/tag.md">태그</a></li>
-                <li><a href="JUnit/etc.md">etc</a></li>
+                <li><a href="Test/JUnit/assertions.md">Assertions</a></li>
+                <li><a href="Test/JUnit/assumption.md">조건에 따라 테스트 실행하기</a><Test//li>
+                <li><a href="Test/JUnit/tag.md">태그</a></li>
+                <li><a href="Test/JUnit/etc.md">etc</a></li>
             </ul>
         </details>
     </li>
