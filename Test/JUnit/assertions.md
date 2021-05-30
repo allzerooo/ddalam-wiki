@@ -168,6 +168,27 @@ void assertInputStream() {
 
 <br/>
 
+## Map Assertions
+```java
+@Test
+void assertMap() {
+    Map<Integer, String> map = new HashMap<>();
+    map.put(2, "a");
+    
+    assertThat(map)
+            .isNotEmpty()
+            .containsKey(2)
+            .doesNotContainKeys(10)
+            .contains(entry(2, "a"));
+}
+```
+
+<br/>
+
+[AbstractMapAssert](https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractMapAssert.html)
+
+<br/>
+
 ---
 
 <br/>
