@@ -109,6 +109,22 @@ void assertClass() {
 }
 ```
 
+<br/>
+
+### File Assertions
+```java
+@Test
+void assertFile() {
+    // 파일이 존재하는지, 디렉토리가 아닌 파일인지, 읽고 쓸 수 있는지 확인
+    File someFile = new File("FILE_PATH");
+    assertThat(someFile)
+            .exists()
+            .isFile()
+            .canRead()
+            .canWrite();
+}
+```
+
 
 <br/>
 
