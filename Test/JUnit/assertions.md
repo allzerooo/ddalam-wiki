@@ -76,7 +76,7 @@ void assertIterableOrArray() {
 
 <br/>
 
-### Character Assertions
+## Character Assertions
 ```java
 @Test
 void assertCharacter() {
@@ -97,7 +97,7 @@ void assertCharacter() {
 
 <br/>
 
-### Class Assertions
+## Class Assertions
 ```java
 @Test
 void assertClass() {
@@ -111,7 +111,7 @@ void assertClass() {
 
 <br/>
 
-### File Assertions
+## File Assertions
 ```java
 @Test
 void assertFile() {
@@ -131,7 +131,7 @@ void assertFile() {
 
 <br/>
 
-### Numeric Assertions
+## Numeric Assertions
 ```java
 @Test
 void assertNumeric() {
@@ -145,6 +145,26 @@ void assertNumeric() {
 <br/>
 
 [AbstractDoubleAssert](https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractDoubleAssert.html)
+
+<br/>
+
+## InputStream Assertions
+```java
+@Test
+void assertInputStream() {
+    // InputSteam의 내용이 주어진 내용과 동일한지 확인
+    byte[] actual = new byte[]{1, 2};
+    byte[] expected = new byte[]{1, 2};
+    ByteArrayInputStream actualInputStream = new ByteArrayInputStream(actual);
+    ByteArrayInputStream expectedInputStream = new ByteArrayInputStream(expected);
+
+    assertThat(actualInputStream).hasSameContentAs(expectedInputStream);
+}
+```
+
+<br/>
+
+[AbstractInputStreamAssert](https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractInputStreamAssert.html)
 
 <br/>
 
