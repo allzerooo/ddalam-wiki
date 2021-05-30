@@ -125,11 +125,16 @@ void assertFile() {
 }
 ```
 
+<br/>
+
+[AbstractFileAssert](https://joel-costigliola.github.io/assertj/core-8/api/org/assertj/core/api/AbstractFileAssert.html)
 
 <br/>
 
 ---
 
 <br/>
+
 출처
+
 - [Introduction to AssertJ](https://www.baeldung.com/introduction-to-assertj)
