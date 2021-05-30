@@ -206,6 +206,17 @@ void assertThrowable() {
 
 <br/>
 
+## Describing Assertions
+```java
+@Test
+void describeTest() {
+    // 테스트에 대한 상세 설명을 위해 as()를 사용할 수 있다
+    assertThat(100)
+            .as("%s's age should be equal to 100", "Alex")
+            .isEqualTo(100);
+}
+```
+
 ---
 
 <br/>
