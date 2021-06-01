@@ -217,6 +217,10 @@ void describeTest() {
 }
 ```
 
+<br/>
+
+[AssertJ Core Documentation](https://www.javadoc.io/doc/org.assertj/assertj-core/latest/index.html)
+
 ---
 
 <br/>
