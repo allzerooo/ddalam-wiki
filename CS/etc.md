@@ -1,9 +1,8 @@
-- [<a name="what-is-programming"></a>프로그래밍이란?](#프로그래밍이란)
-- [<a name="memory-leak"></a>메모리 누수](#메모리-누수)
-- [<a name="process-and-thread"></a>프로세스와 쓰레드](#프로세스와-쓰레드)
-- [<a name="computer-runs-program"></a>컴퓨터가 프로그램을 실행하는 과정](#컴퓨터가-프로그램을-실행하는-과정)
-- [<a name="ip-address"></a>IP 주소](#ip-주소)
-- [<a name="url"></a>URL](#url)
+- [프로그래밍이란?](#what-is-programming)
+- [메모리 누수](#memory-leak)
+- [프로세스와 쓰레드](#process-and-thread)
+- [컴퓨터가 프로그램을 실행하는 과정](#computer-runs-program)
+- [IP 주소](#ip-address)
 
 <br/>
 
