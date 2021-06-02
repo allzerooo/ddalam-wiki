@@ -85,7 +85,7 @@ public class Thread {
 </p>
 
 <p align="center">
-    <img src="../image/thread_new_thread_call_stack.png"  width="200" height="auto">
+    <img src="../image/thread_new_thread_call_stack.png"  width="160" height="auto">
 </p>
 
 1. main 메서드에서 쓰레드의 `start()`를 호출한다.
