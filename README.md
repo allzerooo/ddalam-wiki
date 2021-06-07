@@ -141,6 +141,7 @@
     <summary>JUnit5</summary>
     <ul>
         <li><a href="Test/JUnit5/assertions.md">Assertions</a></li>
+        <li><a href="Test/JUnit5/assertions.md">Parameterized Tests</a></li>
         <li><a href="Test/JUnit5/assumption.md">조건에 따라 테스트 실행하기</a><Test//li>
         <li><a href="Test/JUnit5/tag.md">태그</a></li>
         <li><a href="Test/JUnit5/etc.md">etc</a></li>
