@@ -108,6 +108,28 @@ tab(빈 값)
 
 <br/>
 
+### CSV Literals
+
+`@CsvSource`를 사용하면, 여러 파라미터를 전달할 수 있다.
+쉼표로 구분된 배열 값으로 구성되며, 매번 하나의 배열 항목을 가져와 쉼표로 분할하고, 각 매배변수로 전달한다.
+
+```java
+@ParameterizedTest
+@CsvSource({"test,TEST", "tEst,TEST", "Java,JAVA"})
+void toUpperCase_ShouldGenerateTheExpectedUppercaseValue(String input, String expected) {
+    String actualValue = input.toUpperCase();
+    assertEquals(expected, actualValue);
+}
+```
+
+기본적으로 쉼표를 구분 기호로 사용하지만 `delimiter` 속성을 사용해 구분 기호를 정의할 수 있다.
+```java
+@CsvSource(value = {"test:test", "tEst:test", "Java:java"}, delimiter = ':')
+```
+
+
+<br/>
+
 ---
 
 <br/>
