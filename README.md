@@ -35,11 +35,24 @@
             </ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>데이터베이스</summary>
+            <ul><li><a href="CS/Database/etc.md">etc</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>자료구조</summary>
+            <ul><li><a href="CS/DataStructure/tree.md">Tree</a></li></ul>
+        </details>
+    </li>
+</ul>
 </ul>
 
 <br/>
 
-## 🐶 Java
+## 🦕 Java
 <ul>
     <li><a href="Java/JVM.md">JVM</a></li>
     <li><a href="Java/variable.md">변수</a></li>
@@ -130,11 +143,6 @@
 
 <br/>
 
-## 🦕 Database
-<ul>
-    <li><a href="Database/etc.md">etc</a></li>
-</ul>
-
 ## 🦄 Test
 <details>
     <summary>TDD</summary>
@@ -180,13 +188,6 @@
             </ul>
         </details>
     </li>
-</ul>
-
-<br/>
-
-## 🐝 Data Structure
-<ul>
-    <li><a href="DataStructure/tree.md">Tree</a></li>
 </ul>
 
 <br/>
