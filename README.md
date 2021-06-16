@@ -44,7 +44,14 @@
     <li>
         <details>
             <summary>자료구조</summary>
-            <ul><li><a href="CS/DataStructure/tree.md">Tree</a></li></ul>
+            <ul><li>배열</li></ul>
+            <ul><li>리스트</li></ul>
+            <ul><li>스택</li></ul>
+            <ul><li>큐</li></ul>
+            <ul><li>트리</li></ul>
+            <ul><li>우선순위 큐</li></ul>
+            <ul><li>정렬</li></ul>
+            <ul><li>그래프</li></ul>
         </details>
     </li>
 </ul>
