@@ -52,6 +52,8 @@
             <ul><li>우선순위 큐</li></ul>
             <ul><li>정렬</li></ul>
             <ul><li>그래프</li></ul>
+            <ul><li>해싱</li></ul>
+            <ul><li>탐색</li></ul>
         </details>
     </li>
 </ul>
