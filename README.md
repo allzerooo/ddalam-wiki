@@ -76,17 +76,8 @@
     <li><a href="Java/tcp_socket.md">소켓 프로그래밍</a></li>
     <li><a href="Java/string_stringBuffer_stringBuilder.md">String, StringBuffer, StringBuilder</a></li>
     <li><a href="Java/modifier.md">제어자</a></li>
+    <li><a href="Java/anonymous_class.md">익명 클래스(anonymous class)</a></li>
     <li><a href="Java/thread.md">쓰레드</a></li>
-    <li>
-        <details>
-            <summary>Java의 정석</summary>
-            <ul>
-                <li><a href="Java/Java의정석.md#iteration">반복문</a></li>
-                <li><a href="Java/Java의정석.md#object-oriented-programming">객체지향프로그래밍</a></li>
-                <li><a href="Java/Java의정석.md#exception-handling">예외처리(exception handling)</a></li>
-            </ul>
-        </details>
-    </li>
     <li>
         <details>
             <summary>Effective Java</summary>
