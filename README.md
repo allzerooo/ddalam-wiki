@@ -61,6 +61,7 @@
     <li><a href="Java/JVM.md">JVM</a></li>
     <li><a href="Java/variable.md">변수</a></li>
     <li><a href="Java/Scanner.md">Scanner</a></li>
+    <li><a href="Java/modifier.md">제어자</a></li>
     <li><a href="Java/Array.md">Array</a></li>
     <li><a href="Java/stream.md">Stream</a></li>
     <li><a href="Java/optinal.md">Optinal</a></li>
@@ -70,7 +71,6 @@
     <li><a href="Java/enums.md">enums(열거형)</a></li>
     <li><a href="Java/tcp_socket.md">소켓 프로그래밍</a></li>
     <li><a href="Java/string_stringBuffer_stringBuilder.md">String, StringBuffer, StringBuilder</a></li>
-    <li><a href="Java/modifier.md">제어자</a></li>
     <li><a href="Java/anonymous_class.md">익명 클래스(anonymous class)</a></li>
     <li><a href="Java/Lambda_expression.md">람다식(Lambda expression)</a></li>
     <li><a href="Java/thread.md">쓰레드</a></li>
