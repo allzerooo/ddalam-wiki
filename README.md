@@ -19,21 +19,13 @@
     <li><a href="CS/etc.md#IP 주소">IP 주소</a></li>
     <li><a href="CS/etc.md#URL">URL</a></li>
     <li><a href="CS/network.md#internet-network">인터넷</a></li>
+    <li><a href="CS/oop.md"">객체지향 프로그래밍<a>
     <li>
         <details>
             <summary>네트워크</summary>
             <ul><li><a href="CS/network.md#internet-network"">인터넷 통신</a></li></ul>
             <ul><li><a href="CS/network.md#IP"">IP(Internet Protocol)</a></li></ul>
             <ul><li><a href="CS/network.md#socket_and_port"">Socket과 Port</a></li></ul>
-        </details>
-    </li>
-    <li>
-        <details>
-            <summary>객체지향프로그래밍</summary>
-            <ul>
-                <li><a href="CS/oop.md"">객체지향프로그래밍<a>
-                </li>
-            </ul>
         </details>
     </li>
     <li>
