@@ -10,6 +10,7 @@
 <ul>
     <li><a href="CS/etc.md#프로그래밍이란">프로그래밍이란?</a></li>
     <li><a href="CS/etc.md#컴퓨터가 프로그램을 실행하는 과정">컴퓨터가 프로그램을 실행하는 과정</a></li>
+    <li><a href="CS/etc.md#변수란">변수란</a></li>
     <li><a href="CS/etc.md#메모리 누수">메모리 누수</a></li>
     <li><a href="CS/etc.md#프로세스와 쓰레드">프로세스와 쓰레드</a></li>
     <li><a href="CS/etc.md#멀티태스킹">멀티태스킹</a></li>
