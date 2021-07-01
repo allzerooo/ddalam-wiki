@@ -17,3 +17,10 @@ Elasticsearch는 DB와 같은 테이블을 생성하면서 추가적으로 단�
 ### Replica
 
 Replica는 복사본을 의미한다. 특정 Shard와 동일한 데이터를 저장하는 복사본으로, Replica를 사용하면 특정 머신에 문제가 생겼을 때도 서비스를 안정적으로 유지할 수 있다.
+
+<br/>
+
+## Elasticsearch와 DB의 차이점
+1. Elasticsearch는 실시간 처리가 불가능하다 → DB는 insert를 하고 바로 조회가 되지만, Elasticsearch는 내부적으로 데이터가 처리되는 과정에서 insert를 하고 조회하기까지 잠깐의 딜레이가 필요하다
+2. Elasticsearch는 트랜잭션과 롤백을 제공하지 않는다
+3. Elasticsearch는 데이터를 진짜 업데이트하지 않는다.
