@@ -50,10 +50,17 @@ java.exe로 JVM이 시작되면 JVM은 운영체제로부터 프로그램을 수
 
 
 <br/>
-<br/>
 
+## JVM 역할
+- 바이너리 코드를 읽는다
+- 바이너리 코드를 검증한다<br/>
+  예를 들어, 
+  - JVM은 배열에 접근할 때마다 경계를 넘지 않는지 검사한다
+- 바이너리 코드를 실행한다
+- 실행환경(Runtime Environment)의 규격을 제공한다(필요한 라이브러리 및 기타 파일)
+
+<br/>
 - 운영체제의 메모리 영역에 접근하여 메모리를 관리하는 프로그램
-- JVM은 배열에 접근할 때마다 경계를 넘지 않는지 검사한다
 
 <br/>
 
@@ -68,3 +75,5 @@ java.exe로 JVM이 시작되면 JVM은 운영체제로부터 프로그램을 수
 - [우아한테크코스 테코톡 - 던의 JVM의 Garbage Collector](https://www.youtube.com/watch?v=vZRmCbl871I&list=PLgXGHBqgT2TvpJ_p9L_yZKPifgdBOzdVH&index=64)
 - [#자바가상머신, JVM(Java Virtual Machine)이란 무엇인가?](https://asfirstalways.tistory.com/158)
 - [[Java] JDK, JVM 용어 정리 및 프로그램 실행 단계](https://you9010.tistory.com/150)
+- [JVM, JRE, JDK의 차이](https://wikidocs.net/257)
+- [JVM(Java Virtual Machine), 바이트코드(Byte Code)](https://beststar-1.tistory.com/2)

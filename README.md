@@ -58,6 +58,7 @@
 <ul>
     <li><a href="Java/characteristic.md">Java 언어의 장단점 or 특징</a></li>
     <li><a href="Java/JVM.md">JVM</a></li>
+    <li><a href="Java/JRE.md">JRE</a></li>
     <li><a href="Java/garbage_collection.md">가비지 컬렉션 (Garbage Collection)</a></li>
     <li><a href="Java/class_and_instance.md">클래스와 객체</a></li>
     <li><a href="Java/variable.md">변수</a></li>
