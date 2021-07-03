@@ -222,4 +222,5 @@
     <li><a href="etc/design_pattern.md">디자인 패턴</a></li>
     <li><a href="etc/Elasticsearch.md">Elasticsearch</a></li>
     <li><a href="etc/cluster.md">cluster</a></li>
+    <li><a href="etc/binary_code_&_bytecode.md">바이너리 코드(Binary code), 바이트코드(Bytecode)</a></li>
 </ul>
