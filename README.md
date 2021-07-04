@@ -67,6 +67,7 @@
     <li><a href="Java/abstract_class.md">추상클래스</a></li>
     <li><a href="Java/interface.md">인터페이스</a></li>
     <li><a href="Java/Array.md">Array</a></li>
+    <li><a href="Java/functinal_interface.md">함수형 인터페이스(functional interface)</a></li>
     <li><a href="Java/stream.md">Stream</a></li>
     <li><a href="Java/optinal.md">Optinal</a></li>
     <li><a href="Java/CollectionsFramework.md">컬렉션 프레임워크</a></li>
