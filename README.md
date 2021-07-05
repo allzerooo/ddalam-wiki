@@ -208,13 +208,6 @@
 
 <br/>
 
-## 🍄 VCS
-<ul>
-    <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
-</ul>
-
-<br/>
-
 ## 🤡 ETC
 <ul>
     <li><a href="etc/framework_library.md">프레임워크, 라이브러리</a></li>
@@ -225,4 +218,11 @@
     <li><a href="etc/cluster.md">cluster</a></li>
     <li><a href="etc/binary_code_&_bytecode.md">바이너리 코드(Binary code), 바이트코드(Bytecode)</a></li>
     <li><a href="etc/proxy.md">프록시(Proxy)</a></li>
+</ul>
+
+<br/>
+
+## 🍄 VCS
+<ul>
+    <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
 </ul>
