@@ -1,7 +1,7 @@
 # ddalam Wiki
 
 <p align="center">
-    <img src="image/ddalam_wiki.jpg"  width="240" height="240">
+    <img src="../image/ddalam_wiki.jpg"  width="240" height="240">
 </p>
 
 <br/>
@@ -60,6 +60,7 @@
     <li><a href="Java/characteristic.md">Java 언어의 장단점 or 특징</a></li>
     <li><a href="Java/JVM.md">JVM</a></li>
     <li><a href="Java/JRE_&_JDK.md">JRE(Java Runtime Environment), JDK(Java Development Kit)</a></li>
+    <li><a href="Java/compile_&_run.md">Java 코드 컴파일 및 실행</a></li>
     <li><a href="Java/garbage_collection.md">가비지 컬렉션 (Garbage Collection)</a></li>
     <li><a href="Java/class_and_instance.md">클래스와 객체</a></li>
     <li><a href="Java/variable.md">변수</a></li>
