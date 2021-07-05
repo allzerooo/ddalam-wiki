@@ -1,7 +1,7 @@
 # ddalam Wiki
 
 <p align="center">
-    <img src="../image/ddalam_wiki.jpg"  width="240" height="240">
+    <img src="image/ddalam_wiki.jpg"  width="240" height="240">
 </p>
 
 <br/>
