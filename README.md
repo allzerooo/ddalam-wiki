@@ -49,6 +49,7 @@
             <ul><li>탐색</li></ul>
         </details>
     </li>
+    <li><a href="CS/etc.md#컴파일, 컴파일러">컴파일, 컴파일러</a></li>
 </ul>
 </ul>
 

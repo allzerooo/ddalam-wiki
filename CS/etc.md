@@ -11,6 +11,9 @@
 - [교착상태](#교착상태)
 - [IP 주소](#ip-주소)
 - [URL](#url)
+- [컴파일, 컴파일러](#컴파일-컴파일러)
+  - [컴파일](#컴파일)
+  - [컴파일러](#컴파일러)
 
 <br/>
 
@@ -139,9 +142,21 @@ http://www.codechobo.com:80/sample/hello.html?referer=codechobo#index1
 - 쿼리(query) : URL에서 ? 이후의 부분 (referer=codechobo)
 - 참조(anchor) : URL에서 # 이후의 부분 (index1)
 
+<br/>
+
+## 컴파일, 컴파일러
+
+### 컴파일
+원시 코드에서 목적 코드로 옮기는 과정
+
+### 컴파일러
+원시 코드를 목적 코드로 옮기는 언어 번역 프로그램
+
+<br/>
+
 ---
 
-출처
+참고
 
 - [위키백과 - 메모리 누수](https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98)
 - [클래스101 강의 - 현직 대기업 개발자 푸와 함께하는 진짜 백엔드 시스템 실무!](https://class101.net/products/T6HT0bUDKIH1V5i3Ji2M)
