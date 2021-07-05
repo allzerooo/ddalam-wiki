@@ -49,6 +49,7 @@
             <ul><li>탐색</li></ul>
         </details>
     </li>
+    <li><a href="CS/etc.md#컴파일, 컴파일러">컴파일, 컴파일러</a></li>
 </ul>
 </ul>
 
@@ -58,7 +59,8 @@
 <ul>
     <li><a href="Java/characteristic.md">Java 언어의 장단점 or 특징</a></li>
     <li><a href="Java/JVM.md">JVM</a></li>
-    <li><a href="Java/JRE.md">JRE</a></li>
+    <li><a href="Java/JRE_&_JDK.md">JRE(Java Runtime Environment), JDK(Java Development Kit)</a></li>
+    <li><a href="Java/compile_&_run.md">Java 코드 컴파일 및 실행</a></li>
     <li><a href="Java/garbage_collection.md">가비지 컬렉션 (Garbage Collection)</a></li>
     <li><a href="Java/Java8.md">Java 8</a></li>
     <li><a href="Java/class_and_instance.md">클래스와 객체</a></li>
@@ -209,13 +211,6 @@
 
 <br/>
 
-## 🍄 VCS
-<ul>
-    <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
-</ul>
-
-<br/>
-
 ## 🤡 ETC
 <ul>
     <li><a href="etc/framework_library.md">프레임워크, 라이브러리</a></li>
@@ -226,4 +221,13 @@
     <li><a href="etc/cluster.md">cluster</a></li>
     <li><a href="etc/binary_code_&_bytecode.md">바이너리 코드(Binary code), 바이트코드(Bytecode)</a></li>
     <li><a href="etc/proxy.md">프록시(Proxy)</a></li>
+    <li><a href="etc/load_balancing.md">로드 밸런싱(Load balancing)</a></li>
+    <li><a href="etc/Nginx.md">Nginx</a></li>
+</ul>
+
+<br/>
+
+## 🍄 VCS
+<ul>
+    <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
 </ul>
