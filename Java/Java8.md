@@ -45,3 +45,15 @@ File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
 File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 ```
 자바 8에서는 메서드 참조 :: 문법을 이용해서 직접 isHidden 함수를 전달할 수 있다.
+
+<br/>
+
+### 람다 : 익명 함수
+자바 8에서는 기명(named) **메서드**를 일급값으로 취급할 뿐 아니라 람다(또는 익명 함수, anonymous functions)를 포함하여 **함수**도 값으로 취급할 수 있다
+
+<br/>
+
+---
+
+참고
+- 모던 자바 인 액션(라울-게이브리얼 우르마, 마리오 푸스코, 앨런 마이크로프트)
