@@ -19,9 +19,29 @@
 
 메서드와 클래스 그 자체로 값이 되는게 중요할까?
 
-그렇다, 메서드를 일급 시민으로 만들면 프로그래밍에 유용하게 활용할 수 있다. 따라서 자바 8에는 이급 시민을 일급 시민으로 바꿀 수 있는 기능을 추가했다.
+그렇다, 메서드를 일급 시민으로 만들면 프로그래밍에 유용하게 활용할 수 있다. 따라서 자바 8에는 메서드를 일급값으로 사용할 수 있는 기능을 추가했다. → 메서드 참조(method reference)
 
 <br/>
 
 ### 메서드 참조(method reference)
 `::` → '이 메서드를 값으로 사용하라'는 의미
+
+<br/>
+
+`예`
+
+```java
+File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
+    public boolean accept(File file) {
+        return file.isHidden();
+    }
+});
+```
+자바 8 이전까지는 File의 isHidden 메서드를 전달하려면, 참조할 수 있는 FileFilter 객체로 isHidden 메서드 감싼 다음 전달해야 했다.
+
+<br/>
+
+```java
+File[] hiddenFiles = new File(".").listFiles(File::isHidden);
+```
+자바 8에서는 메서드 참조 :: 문법을 이용해서 직접 isHidden 함수를 전달할 수 있다.
