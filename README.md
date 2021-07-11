@@ -23,8 +23,10 @@
     <li>
         <details>
             <summary>네트워크</summary>
-            <ul><li><a href="CS/network.md#internet-network"">인터넷 통신</a></li></ul>
-            <ul><li><a href="CS/network.md#IP"">IP(Internet Protocol)</a></li></ul>
+            <ul><li><a href="CS/network.md#인터넷-통신">인터넷 통신</a></li></ul>
+            <ul><li><a href="CS/network.md#ipinternet-protocol">IP(Internet Protocol)</a></li></ul>
+            <ul><li><a href="CS/network.md#tcptransmission-control-protocol">TCP(Transmission Control Protocol)</a></li></ul>
+            <ul><li><a href="CS/network.md#udpuser-datagram-protocol">UDP(User Datagram Protocol)</a></li></ul>
             <ul><li><a href="CS/network.md#socket_and_port"">Socket과 Port</a></li></ul>
         </details>
     </li>
