@@ -15,6 +15,7 @@
   - [UDP(User Datagram Protocol)](#udpuser-datagram-protocol)
   - [PORT](#port)
   - [DNS(Domain Name System)](#dnsdomain-name-system)
+  - [웹 브라우저 요청 흐름](#웹-브라우저-요청-흐름)
   - [Socket과 Port](#socket과-port)
 
 <br/>
@@ -160,6 +161,21 @@ IP는 기억하기 어렵고, 변경될 수도 있다.
 전화번호부 같은 서버를 두어 도메인 명과 IP를 등록할 수 있다. 도메인은 사야한다.
 
 클라이언트는 요청 전에 먼저 DNS를 찾는다. 도메인명으로 DNS 서버에 요청하면, DNS 서버는 발견된 도메인명의 IP 주소를 응답으로 준다. IP 주소가 바뀌어도 DNS 서버에 등록된 IP 주소만 바꿔주면 클라이언트는 이전과 동일한 도메인명으로 통신할 수 있다.
+
+<br/>
+
+## 웹 브라우저 요청 흐름
+
+1. 브라우저에 https://www.google.com/search?q=hello&hl=ko 라는 URL을 넣고 보내면
+2. 웹 브라우저는 먼저 구글 서버를 찾기 위해 DNS 서버를 조회한다. www.google.com에 대한 IP 주소를 DNS 서버에서 찾고, 프로토콜로 생략된 포트 번호도 찾아낸다(HTTPS: 443). 
+3. 그리고 HTTP 요청 메시지를 생성한다.
+4. 소켓 라이브러리를 통해 2에서 찾은 IP 주소와 포트 정보로 3 way handshake를 해서 구글 서버와 연결한 후, 생성한 HTTP 메시지를 OS 계층(TCP/IP 계층)으로 전달한다.
+5. TCP/IP 계층에서는 메시지에 여러 정보들을 씌워 TCP/IP 패킷을 생성한다.
+6. TCP/IP 패킷은 네트워크 인터페이스 계층을 거쳐 인터넷으로 흘러간다.
+7. 패킷을 받은 구글 서버는 TCP/IP 패킷을 까서 버리고 HTTP 메시지를 꺼내서 해석을 시작한다.
+8. 해석 후 요청한 것들을 처리하고 HTTP 응답 메시지를 만든다.
+9. 구글 서버도 똑같이 HTTP 응답 메시지에 TCP/IP 패킷을 씌워서 보낸다.
+10. 응답을 받은 클라이언트는 TCP/IP 패킷을 까서 버리고, 웹 브라우저는 HTTP 응답 메시지의 데이터를 랜더링한다.
 
 
 <br/>

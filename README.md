@@ -29,6 +29,7 @@
             <ul><li><a href="CS/network.md#udpuser-datagram-protocol">UDP(User Datagram Protocol)</a></li></ul>
             <ul><li><a href="CS/network.md#port">PORT</a></li></ul>
             <ul><li><a href="CS/network.md#dnsdomain-name-system">DNS(Domain Name System)</a></li></ul>
+            <ul><li><a href="CS/network.md#웹-브라우저-요청-흐름">웹 브라우저 요청 흐름</a></li></ul>
             <ul><li><a href="CS/network.md#socket_and_port"">Socket과 Port</a></li></ul>
         </details>
     </li>
