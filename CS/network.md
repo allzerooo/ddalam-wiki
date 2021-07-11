@@ -5,6 +5,7 @@
   - [IP(Internet Protocol)](#ipinternet-protocol)
     - [IP의 역할을 정리](#ip의-역할을-정리)
     - [IP 방식의 한계](#ip-방식의-한계)
+    - [IP 주소](#ip-주소)
   - [TCP(Transmission Control Protocol)](#tcptransmission-control-protocol)
     - [TCP가 IP의 한계를 어떻게 해결하는지](#tcp가-ip의-한계를-어떻게-해결하는지)
     - [TCP 특징](#tcp-특징)
@@ -13,6 +14,7 @@
     - [TCP의 순서 보장](#tcp의-순서-보장)
   - [UDP(User Datagram Protocol)](#udpuser-datagram-protocol)
   - [PORT](#port)
+  - [DNS(Domain Name System)](#dnsdomain-name-system)
   - [Socket과 Port](#socket과-port)
 
 <br/>
@@ -53,6 +55,15 @@
 → IP는 위와 같은 문제들을 해결할 수 없다
 
 이런 IP의 한계를 해결해주는 프로토콜이 TCP이다
+
+### IP 주소
+- IP주소는 컴퓨터(호스트, host)를 구변하는데 사용되는 고유한 값
+- 인터넷에 연결된 모든 컴퓨터는 IP주소를 갖는다
+- IP주소는 네트워크 주소와 호스트 주소로 나눌 수 있는데, 32bit의 IP주소 중에서 네트워크 주소와 호스트 주소가 각각 몇 bit를 차지하는지는 네트워크를 어떻게 구성하였는지에 따라 달라진다
+- 서로 다른 두 호스트의 IP주소의 네트워크 주소가 같다는 것은 두 호스트가 같은 네트워크에 포함되어 있다는 것을 의미한다
+- IP주소와 서브넷 마스크를 ```&```비트연산자로 연산하면 IP주소에서 네트워크 주소만 뽑아낼 수 있다
+- IP주소에서 네트워크 주소가 차지하는 자리수가 많을수록 호스트 주소의 범위가 줄어들기 때문에 네트워크의 규모가 작아진다
+- 호스트 주소가 0인 것은 네트워크 자신을 나타내고, 255는 브로드캐스트 주소로 사용된다
 
 <br/>
 
@@ -140,8 +151,15 @@ PORT는 하나의 컴퓨터에서 여러 애플리케이션이 실행 중일 때
 - HTTP -80
 - HTTPS - 443
 
+<br/>
 
+## DNS(Domain Name System)
 
+IP는 기억하기 어렵고, 변경될 수도 있다.
+
+전화번호부 같은 서버를 두어 도메인 명과 IP를 등록할 수 있다. 도메인은 사야한다.
+
+클라이언트는 요청 전에 먼저 DNS를 찾는다. 도메인명으로 DNS 서버에 요청하면, DNS 서버는 발견된 도메인명의 IP 주소를 응답으로 준다. IP 주소가 바뀌어도 DNS 서버에 등록된 IP 주소만 바꿔주면 클라이언트는 이전과 동일한 도메인명으로 통신할 수 있다.
 
 
 <br/>
