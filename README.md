@@ -77,7 +77,7 @@
     <li><a href="Java/Array.md">Array</a></li>
     <li><a href="Java/functinal_interface.md">함수형 인터페이스(functional interface)</a></li>
     <li><a href="Java/stream.md">Stream</a></li>
-    <li><a href="Java/optinal.md">Optinal</a></li>
+    <li><a href="Java/optional.md">Optional</a></li>
     <li><a href="Java/CollectionsFramework.md">컬렉션 프레임워크</a></li>
     <li><a href="Java/Queue-class.md">Queue Class</a></li>
     <li><a href="Java/regular_expression.md">정규식</a></li>
