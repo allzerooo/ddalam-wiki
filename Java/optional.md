@@ -1,6 +1,8 @@
-# ```Optinal```
+# ```Optional```
 
-## Optinal 객체 생성하기 - ```of()``` 또는 ```ofNullable()``` 사용
+Optional<T>는 지네릭 클래스로 T타입의 객체를 감싸는 래퍼 클래스이다. 값을 Optional 객체에 담아서 사용하면 매번 if문으로 값이 null인지 확인하는 대신 Optional에 정의된 메서드를 통해 간단히 처리할 수 있다.
+
+## Optional 객체 생성하기 - ```of()``` 또는 ```ofNullable()``` 사용
 
 ```java
 Optional<String> optionalValue1 = Optional.of(value);
@@ -20,7 +22,7 @@ Optinal<T> optionalValue = Optinal.empty();
 
 <br/>
 
-## Optinal 객체의 값 가져오기 - ```get()``` 또는 ```orElse()``` 또는 ```orElseGet()``` 또는 ```orElseThrow()``` 사용
+## Optional 객체의 값 가져오기 - ```get()``` 또는 ```orElse()``` 또는 ```orElseGet()``` 또는 ```orElseThrow()``` 사용
 
 ```java
 Optinal<String> optinalValue = Optinal.of("abc");
