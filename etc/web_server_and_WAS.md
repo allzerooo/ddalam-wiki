@@ -34,7 +34,7 @@ WAS도 HTTP를 기반으로 동작하며, 웹 서버의 기능을 대부분 포�
 
 <br/>
 
-### Web Server, WAS로 시스템 구성
+## Web Server, WAS로 시스템 구성
 
 웹 시스템을 구성할 때,
 
