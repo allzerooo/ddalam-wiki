@@ -16,15 +16,36 @@ Java 애플리케이션은 JVM을 거쳐 OS → 하드웨어로 전달된다. �
 
 <br/>
 
-## JVM 구동
+## Java 파일 컴파일 방법 + 실행하는 방법 + JVM 구동
 
 <p align="center">
-    <img src="../image/steps_to_run_java.png"  width="800" height="auto">
+    <img src="../image/JVM_running.png"  width="800" height="auto">
 </p>
 
 <br/>
 
-java.exe 명령어가 실행되면서 JVM은 바이트 코드 파일(Hello.class)을 메모리로 로드 → 해당 운영체제에 맞게 기계어로 번역 → `main()` 메서드를 찾아 실행
+java.exe 명령어가 실행되면서 JVM은 [바이트 코드](../etc/binary_code_&_bytecode.md) 파일(Hello.class)을 메모리로 로드 → **해당 운영체제에 맞게 기계어로 번역** → `main()` 메서드를 찾아 실행
+
+<br/>
+
+## JVM 구성 요소
+
+<p align="center">
+    <img src="../image/JVM_component.png"  width="800" height="auto">
+</p>
+
+JVM은 크게 클래스 로더(Class Loader), 런타임 데이터 영역(Runtime Data Area), 실행 엔진(Execution Engine)으로 구성되어 있다.
+
+클래스 로드는 컴파일된 자바 바이트코드를 런타임 데이터 영역에 로드하고, 실행 엔진은 바이트코드를 실행한다.
+
+### 클래스 로더(Class Loader)
+
+java.exe 명령어가 실행되어 JVM이 구동되고, 바이트코드 파일이 JVM에 의해 읽어들여지면 클래스로더는 이 바이트코드를 JVM이 운영체제로부터 적재받은 메모리 영역인 런타임 데이터 영역으로 적재하는 일을 한다.
+
+이 때 `main()`를 찾아 `main()`부터 메모리에 적재되는데, `main()`이 실행되면서 필요한 객체들을 동적으로 로드한다. 컴파일 타임이 아니라 자바 애플리케이션이 실행되는 시점에 클래스가 처음으로 참조될 때 해당 클래스를 로드한다(동적 클래스 로딩, Dynamic class loading).
+
+클래스 로더는 메모리 영역에 코드를 적제하는 역할과 클래스 파일의 에러를 검증하고 레퍼런스들을 연결하는 Linking 작업, 초기화(Initialization)까지 수행한다.
+
 
 <br/>
 
