@@ -1,3 +1,7 @@
+- [바이너리 코드(Binary code), 바이트코드(Bytecode)](#바이너리-코드binary-code-바이트코드bytecode)
+  - [바이너리 코드(Binary code)](#바이너리-코드binary-code)
+  - [바이트코드(Bytecode)](#바이트코드bytecode)
+
 # 바이너리 코드(Binary code), 바이트코드(Bytecode)
 
 ## 바이너리 코드(Binary code)
