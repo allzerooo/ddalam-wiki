@@ -1,4 +1,4 @@
-# JVM (Java virtual machine)
+# JVM (Java Virtual Machine)
 
 Java를 실행하기 위한 가상 머신[( Virtual Machine )](../etc/virtual_machine.md). 즉, 컴퓨터에서 Java를 실행하기 위해 소프트웨어로 구현된 가상의 하드웨어로 컴퓨터와 거의 동일한 기능을 수행할 수 있는 컴퓨터의 가상화된 인스턴스이다.
 
@@ -16,7 +16,7 @@ Java 애플리케이션은 JVM을 거쳐 OS → 하드웨어로 전달된다. �
 
 <br/>
 
-## Java 파일 컴파일 방법 + 실행하는 방법 + JVM 구동
+## JVM 구동
 
 <p align="center">
     <img src="../image/JVM_running.png"  width="800" height="auto">
@@ -40,40 +40,29 @@ JVM은 크게 클래스 로더(Class Loader), 런타임 데이터 영역(Runtime
 
 ### 클래스 로더(Class Loader)
 
-java.exe 명령어가 실행되어 JVM이 구동되고, 바이트코드 파일이 JVM에 의해 읽어들여지면 클래스로더는 이 바이트코드를 JVM이 운영체제로부터 적재받은 메모리 영역인 런타임 데이터 영역으로 적재하는 일을 한다.
+java.exe 명령어가 실행되어 JVM이 구동되면 클래스 로더는 시작 클래스의 바이트코드 파일을 JVM이 운영체제로부터 할당받은 메모리 영역인 런타임 데이터 영역으로 적재(Loading)하는 일을 한다.
 
 이 때 `main()`를 찾아 `main()`부터 메모리에 적재되는데, `main()`이 실행되면서 필요한 객체들을 동적으로 로드한다. 컴파일 타임이 아니라 자바 애플리케이션이 실행되는 시점에 클래스가 처음으로 참조될 때 해당 클래스를 로드한다(동적 클래스 로딩, Dynamic class loading).
 
 클래스 로더는 메모리 영역에 코드를 적제하는 역할과 클래스 파일의 에러를 검증하고 레퍼런스들을 연결하는 Linking 작업, 초기화(Initialization)까지 수행한다.
 
+### 런타임 데이터 영역(Runtime Data Area)
 
-<br/>
+JVM이 프로그램을 실행하기 위해 운영체제로부터 할당받은 메모리 영역이다.
 
-## JVM의 메모리 구조
+👉  모든 쓰레드가 공유하는 영역  👈
 
-java.exe로 JVM이 시작되면 JVM은 운영체제로부터 프로그램을 수행하는데 필요한 메모리영역(Runtime Data Area)을 할당받고, 이 메모리를 여러 영역으로 나누어 관리한다
+**Method Area**
 
-<p align="center">
-    <img src="../image/JVM_memory.png"  width="300" height="auto">
-</p>
-
-### Method(Static) Area
-- 모든 스레드가 공유하는 영역
-- 클래스에 대한 정보
-
-### Stack Area
-- 스레드 마다 자신의 스택 영역을 가진다
-- 메서드가 호출되면 메서드를 위한 메모리가 할당되며, 이 메모리에는 메서드의 지역변수, 중간 결과 등을 저장하는데 사용되고, 메서드가 작업을 마치면 반환된다.
-- 인스턴스에 대한 참조값이 저장되며, 인스턴스는 Heap Area에 생성된다.
-
-### Heap Area
-- 모든 스레드가 공유하는 영역
+- 클래스에서 필요한 패키지 클래스 (예를 들어, Math.abs(-10)이 사용된다면 Math 클래스에 바로 접근 가능)
+- `static` 변수, `final` 변수
+- 필드와 메서드 데이터, 생성자와 메서드의 코드 내용
+- 런타임 상수 풀
+  - 메서드 영역은 JVM이 시작될 때 생성되고, JVM 하나에 하나의 메서드 영역이 생성되지만, 그 중 런타임 상수 풀은 클래스 하나 당 하나의 런타임 상수 풀이 생성된다
+  - 컴파일 타임에 알 수 있는 숫자 리터럴 값부터 런타임에 해석되는 메서드와 필드의 참조까지 포괄하는 여러 종류의 상수가 포함된다
 
 
 <br/>
-
-## JVM 역할
-- JVM이 구동되고 있는 하드웨어에 맞는 기계어(Binary code)로 변환한다
 
 
 <br/>
@@ -82,7 +71,7 @@ java.exe로 JVM이 시작되면 JVM은 운영체제로부터 프로그램을 수
 
 <br/>
 
-출처
+출처 및 참고
 
 - Effective Java - 조슈아 블로크 
 - Java의 정석 (남궁 성)
@@ -91,3 +80,4 @@ java.exe로 JVM이 시작되면 JVM은 운영체제로부터 프로그램을 수
 - [[Java] JDK, JVM 용어 정리 및 프로그램 실행 단계](https://you9010.tistory.com/150)
 - [JVM, JRE, JDK의 차이](https://wikidocs.net/257)
 - [JVM(Java Virtual Machine), 바이트코드(Byte Code)](https://beststar-1.tistory.com/2)
+- [Back to the Essence - Java 컴파일에서 실행까지 - (2)](https://homoefficio.github.io/2019/01/31/Back-to-the-Essence-Java-%EC%BB%B4%ED%8C%8C%EC%9D%BC%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%EA%B9%8C%EC%A7%80-2/)
