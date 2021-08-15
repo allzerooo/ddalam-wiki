@@ -8,6 +8,28 @@ Elasticsearch는 DB와 같은 테이블을 생성하면서 추가적으로 단�
 
 <br/>
 
+### Elasticsearch vs RDB
+|Elasticsearch|RDB|
+|:---:|:---:|
+|Index|Database|
+|Type|Table|
+|Document|Row|
+|Field|Column|
+|Mapping|Schema|
+
+<br/>
+
+Elasticsearch는 REST API로 데이터 CRUD를 한다.
+
+|Elasticsearch|RDB|
+|:---:|:---:|
+|GET|SELECT|
+|PUT|UPDATE|
+|POST|INSERT|
+|DELETE|DELETE|
+
+<br/>
+
 ### Shard
 
 하나의 문서를 여러 개로 쪼개서 저장하는 것을 뜻한다. 쪼개진 각각의 Shard를 서로 다른 머신에 올려서 관리할 수 있는데 그러면 하나의 문서로 합쳐져 있을 때 보다 더 빠른 검색이 가능해진다. 왜냐하면, 머신의 성능은 CPU, 메모리, 디스크의 성능에 영향을 받는데 나누어 관리하게 되면 하나로 합쳐져 있을 때 보다 더 많은 성능을 사용할 수 있기 때문이다. 또한, Shard를 쉽게 스케일 아웃할 수 있으며 머신도 쉽게 스케일 아웃할 수 있다. Shard는 Elasticsearch만의 고유 기능은 아니며 RDB에도 Shard를 적용할 수 있다.
