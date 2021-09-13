@@ -1,5 +1,7 @@
 # Mac에 ELK Stack 구성하기
 
+- ELK 3개의 버전이 동일해야 된다
+
 ### 1. Homebrew 설치 or 업데이트
 
 ### 2. Java 8 설치, 환경변수 변경
