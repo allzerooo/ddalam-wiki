@@ -161,6 +161,7 @@
             <summary>MySql</summary>
             <ul>
                 <li><a href="SQL/MySQL/window_function.md">윈도우 함수(Window Function)</a></li>
+                <li><a href="SQL/MySQL/timezone.md">Timezone</a></li>
             </ul>
         </details>
     </li>
