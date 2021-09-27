@@ -137,7 +137,8 @@
     <li><a href="Spring/HTTP.md">HTTP 통신</a></li>
     <li><a href="Spring/Spring_Boot+Multiple_Schema.md">Spring Boot + Multiple Schema</a></li>
     <li><a href="Spring/HttpServletRequest.md">HttpServletRequest</a></li>
-     <li><a href="Spring/Exception.md">Exception 처리</a></li>
+    <li><a href="Spring/Exception.md">Exception 처리</a></li>
+    <li><a href="Spring/Message_Internationalization.md">메시지, 국제화</a></li>
 </ul>
 
 <br/>
