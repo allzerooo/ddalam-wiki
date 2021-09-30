@@ -137,6 +137,8 @@
     <li><a href="Spring/HTTP.md">HTTP 통신</a></li>
     <li><a href="Spring/Spring_Boot+Multiple_Schema.md">Spring Boot + Multiple Schema</a></li>
     <li><a href="Spring/HttpServletRequest.md">HttpServletRequest</a></li>
+    <li><a href="Spring/Exception.md">Exception 처리</a></li>
+    <li><a href="Spring/Message_Internationalization.md">메시지, 국제화</a></li>
 </ul>
 
 <br/>
@@ -237,6 +239,10 @@
     <li><a href="etc/Servlet.md">서블릿</a></li>
     <li><a href="etc/Logstash.md">Logstash</a></li>
     <li><a href="etc/Docker.md">Docker</a></li>
+    <li><a href="etc/serverless.md">Serverless</a></li>
+    <li><a href="etc/ApiGateway.md">Api Gateway</a></li>
+    <li><a href="etc/SSE.md">SSE(Server-Sent Events)</a></li>
+    <li><a href="etc/ApolloFederation.md">Apollo Federation</a></li>
 </ul>
 
 <br/>
