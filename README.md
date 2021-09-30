@@ -239,6 +239,7 @@
     <li><a href="etc/Servlet.md">서블릿</a></li>
     <li><a href="etc/Logstash.md">Logstash</a></li>
     <li><a href="etc/serverless.md">Serverless</a></li>
+    <li><a href="etc/ApiGateway.md">Api Gateway</a></li>
 </ul>
 
 <br/>
