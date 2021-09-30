@@ -241,6 +241,7 @@
     <li><a href="etc/serverless.md">Serverless</a></li>
     <li><a href="etc/ApiGateway.md">Api Gateway</a></li>
     <li><a href="etc/SSE.md">SSE(Server-Sent Events)</a></li>
+    <li><a href="etc/ApolloFederation.md">Apollo Federation</a></li>
 </ul>
 
 <br/>
