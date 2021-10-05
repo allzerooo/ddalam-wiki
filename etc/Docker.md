@@ -10,6 +10,8 @@
     - [Docker objects](#docker-objects)
       - [Images](#images)
       - [Containers](#containers)
+  - [Docker Compose CLI](#docker-compose-cli)
+    - [`docker-compose up`](#docker-compose-up)
 
 ## Docker란?
 
@@ -78,6 +80,18 @@ docker는 environment disparity라는 문제점을 해결해준다
 - 컨테이너의 네트워크, 스토리지, 다른 컨테이너의 하위 시스템, 호스트 머신과 얼마나 격리할지 제어할 수 있다
 - 컨테이너는 컨테이너를 만들거나 시작할 때 설정한 옵션과 이미지로부터 정의된다
 - 컨테이너가 제거됐을 때, 영구 저장소에 저장되지 않은 변경 사항은 사라진다
+
+## Docker Compose CLI
+
+### `docker-compose up`
+- 서비스를 위한 컨테이너를 빌드, (재)생성, 시작, 연결
+- 실행중이 아니면, 연결되 서비스도 시작한다
+- 각 컨테이너의 출력을 집계한다(기본적으로 `docker-compose logs --follow` 실행)
+- 명령이 종료되면 모든 컨테이너가 중지된다
+- `docker-compose up --detach`를 실행하면 백그라운드에서 컨테이너를 시작하고 계속 실행한다
+- 서비스에 대한 기존 컨테이너가 있고 컨테이너 생성 후 서비스의 구성이나 이미지가 변경된 경우, `docker-compose up`은 컨테이너를 중지하고 다시 생성하여 변경 사항을 선택한다(마운트된 볼륨 유지)
+- Compose에서 변경 사항을 선택하지 않도록 하려면 `--no-recreate` 플래그를 사용한다
+- Compose가 모든 컨테이너를 중지하고 다시 생성하도록 하려면 `--force-recreate` 플래그를 사용한다
 
 <br/>
 
