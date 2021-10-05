@@ -7,6 +7,7 @@
     - [JDBC 플러그인을 통한 입력](#jdbc-플러그인을-통한-입력)
       - [`prepared_statement_bind_values`가 적용되지 않을 때](#prepared_statement_bind_values가-적용되지-않을-때)
   - [필터](#필터)
+    - [`mutate` 플러그인](#mutate-플러그인)
 
 # Logstash
 
@@ -111,6 +112,20 @@ prepared statement를 사용할 때 `jdbc_paging_enabled`, `jdbc_page_size`가 �
 입력 플러그인이 받은 데이터를 의미 있는 데이터로 구조화하는 역할을 한다. 비정형 데이터를 정형화하고 데이터 분석을 위한 구조를 잡아준다(전반적인 데이터 정제/가공 작업을 수행).
 
 다양한 필터 플러그인이 존재한다([전체 필터 플러그인](https://www.elastic.co/guide/en/logstash/7.10/filter-plugins.html)).
+
+### `mutate` 플러그인
+필드명을 변경하거나 문자열 처리 등 필드를 변경하는 일반적인 가공 함수들을 제공한다. 또한 다양한 내부 옵션이 있다.
+
+```
+...
+filter {
+    mutate {
+        split => { "message" => " "}
+    }
+}
+...
+```
+`split` 옵션을 적용해 공백 기준으로 문자를 분리
 
 <br/>
 
