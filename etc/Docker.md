@@ -13,6 +13,9 @@
   - [Dockerfile](#dockerfile)
   - [Docker Compose CLI](#docker-compose-cli)
     - [`docker-compose up`](#docker-compose-up)
+  - [etc](#etc)
+    - [Manage application data](#manage-application-data)
+      - [Volumes](#volumes)
 
 ## Docker란?
 
@@ -97,6 +100,12 @@ docker는 environment disparity라는 문제점을 해결해준다
 - 서비스에 대한 기존 컨테이너가 있고 컨테이너 생성 후 서비스의 구성이나 이미지가 변경된 경우, `docker-compose up`은 컨테이너를 중지하고 다시 생성하여 변경 사항을 선택한다(마운트된 볼륨 유지)
 - Compose에서 변경 사항을 선택하지 않도록 하려면 `--no-recreate` 플래그를 사용한다
 - Compose가 모든 컨테이너를 중지하고 다시 생성하도록 하려면 `--force-recreate` 플래그를 사용한다
+
+## etc
+
+### Manage application data
+
+#### Volumes
 
 <br/>
 

@@ -255,6 +255,7 @@
             <ul><li><a href="etc/Docker.md#docker-architecture">Docker architecture</a></li></ul>
             <ul><li><a href="etc/Docker.md#dockerfile">Dockerfile</a></li></ul>
             <ul><li><a href="etc/Docker.md#docker-compose-cli">Docker Compose CLI</a></li></ul>
+            <ul><li><a href="etc/Docker.md#etc">etc</a></li></ul>
         </details>
     </li>
 </ul>
