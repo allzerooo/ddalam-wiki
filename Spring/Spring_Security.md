@@ -9,6 +9,10 @@
     - [토큰 인증 방법](#토큰-인증-방법)
     - [토큰 인증 방법의 장점](#토큰-인증-방법의-장점)
     - [토큰 인증 방법의 단점](#토큰-인증-방법의-단점)
+  - [JWT(Json Web Token)](#jwtjson-web-token)
+    - [JWT의 구조](#jwt의-구조)
+      - [Header](#header)
+      - [Payload](#payload)
 
 # Spring Security
 
@@ -61,3 +65,24 @@ Spring Security가 궁금적으로 이루고자 하는 목표
 1. 한번 제공된 토큰은 회수가 어렵다. 세션의 경우 서버에서 세션을 삭제하면 브라우저의 JSESSIONID는 무용지물이 된다. 그러나 토큰은 세션을 저장하지 않기 때문에 회수할 수 없다. 그래서 보통 토큰의 유효기간을 짧게 한다
 2. 토큰에는 유저의 정보가 있기 때문에 상대적으로 안정성이 우려된다. 따라서 민감정보(ex 패스워드, 개인정보)를 토큰에 포함시키면 안된다
 
+## JWT(Json Web Token)
+토큰 인증 방식에서 가장 잘 알려져있다
+
+### JWT의 구조
+HEADER.PAYLOAD.SIGNATURE
+
+예) eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOl.hHkvviDzMIx8EkXUTZsNLWGy51p2 bVnJknEC0HYxMaRkXGQJdIWqIX1Rv8rGK6bMq6mYyGES3jxNJVPz33wvEQ
+
+#### Header
+- JWT를 검증하는데 필요한 정보를 가진 객체
+- Signature에 사용한 암호화 알고리즘이 무엇인지, key id가 무엇인지의 정보를 담고 있다
+- 이 정보를 JSON으로 변환해서 UTF-8로 인코딩한 뒤, Base64 URL-Safe로 인코딩한 값이 들어있다
+- Header의 값은 인코딩된 값이지 암호화된 값은 아니다
+
+#### Payload
+- 실질적으로 인증에 필요한 데이터를 저장
+- 데이터의 각 필드들을 Claim이라고 한다
+- 대부분의 경우 Claim에 username을 포함한다. 인증할 때 payload에 있는 username을 가져와서 유저 정보를 조회할 때 사용하기 때문이다
+- 토큰 발행시간(`iat`)와 토큰 만료시간(`exp`)를 포함한다
+- 이 외에도 원하는 Claim을 추가할 수 있지만 민감정보는 포함하면 안된다
+- Payload 역시 Header와 마찬가지로 JSON으로 변환해서 UTF-8로 인코딩한 뒤, Base64 URL-Safe로 인코딩한 값일 뿐 암호화된 값은 아니다
