@@ -143,6 +143,7 @@
         <details>
             <summary>Spring Security</summary>
             <ul><li><a href="Spring/Spring_Security.md#authentication인증-authorization인가">Authentication(인증), Authorization(인가)</a></li></ul>
+            <ul><li><a href="Spring/Spring_Security.md#토큰으로-인증하기">토큰으로 인증하기</a></li></ul>
         </details>
     </li>
 </ul>
