@@ -10,6 +10,7 @@
     - [Docker objects](#docker-objects)
       - [Images](#images)
       - [Containers](#containers)
+  - [Dockerfile](#dockerfile)
   - [Docker Compose CLI](#docker-compose-cli)
     - [`docker-compose up`](#docker-compose-up)
 
@@ -80,6 +81,10 @@ docker는 environment disparity라는 문제점을 해결해준다
 - 컨테이너의 네트워크, 스토리지, 다른 컨테이너의 하위 시스템, 호스트 머신과 얼마나 격리할지 제어할 수 있다
 - 컨테이너는 컨테이너를 만들거나 시작할 때 설정한 옵션과 이미지로부터 정의된다
 - 컨테이너가 제거됐을 때, 영구 저장소에 저장되지 않은 변경 사항은 사라진다
+
+## Dockerfile
+- 도커는 도커파일의 지침을 읽어 자동으로 이미지를 빌디할 수 있다
+- 도커파일은 모든 명령을 포함하는 텍스트 문서이다
 
 ## Docker Compose CLI
 
