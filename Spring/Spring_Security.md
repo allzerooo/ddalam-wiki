@@ -3,6 +3,7 @@
     - [Authentication](#authentication)
       - [다양한 인증 방법](#다양한-인증-방법)
     - [Authorization](#authorization)
+  - [Spring Security 아키텍처](#spring-security-아키텍처)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -41,6 +42,32 @@ Spring Security가 궁금적으로 이루고자 하는 목표
 - 인증 이후에 리소스에 대한 권한을 통제하는 것을 의미
 - "당신은 무엇을 할 수 있습니까?"
 - 클라이언트가 요청한 작업이 허가된 작업인지 확인하는 절차
+
+## Spring Security 아키텍처
+
+<p align="center">
+    <img src="../image/Spring_Security_Architecture.png"  width="400" height="auth">
+</p>
+
+```java
+SecurityContext context = SecurityContextHolder.getContext();
+Authentication authentication = context.getAuthentication();
+authentication.getPrincipal();
+authentication.getAuthorities();
+authentication.getCredentials();
+authentication.getDetails();
+authentication.isAuthenticated();
+```
+
+- `SecurityContextHolder`: `SecurityContext`를 제공하는 static 메서드(`getContext`)를 제공한다
+- `SecurityContext`: 접근 주체와 인증에 대한 정보를 담고 있는 Context이다. 즉, `Authentication`을 담고 있다
+- `Authentication`: `Principal`과 `GrantAuthority`를 제공한다. 인증이 이루어지면 해당 `Authentication`이 저장된다
+- `Principal`: 유저에 해당하는 정보이다. 대부분의 경우 `Principal`로 `UserDetails`를 반환한다
+- `GrantAuthority`: ROLE_ADMIN, ROLE_USER 등 `Principal`이 가지고 있는 권한을 나타낸다. prefix로 'ROLE_'이 붙는다. 인증 이후 인가를 할 때 사용하며, 권한은 여러개일 수 있기 때문에 `Collection<GrantedAuthority>` 형태로 제공한다
+
+<br/>
+
+Spring Security는 `Principal`, `GrantAuthority`와 같은 정보들을 사용해서 인증, 인가를 판단한다
 
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
@@ -98,3 +125,12 @@ HEADER.PAYLOAD.SIGNATURE
 JWT의 Secret Key가 노출되면 모든 데이터가 유출될 수 있다. 이런 문제를 방지하기 위해 Secret Key를 여러개 두고, 수시로 [추가, 삭제, 변경]해서 Secret Key 중 1개가 노출되어도 다른 Secret Key와 데이터는 안전한 상태가 되도록 하는 것을 Key Rolling이라고 한다(Key Rolling이 필수는 아니다).
 
 Secret Key 1개에 unique한 ID(kid 또는 key id라고 부름)를 연결시켜 둔다. 그리고 JWT 토큰을 만들 때 헤더에 kid를 포함해 제공하고, 서버에서 토큰을 해서할 때 kid로 Secret Key를 찾아서 Signature를 검증한다.
+
+<br/>
+
+--- 
+
+<br/>
+
+출처 및 참고
+- [한 번에 끝내는 Spring 완.전.판](https://fastcampus.co.kr/dev_online_spring)
