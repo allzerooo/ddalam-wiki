@@ -5,6 +5,8 @@
     - [Authorization](#authorization)
   - [Spring Security 아키텍처](#spring-security-아키텍처)
     - [`ThreadLocal`](#threadlocal)
+    - [PasswordEncoder](#passwordencoder)
+      - [password 관리](#password-관리)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -108,6 +110,13 @@ public class Controller {
 - `MODE_THREADLOCAL`: 기본 설정 모드 (위 내용)
 - `MODE_INHERITABLETHREADLOCAL`: 부모 Thread가 자식 Thread를 만든 경우 `SecurityContext`를 공유한다
 - `MODE_GLOBAL`: 애플리케이션 전체에서 `SecurityContext`를 공유한다
+
+### PasswordEncoder
+`Principal`의 `password` 값은 PasswordEncoder encoding한 값으로, User가 입력한 값과 다른 값이 들어있다.
+
+#### password 관리
+1. 회원가입할 때 입력된 password는 암호화해서 저장해야한다
+2. 로그인할 때 입력받은 password와 회원가입할 때의 password를 비교할 수 있어야한다
 
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
