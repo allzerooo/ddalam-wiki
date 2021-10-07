@@ -4,6 +4,7 @@
       - [다양한 인증 방법](#다양한-인증-방법)
     - [Authorization](#authorization)
   - [Spring Security 아키텍처](#spring-security-아키텍처)
+    - [`ThreadLocal`](#threadlocal)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -62,12 +63,51 @@ authentication.isAuthenticated();
 - `SecurityContextHolder`: `SecurityContext`를 제공하는 static 메서드(`getContext`)를 제공한다
 - `SecurityContext`: 접근 주체와 인증에 대한 정보를 담고 있는 Context이다. 즉, `Authentication`을 담고 있다
 - `Authentication`: `Principal`과 `GrantAuthority`를 제공한다. 인증이 이루어지면 해당 `Authentication`이 저장된다
-- `Principal`: 유저에 해당하는 정보이다. 대부분의 경우 `Principal`로 `UserDetails`를 반환한다
+- `Principal`: 유저에 해당하는 정보이다(`UserDetails`를 구현한 User Entity가 들어있다). 대부분의 경우 `Principal`로 `UserDetails`를 반환한다
 - `GrantAuthority`: ROLE_ADMIN, ROLE_USER 등 `Principal`이 가지고 있는 권한을 나타낸다. prefix로 'ROLE_'이 붙는다. 인증 이후 인가를 할 때 사용하며, 권한은 여러개일 수 있기 때문에 `Collection<GrantedAuthority>` 형태로 제공한다
 
 <br/>
 
 Spring Security는 `Principal`, `GrantAuthority`와 같은 정보들을 사용해서 인증, 인가를 판단한다
+
+### `ThreadLocal`
+```java
+public class User implements UserDetails {
+
+    @GeneratedValue
+    @Id
+    private Long id;
+    private String username;
+    private String password;
+    private String authority;
+
+    ...
+}
+```
+```java
+public class Controller {
+  @GetMapping
+  public String get(Model model) {
+      SecurityContext securityContext = SecurityContextHolder.getContext();
+      Authentication authentication = securityContext.getAuthentication();
+      Pricipal principal = authentication.getPrincipal();
+      // principal에는 User 객체의 값이 담겨있다
+      // id, username, password, authority
+
+      return "get";
+  }
+}
+```
+→ 어떻게 `getContext()`를 요청한 User가 누구인지를 알고, User 마다 고유한 `SecurityContext`를 줄 수 있을까? → `ThreadLocal`(각 Thread의 고유한 영역에 저장된 **변수**로 해당 Thread 안에서만 유효한 변수)을 사용했기 때문에 가능하다
+
+<br/>
+
+웹 애플리케이션은 대부분의 경우 요청 1개에 Thread 1개가 생성된다(요청 1개 : Thread 1개). 이때 `ThreadLocal`을 사용하면 Thread마다 고유한 공간을 만들수 있고, 그곳에 `SecurityContext`를 저장할 수 있다(요청 1개 : Thread 1개 : Security Context 1개).
+
+`ThreadLocal` 사용이 강제된 것은 아니며 원하면 `SecurityContext` 공유 전략을 바꿀 수 있다
+- `MODE_THREADLOCAL`: 기본 설정 모드 (위 내용)
+- `MODE_INHERITABLETHREADLOCAL`: 부모 Thread가 자식 Thread를 만든 경우 `SecurityContext`를 공유한다
+- `MODE_GLOBAL`: 애플리케이션 전체에서 `SecurityContext`를 공유한다
 
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
