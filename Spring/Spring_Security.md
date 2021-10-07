@@ -13,6 +13,7 @@
     - [JWT의 구조](#jwt의-구조)
       - [Header](#header)
       - [Payload](#payload)
+      - [Signature](#signature)
 
 # Spring Security
 
@@ -86,3 +87,8 @@ HEADER.PAYLOAD.SIGNATURE
 - 토큰 발행시간(`iat`)와 토큰 만료시간(`exp`)를 포함한다
 - 이 외에도 원하는 Claim을 추가할 수 있지만 민감정보는 포함하면 안된다
 - Payload 역시 Header와 마찬가지로 JSON으로 변환해서 UTF-8로 인코딩한 뒤, Base64 URL-Safe로 인코딩한 값일 뿐 암호화된 값은 아니다
+
+#### Signature
+- JWT 토큰이 올바른 토큰이라고 서명해주는 것
+- Header와 Payload는 누구나 만들 수 있는 데이터이기 때문에 토큰에 대한 진위여부를 판단할 수 없다. 마지막 Signature는 토큰에 대한 진위여부를 판단하는 용도로 Header와 Payload를 합친뒤 비밀키로 Hash를 생성해 암호화한다
+- Header와 Payload를 합친 값과 비밀키를 사용해 HS512로 Hash 값을 만들어낸다. 이 값이 Signature이다
