@@ -14,6 +14,7 @@
       - [Header](#header)
       - [Payload](#payload)
       - [Signature](#signature)
+    - [Key Rolling](#key-rolling)
 
 # Spring Security
 
@@ -76,7 +77,7 @@ HEADER.PAYLOAD.SIGNATURE
 
 #### Header
 - JWT를 검증하는데 필요한 정보를 가진 객체
-- Signature에 사용한 암호화 알고리즘이 무엇인지, key id가 무엇인지의 정보를 담고 있다
+- Signature에 사용한 암호화 알고리즘이 무엇인지, key의 id가 무엇인지의 정보를 담고 있다
 - 이 정보를 JSON으로 변환해서 UTF-8로 인코딩한 뒤, Base64 URL-Safe로 인코딩한 값이 들어있다
 - Header의 값은 인코딩된 값이지 암호화된 값은 아니다
 
@@ -92,3 +93,8 @@ HEADER.PAYLOAD.SIGNATURE
 - JWT 토큰이 올바른 토큰이라고 서명해주는 것
 - Header와 Payload는 누구나 만들 수 있는 데이터이기 때문에 토큰에 대한 진위여부를 판단할 수 없다. 마지막 Signature는 토큰에 대한 진위여부를 판단하는 용도로 Header와 Payload를 합친뒤 비밀키로 Hash를 생성해 암호화한다
 - Header와 Payload를 합친 값과 비밀키를 사용해 HS512로 Hash 값을 만들어낸다. 이 값이 Signature이다
+
+### Key Rolling
+JWT의 Secret Key가 노출되면 모든 데이터가 유출될 수 있다. 이런 문제를 방지하기 위해 Secret Key를 여러개 두고, 수시로 [추가, 삭제, 변경]해서 Secret Key 중 1개가 노출되어도 다른 Secret Key와 데이터는 안전한 상태가 되도록 하는 것을 Key Rolling이라고 한다(Key Rolling이 필수는 아니다).
+
+Secret Key 1개에 unique한 ID(kid 또는 key id라고 부름)를 연결시켜 둔다. 그리고 JWT 토큰을 만들 때 헤더에 kid를 포함해 제공하고, 서버에서 토큰을 해서할 때 kid로 Secret Key를 찾아서 Signature를 검증한다.
