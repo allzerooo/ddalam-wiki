@@ -237,6 +237,12 @@
     <li><a href="etc/programming_language.md">프로그래밍 언어</a></li>
     <li><a href="etc/design_pattern.md">디자인 패턴</a></li>
     <li><a href="etc/Elasticsearch.md">Elasticsearch</a></li>
+    <li>
+        <details>
+            <summary>Elasticsearch</summary>
+            <ul><li><a href="etc/Elasticsearch.md#elasticsearch-분산-검색-엔진">Elasticsearch: 분산 검색 엔진</a></li></ul>
+        </details>
+    </li>
     <li><a href="etc/cluster.md">cluster</a></li>
     <li><a href="etc/binary_code_&_bytecode.md">바이너리 코드(Binary code), 바이트코드(Bytecode)</a></li>
     <li><a href="etc/proxy.md">프록시(Proxy)</a></li>
