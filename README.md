@@ -148,6 +148,12 @@
             <ul><li><a href="Spring/Spring_Security.md#jwtjson-web-token">JWT(Json Web Token)</a></li></ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>Spring Data Elasticsearch</summary>
+            <ul><li><a href="Spring/Spring_Data_Elasticsearch.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
