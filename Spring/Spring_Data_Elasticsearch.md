@@ -4,7 +4,7 @@
 		- [Queries](#queries)
 			- [`CriteriaQuery`](#criteriaquery)
 			- [`StringQuery`](#stringquery)
-			- [`NativeSearchQuery](#nativesearchquery)
+			- [`NativeSearchQuery`](#nativesearchquery)
 
 # Spring Data Elasticsearch
 
@@ -50,4 +50,4 @@ public class ElasticsearchConfig extends AbstractElasticsearchConfiguration {
 
 #### `StringQuery`
 
-#### `NativeSearchQuery
+#### `NativeSearchQuery`
