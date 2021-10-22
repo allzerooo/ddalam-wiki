@@ -141,6 +141,12 @@
     <li><a href="Spring/Message_Internationalization.md">메시지, 국제화</a></li>
     <li>
         <details>
+            <summary>Validation</summary>
+            <ul><li><a href="Spring/validation.md#bindingresult">BindingResult</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Spring Security</summary>
             <ul><li><a href="Spring/Spring_Security.md#authentication인증-authorization인가">Authentication(인증), Authorization(인가)</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-아키텍처">Spring Security 아키텍처</a></li></ul>
