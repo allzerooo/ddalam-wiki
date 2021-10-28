@@ -7,6 +7,7 @@
     - [`ThreadLocal`](#threadlocal)
     - [PasswordEncoder](#passwordencoder)
       - [password 관리](#password-관리)
+      - [PasswordEncoder 전략](#passwordencoder-전략)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -117,6 +118,10 @@ public class Controller {
 #### password 관리
 1. 회원가입할 때 입력된 password는 암호화해서 저장해야한다
 2. 로그인할 때 입력받은 password와 회원가입할 때의 password를 비교할 수 있어야한다
+
+이 두가지를 만족하기 위해 보통 해시 함수 알고리즘을 사용한다. 해시 함수는 암호화는 비교적 쉽지만 복호화가 거의 불가능한 방식의 알고리즘이다.
+
+#### PasswordEncoder 전략
 
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
