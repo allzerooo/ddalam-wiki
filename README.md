@@ -242,11 +242,16 @@
     <li><a href="etc/refactoring.md">리팩토링</a></li>
     <li><a href="etc/programming_language.md">프로그래밍 언어</a></li>
     <li><a href="etc/design_pattern.md">디자인 패턴</a></li>
-    <li><a href="etc/Elasticsearch.md">Elasticsearch</a></li>
     <li>
         <details>
             <summary>Elasticsearch</summary>
             <ul><li><a href="etc/Elasticsearch.md#elasticsearch-분산-검색-엔진">Elasticsearch: 분산 검색 엔진</a></li></ul>
+            <ul>
+                <li><a href="etc/Elasticsearch.md#검색">검색</a></li>
+                <ul>
+                    <li><a href="etc/Elasticsearch.md#query-dsl-1">Query DSL</a></li>
+                </ul>
+            </ul>
         </details>
     </li>
     <li><a href="etc/cluster.md">cluster</a></li>

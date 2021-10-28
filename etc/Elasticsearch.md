@@ -16,8 +16,8 @@
   - [필터 컨텍스트](#필터-컨텍스트)
   - [쿼리 사용 방법](#쿼리-사용-방법)
     - [쿼리 스트링](#쿼리-스트링)
-    - [쿼리 DSL](#쿼리-dsl)
-  - [쿼리](#쿼리)
+    - [Query DSL](#query-dsl)
+  - [Query DSL](#query-dsl-1)
     - [리프 쿼리](#리프-쿼리)
       - [`full text` 쿼리](#full-text-쿼리)
       - [`term level` 쿼리](#term-level-쿼리)
@@ -280,7 +280,7 @@ GET ecommerce/_search?q=customer_full_name:Mary
 → 'Mary'라는 용어가 포함된 도큐먼트를 검색
 
 
-### 쿼리 DSL
+### Query DSL
 
 - 한 줄에 넣기 힘든 복잡한 쿼리에 사용
 - REST API 요청 본문 안에 JSON 형태로 쿼리를 작성
@@ -297,7 +297,7 @@ GET ecommerce/_search
 
 <br/>
 
-## 쿼리
+## Query DSL
 
 ### 리프 쿼리
 - 특정 필드에서 용어를 찾는 쿼리
