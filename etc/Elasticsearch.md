@@ -21,6 +21,7 @@
     - [리프 쿼리](#리프-쿼리)
       - [`full text` 쿼리](#full-text-쿼리)
       - [`term level` 쿼리](#term-level-쿼리)
+      - [Wildcard 쿼리](#wildcard-쿼리)
     - [복합 쿼리](#복합-쿼리)
       - [작성 포맷](#작성-포맷)
     - [지원하는 타입](#지원하는-타입)
@@ -312,6 +313,22 @@ GET ecommerce/_search
 - [Term-level queries](https://www.elastic.co/guide/en/elasticsearch/reference/7.14/term-level-queries.html)
 - 정확히 일치하는 용어를 찾기 위해 사용되며, 인덱스 매핑 시 필드를 키워드 타입으로 매핑해야 한다. 강제는 아니지만 정확한 결과를 얻기 위한 권장사항이다
 - 일반적으로 숫자, 날짜, 범주형 데이터를 정확하게 검색할 때 사용된다
+
+#### Wildcard 쿼리
+```json
+GET /_search
+{
+  "query": {
+    "wildcard": {
+      "user.id": {
+        "value": "ki*y",
+        "boost": 1.0,
+        "rewrite": "constant_score"
+      }
+    }
+  }
+}
+```
 
 
 
