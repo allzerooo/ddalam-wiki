@@ -116,6 +116,15 @@
     <li><a href="Java/Queue-class.md">Queue 클래스</a></li>
     <li><a href="Java/algorithm.md">Algorithm</a></li>
     <li><a href="Java/passing_code_with_behavior_parameterization.md">동적 파라미터화 코드 전달하기</a></li>
+    <li>
+        <details>
+            <summary>내부 클래스(inner class)</summary>
+            <ul>
+                <li><a href="Java/inner_class.md#내부-클래스-inner-class">내부 클래스 (inner class)</a></li>
+                <li><a href="Java/inner_class.md#내부-클래스의-종류">내부 클래스의 종류</a></li>
+            </ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
