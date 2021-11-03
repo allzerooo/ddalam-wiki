@@ -121,7 +121,9 @@
             <summary>내부 클래스(inner class)</summary>
             <ul>
                 <li><a href="Java/inner_class.md#내부-클래스-inner-class">내부 클래스 (inner class)</a></li>
-                <li><a href="Java/inner_class.md#내부-클래스의-종류">내부 클래스의 종류</a></li>
+                <ul>
+                    <li><a href="Java/inner_class.md#내부-클래스의-종류">내부 클래스의 종류</a></li>
+                </ul>
             </ul>
         </details>
     </li>
