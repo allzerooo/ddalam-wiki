@@ -3,6 +3,7 @@
 		- [인스턴스 내부 클래스](#인스턴스-내부-클래스)
 		- [정적 내부 클래스](#정적-내부-클래스)
 		- [지역 내부 클래스](#지역-내부-클래스)
+		- [익명 내부 클래스](#익명-내부-클래스)
 
 # 내부 클래스 (inner class)
 - 클래스 내부에 선언한 클래스로 외부 클래스와 밀접한 연관이 있는 경우가 많고, 다른 외부 클래스에서 사용할 일이 거의 없는 경우에 내부 클래스로 선언해서 사용한다
@@ -217,6 +218,68 @@ num = 10
 localNum = 1000
 outNum = 100(외부 클래스 인스턴스 변수)
 LocalAndAnonymousInnerClassOuter.sNum = 200(외부 클래스 정적 변수)
+```
+
+### 익명 내부 클래스
+- [지역 내부 클래스](#지역-내부-클래스)의 예에서 `MyRunnable` 클래스의 이름으로 호출되는 경우가 없다 → `getRunnable()`이 호출되면 그 안에서 딱한번 호출된다 → 클래스의 이름을 생략할 수 있다
+- 클래스의 이름을 생략하고 주로 하나의 인터페이스나 하나의 추상 클래스를 구현해 반환하는 경우가 많다
+- 인터페이스나 추상 클래스 자료형의 변수에 직접 대입하여 클래스를 생성하거나 지역 내부 클래스의 메서드 내부에서 생성하여 반환할 수 있음
+
+```java
+public class LocalAndAnonymousInnerClassOuter {
+
+	int outNum = 100;
+	static int sNum = 200;
+
+	Runnable getRunnableUsingAnonymousInnerClass(int i) {
+
+		int num = 10;
+
+		// 익명 내부 클래스 : 클래스의 이름(MyRunnable 같은)을 쓸 일이 없기 때문에 클래스의 이름을 없애고 Runnable 인터페이스를 구현한 객체를 바로 리턴
+		return new Runnable() {
+
+			int localNum = 1000;
+
+			// 여전히 i, num을 변경하는 것은 불가능
+
+			@Override
+			public void run() {
+				System.out.println("i = " + i);
+				System.out.println("num = " + num);
+				System.out.println("localNum = " + localNum);
+
+				// 지역 내부 클래스는 외부 클래스가 생성된 다음 불리기 때문에 외부 클래스 인스턴스 변수에 접근 가능
+				System.out.println("outNum = " + outNum + "(외부 클래스 인스턴스 변수)");
+				System.out.println("LocalAndAnonymousInnerClassOuter.sNum = "
+						+ LocalAndAnonymousInnerClassOuter.sNum + "(외부 클래스 정적 변수)");
+			}
+		};
+	}
+
+	// 이런 사용도 가능
+	// 원래 Runnable을 구현한 어떤 클래스를 정의해야 하는데(내부 클래스) 이름 없이 정의했기 때문에 이것도 익명 내부 클래스
+	Runnable runnable = new Runnable() {
+		@Override
+		public void run() {
+			System.out.println("Runnable class");
+		}
+	};
+}
+```
+```java
+class LocalAndAnonymousInnerClassOuterTest {
+
+	@Test
+	void anonymousInnerClassTest() {
+		LocalAndAnonymousInnerClassOuter outer = new LocalAndAnonymousInnerClassOuter();
+		Runnable runnable = outer.getRunnableUsingAnonymousInnerClass(100);
+
+		runnable.run();
+
+		outer.runnable.run();
+	}
+
+}
 ```
 
 <br/>
