@@ -2,6 +2,7 @@
 	- [내부 클래스의 종류](#내부-클래스의-종류)
 		- [인스턴스 내부 클래스](#인스턴스-내부-클래스)
 		- [정적 내부 클래스](#정적-내부-클래스)
+		- [지역 내부 클래스](#지역-내부-클래스)
 
 # 내부 클래스 (inner class)
 - 클래스 내부에 선언한 클래스로 외부 클래스와 밀접한 연관이 있는 경우가 많고, 다른 외부 클래스에서 사용할 일이 거의 없는 경우에 내부 클래스로 선언해서 사용한다
@@ -143,3 +144,86 @@ class OutTest {
 
 }
 ```
+
+### 지역 내부 클래스
+- 지역 변수와 같이 메서드 내부에 정의해 사용하는 클래스
+- 메서드의 호출이 끝나면 메서드에 사용된 지역변수의 유효성은 사라짐
+- 메서드의 지역 변수나 매개 변수는 메서드 호출 이후에도 지역 내부 클래스에서 사용하는 경우가 있을 수 있으므로 final로 선언됨
+```java
+public class LocalAndAnonymousInnerClassOuter {
+
+	int outNum = 100;
+	static int sNum = 200;
+
+	// 메서드의 매개변수는 stack 메모리에 생성
+	Runnable getRunnable(int i) {
+
+		// stack 메모리에 생성
+		int num = 10;
+
+		// getRunnable() 내부에 있는 지역 내부 클래스
+		class MyRunnable implements Runnable {
+
+			int localNum = 1000;
+
+			@Override
+			public void run() {
+
+				// i = 50;
+				// num = 20;
+				/**
+				 * 메서드의 지역변수(i, num)을 get하는건 가능하지만, set하는건 불가능하다
+				 * set 하려고 하면 이런 메시지가 나온다 -> Variable 'i' is accessed from within inner class, needs to be final or effectively final
+				 * 왜냐하면 getRunnable() 메서드의 지역변수 생명주기와 MyRunnable 클래스의 생명주기가 달라서 그렇다
+				 * i와 num은 stack 메모리에 생성되었다가 메서드가 종료되면 메모리에서 제거된다
+				 * but, MyRunnable 클래스는 생성되면 나중에 또 호출될 수 있다
+				 * 또 호출되었을 때 i, num이 없으면 값을 할당해줄 수 없게 된다 -> 그럼 i, num은 stack에 생성되면 안된다 -> 그래서 이런 경우에 컴파일러가 다 final로 처리해버린다
+				 * 따라서 내부 클래스에서 접근하는 변수들은 stack에 생성되고, 상수화돼서 상수 메모리에 생성된다 -> 그렇기 때문에 값을 변경할수는 없는 것이다
+				 */
+
+				System.out.println("i = " + i);
+				System.out.println("num = " + num);
+				System.out.println("localNum = " + localNum);
+
+				// 지역 내부 클래스는 외부 클래스가 생성된 다음 불리기 때문에 외부 클래스 인스턴스 변수에 접근 가능
+				System.out.println("outNum = " + outNum + "(외부 클래스 인스턴스 변수)");
+				System.out.println("LocalAndAnonymousInnerClassOuter.sNum = "
+						+ LocalAndAnonymousInnerClassOuter.sNum + "(외부 클래스 정적 변수)");
+			}
+		}
+
+		return new MyRunnable();
+	}
+}
+```
+```java
+class LocalAndAnonymousInnerClassOuterTest {
+
+	@Test
+	void localInnerClassTest() {
+		LocalAndAnonymousInnerClassOuter outer = new LocalAndAnonymousInnerClassOuter();
+		Runnable runnable = outer.getRunnable(100);
+
+		runnable.run();
+	}
+
+}
+```
+
+결과
+```text
+i = 100
+num = 10
+localNum = 1000
+outNum = 100(외부 클래스 인스턴스 변수)
+LocalAndAnonymousInnerClassOuter.sNum = 200(외부 클래스 정적 변수)
+```
+
+<br/>
+
+---
+
+<br/>
+
+출처 및 참고
+- [패스트캠퍼스 - 한번에 끝내는 Java/Spring 웹 개발 마스터 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_javaend)
