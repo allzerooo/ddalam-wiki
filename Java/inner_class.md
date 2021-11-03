@@ -1,6 +1,7 @@
 - [내부 클래스 (inner class)](#내부-클래스-inner-class)
-  - [내부 클래스의 종류](#내부-클래스의-종류)
-    - [인스턴스 내부 클래스](#인스턴스-내부-클래스)
+	- [내부 클래스의 종류](#내부-클래스의-종류)
+		- [인스턴스 내부 클래스](#인스턴스-내부-클래스)
+		- [정적 내부 클래스](#정적-내부-클래스)
 
 # 내부 클래스 (inner class)
 - 클래스 내부에 선언한 클래스로 외부 클래스와 밀접한 연관이 있는 경우가 많고, 다른 외부 클래스에서 사용할 일이 거의 없는 경우에 내부 클래스로 선언해서 사용한다
@@ -96,4 +97,49 @@ class OutTest {
 OutClass num = 10(외부 클래스의 인스턴스 변수)
 OutClass sNum = 20(외부 클래스의 스태틱 변수)
 InClass inNum = 100(내부 클래스의 인스턴스 변수)
+```
+
+### 정적 내부 클래스
+- 외부 클래스 생성과 무관하게 사용할 수 있음
+- 정적 변수, 정적 메서드 사용
+
+```java
+public class Out {
+
+	private int num = 10;
+	private static int sNum = 20;
+
+	static class StaticInner {
+		int inNum = 10;;
+		static int sInNum = 200;
+
+		void staticInnerTest() {
+			// 외부 클래스의 생성과 상관없이 만들어질 수 있는 내부 클래스이기 때문에 외부 클래스의 인스턴스 변수에 접근할 수 없다
+			// System.out.println("OutClass num = " + num + "(외부 클래스의 인스턴스 변수)");
+			System.out.println("OutClass sNum = " + sNum + "(외부 클래스의 스태틱 변수)");
+			System.out.println("InClass inNum = " + inNum + "(내부 클래스의 인스턴스 변수)");
+			System.out.println("InClass sInNum = " + sInNum + "(내부 클래스의 스태틱 변수)");
+		}
+
+		static void staticInnerStaticMethodTest() {
+			System.out.println("OutClass sNum = " + sNum + "(외부 클래스의 스태틱 변수)");
+			// static 메서드는 static 내부 클래스의 생성과 상관없이 호출될 수 있기 때문에 static 내부 클래스의 인스턴스 변수에 접근할 수 없다
+			// System.out.println("InClass inNum = " + inNum + "(내부 클래스의 인스턴스 변수)");
+			System.out.println("InClass sInNum = " + sInNum + "(내부 클래스의 스태틱 변수)");
+		}
+	}
+}
+```
+```java
+class OutTest {
+
+	@Test
+	void staticInnerClassTest() {
+		Out.StaticInner staticInner = new Out.StaticInner();
+		staticInner.staticInnerTest();
+
+		Out.StaticInner.staticInnerStaticMethodTest();
+	}
+
+}
 ```
