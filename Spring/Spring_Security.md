@@ -8,6 +8,8 @@
     - [PasswordEncoder](#passwordencoder)
       - [password 관리](#password-관리)
       - [PasswordEncoder 전략](#passwordencoder-전략)
+  - [메모리 사용자](#메모리-사용자)
+    - [방법](#방법)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -25,7 +27,7 @@
 
 - Spring 기반 애플리케이션의 보안을 담당하고 있는 프레임워크
 - Spring 생태계에서 Authentication, Authorization 개념을 최대한 쉽고 유연하게 구현할 수 있도록 만들어진 프레임워크
-- Spring Security의 주된 목표는 REST API endpoint, MVC url, 정적 리소스와 같은 리소스들에 접근하는 요청의 인증을 책임지는 것이다
+- Spring Security의 주된 목표는 REST API endpoint, MVC URL, 정적 리소스와 같은 리소스들에 접근하는 요청의 인증을 책임지는 것이다
 
 <br/>
 
@@ -41,6 +43,7 @@ Spring Security가 궁금적으로 이루고자 하는 목표
 #### 다양한 인증 방법
 1. 모든 요청마다 나의 ID와 패스워드를 포함시켜서 요청한다
 2. 나의 ID와 패스워드를 서버에 주고 그 응답으로 아무나 해독이 불가능한 key를 받는다(나랑 서버밖에 모르는 값) → 그 key를 모든 요청에 포함해서 보낸다
+3. 소셜 로그인 (인증 위임)
 
 ### Authorization
 - 인증 이후에 리소스에 대한 권한을 통제하는 것을 의미
@@ -123,6 +126,14 @@ public class Controller {
 
 #### PasswordEncoder 전략
 
+## 메모리 사용자
+간단히 특정된 소스를 위한 서비스나 테스트를 위해 사용
+
+### 방법
+
+1. 기본 사용자 로그인 (처음 설정되어 있는)
+ 
+
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
 
@@ -187,4 +198,5 @@ Secret Key 1개에 unique한 ID(kid 또는 key id라고 부름)를 연결시켜 
 <br/>
 
 출처 및 참고
+- [한번에 끝내는 Java/Spring 웹 개발 마스터 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_javaend)
 - [한 번에 끝내는 Spring 완.전.판](https://fastcampus.co.kr/dev_online_spring)
