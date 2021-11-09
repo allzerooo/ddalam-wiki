@@ -10,6 +10,8 @@
       - [PasswordEncoder 전략](#passwordencoder-전략)
   - [메모리 사용자](#메모리-사용자)
     - [방법](#방법)
+  - [Spring Security Config](#spring-security-config)
+    - [적용할 수 있는 Annotation](#적용할-수-있는-annotation)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -132,7 +134,31 @@ public class Controller {
 ### 방법
 
 1. 기본 사용자 로그인 (처음 설정되어 있는)
- 
+  - ID : user
+  - PW : Spring Boot 실행 시 콘솔에 패스워드가 나온다
+    <p align="left">
+      <img src="../image/spring_security_default_pw.png"  width="480" height="auto">
+    </p>
+2. `application.yml`에 설정하기
+   ```yml
+    spring:
+      security:
+        user:
+          name: user1
+          password: 1111
+          roles: USER
+   ```
+   user를 한 명만 추가할 수 있다 → 
+
+## Spring Security Config
+`WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
+
+### 적용할 수 있는 Annotation
+- `@Order(1)` : security filter chain을 여러개 구성할 경우 순서 지정
+- `@EnableWebSecurity`
+  - `@EnableWebSecurity(debug = true)` : security 필터를 어떻게 구성했는지 터미널 로그로 확인할 수 있음
+- `@EnableGlobalMethodSecurity`
+  - `@EnableGlobalMethodSecurity(prePostEnabled = true)` : 권한 체크 모듈이 작동됨
 
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
