@@ -10,10 +10,10 @@
     - [PasswordEncoder](#passwordencoder)
       - [password 관리](#password-관리)
       - [PasswordEncoder 전략](#passwordencoder-전략)
-  - [메모리 사용자](#메모리-사용자)
-    - [방법](#방법)
   - [Spring Security Config](#spring-security-config)
     - [적용할 수 있는 Annotation](#적용할-수-있는-annotation)
+  - [메모리 사용자](#메모리-사용자)
+    - [방법](#방법)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -51,6 +51,8 @@
 - 인증 이후에 리소스에 대한 권한을 통제하는 것을 의미
 - "당신은 무엇을 할 수 있습니까?"
 - 클라이언트가 요청한 작업이 허가된 작업인지 확인하는 절차
+
+<br/>
 
 ## Spring Security Filter
 <p align="center">
@@ -93,6 +95,7 @@ Security Filter Chain에는 다양한 필터들이 들어갈 수 있다. 필터�
 
 경우에 따라 필터를 만들고 추가해 사용할수도 있다.
 
+<br/>
 
 ## Spring Security 아키텍처
 
@@ -170,6 +173,32 @@ public class Controller {
 
 #### PasswordEncoder 전략
 
+<br/>
+
+## Spring Security Config
+- `WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
+- 기본적으로 모든 요청은 다 막혀있다
+  ```java
+  http.authorizeRequests((requests) ->
+                  requests.anyRequest().authenticated());
+  ```
+  - `antMatchers()`를 사용해서 요청 마다 인증 수준을 설정할 수 있다
+    ```java
+    http.authorizeRequests((requests) ->
+                requests.antMatchers("/").permitAll()   // "/" 주소는 모든 사용자에게 접근을 허락
+                        .anyRequest().authenticated()   // 나머지는 인증해야 접근을 허락
+        );
+    ```
+
+### 적용할 수 있는 Annotation
+- `@Order(1)` : security filter chain을 여러개 구성할 경우 순서 지정
+- `@EnableWebSecurity`
+  - `@EnableWebSecurity(debug = true)` : security 필터를 어떻게 구성했는지 터미널 로그로 확인할 수 있음
+- `@EnableGlobalMethodSecurity`
+  - `@EnableGlobalMethodSecurity(prePostEnabled = true)` : 권한 체크 모듈이 작동됨
+
+<br/>
+
 ## 메모리 사용자
 간단히 특정된 소스를 위한 서비스나 테스트를 위한 사용자
 
@@ -217,27 +246,7 @@ public class Controller {
    ```
 4. `UserDetailService` 사용하기
 
-## Spring Security Config
-- `WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
-- 기본적으로 모든 요청은 다 막혀있다
-  ```java
-  http.authorizeRequests((requests) ->
-                  requests.anyRequest().authenticated());
-  ```
-  - `antMatchers()`를 사용해서 요청 마다 인증 수준을 설정할 수 있다
-    ```java
-    http.authorizeRequests((requests) ->
-                requests.antMatchers("/").permitAll()   // "/" 주소는 모든 사용자에게 접근을 허락
-                        .anyRequest().authenticated()   // 나머지는 인증해야 접근을 허락
-        );
-    ```
-
-### 적용할 수 있는 Annotation
-- `@Order(1)` : security filter chain을 여러개 구성할 경우 순서 지정
-- `@EnableWebSecurity`
-  - `@EnableWebSecurity(debug = true)` : security 필터를 어떻게 구성했는지 터미널 로그로 확인할 수 있음
-- `@EnableGlobalMethodSecurity`
-  - `@EnableGlobalMethodSecurity(prePostEnabled = true)` : 권한 체크 모듈이 작동됨
+<br/>
 
 ## 토큰으로 인증하기
 세션의 단점을 해결하기 위해 사용한다.
@@ -263,6 +272,8 @@ public class Controller {
 ### 토큰 인증 방법의 단점
 1. 한번 제공된 토큰은 회수가 어렵다. 세션의 경우 서버에서 세션을 삭제하면 브라우저의 JSESSIONID는 무용지물이 된다. 그러나 토큰은 세션을 저장하지 않기 때문에 회수할 수 없다. 그래서 보통 토큰의 유효기간을 짧게 한다
 2. 토큰에는 유저의 정보가 있기 때문에 상대적으로 안정성이 우려된다. 따라서 민감정보(ex 패스워드, 개인정보)를 토큰에 포함시키면 안된다
+
+<br/>
 
 ## JWT(Json Web Token)
 토큰 인증 방식에서 가장 잘 알려져있다

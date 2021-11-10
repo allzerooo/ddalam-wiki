@@ -162,8 +162,8 @@
             <ul><li><a href="Spring/Spring_Security.md#spring-security가-궁극적으로-이루고자-하는-목표">Spring Security가 궁극적으로 이로자 하는 목표</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-filter">Spring Security Filter</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-아키텍처">Spring Security 아키텍처</a></li></ul>
-            <ul><li><a href="Spring/Spring_Security.md#메모리-사용자">메모리 사용자</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-config">Spring Security Config</a></li></ul>
+            <ul><li><a href="Spring/Spring_Security.md#메모리-사용자">메모리 사용자</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#토큰으로-인증하기">토큰으로 인증하기</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#jwtjson-web-token">JWT(Json Web Token)</a></li></ul>
         </details>
