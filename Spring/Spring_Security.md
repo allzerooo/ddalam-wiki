@@ -169,14 +169,26 @@ public class Controller {
 
     @Bean
     PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(); // Spring Security가 기본으로 사용하는 인코더
     }
   }
    ```
 
 
 ## Spring Security Config
-`WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
+- `WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
+- 기본적으로 모든 요청은 다 막혀있다
+  ```java
+  http.authorizeRequests((requests) ->
+                  requests.anyRequest().authenticated());
+  ```
+  - `antMatchers()`를 사용해서 요청 마다 인증 수준을 설정할 수 있다
+    ```java
+    http.authorizeRequests((requests) ->
+                requests.antMatchers("/").permitAll()   // "/" 주소는 모든 사용자에게 접근을 허락
+                        .anyRequest().authenticated()   // 나머지는 인증해야 접근을 허락
+        );
+    ```
 
 ### 적용할 수 있는 Annotation
 - `@Order(1)` : security filter chain을 여러개 구성할 경우 순서 지정
