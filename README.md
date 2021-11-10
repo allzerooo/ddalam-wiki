@@ -159,7 +159,7 @@
     <li>
         <details>
             <summary>Spring Security</summary>
-            <ul><li><a href="Spring/Spring_Security.md#spring-security가-궁극적으로-이루고자-하는-목표">Spring Security가 궁극적으로 이로자 하는 목표</a></li></ul>
+            <ul><li><a href="Spring/Spring_Security.md#spring-security가-궁극적으로-이루고자-하는-목표">Spring Security가 궁극적으로 이루고자 하는 목표</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-filter">Spring Security Filter</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-아키텍처">Spring Security 아키텍처</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security-config">Spring Security Config</a></li></ul>
