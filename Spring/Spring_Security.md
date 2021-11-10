@@ -129,7 +129,7 @@ public class Controller {
 #### PasswordEncoder 전략
 
 ## 메모리 사용자
-간단히 특정된 소스를 위한 서비스나 테스트를 위해 사용
+간단히 특정된 소스를 위한 서비스나 테스트를 위한 사용자
 
 ### 방법
 
@@ -148,7 +148,32 @@ public class Controller {
           password: 1111
           roles: USER
    ```
-   user를 한 명만 추가할 수 있다 → 
+   yml에는 사용자를 한 명만 추가할 수 있다
+3. `WebSecurityConfigurerAdapter` 사용하기
+   `WebSecurityConfigurerAdapter` 사용해 사용자를 추가하면 yml에 추가한 사용자는 더 이상 인식되지 않는다
+   ```java
+   public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser(User.builder()
+                            .username("user2")
+                            .password(passwordEncoder().encode("2222"))   // 패스워드를 인코딩하지 않으면 에러가 난다 -> passwordEncoder() 추가
+                            .roles("USER"))
+                .withUser(User.builder()
+                            .username("admin")
+                            .password(passwordEncoder().encode("3333"))
+                            .roles("ADMIN"));
+    }
+
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+  }
+   ```
+
 
 ## Spring Security Config
 `WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
