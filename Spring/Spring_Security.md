@@ -3,6 +3,8 @@
     - [Authentication](#authentication)
       - [다양한 인증 방법](#다양한-인증-방법)
     - [Authorization](#authorization)
+  - [Spring Security Filter](#spring-security-filter)
+    - [Filters](#filters)
   - [Spring Security 아키텍처](#spring-security-아키텍처)
     - [`ThreadLocal`](#threadlocal)
     - [PasswordEncoder](#passwordencoder)
@@ -51,6 +53,48 @@ Spring Security가 궁금적으로 이루고자 하는 목표
 - 인증 이후에 리소스에 대한 권한을 통제하는 것을 의미
 - "당신은 무엇을 할 수 있습니까?"
 - 클라이언트가 요청한 작업이 허가된 작업인지 확인하는 절차
+
+## Spring Security Filter
+<p align="center">
+    <img src="../image/servlet_container_2.png"  width="800" height="auth">
+</p>
+
+<p align="center">
+    <img src="../image/spring_security_filter.png"  width="600" height="auth">
+</p>
+
+Spring Security는 여러 security 정책이 공존할 수 있다. 경우에 따라 정책이 선택돼기 때문에 필터 체인에 어떤 정책을 넣어두기가 어렵다. 따라서, Spring Security는 `DelegatingFilterProxy`라는 필터를 만들어 메인 필터 체인에 끼워두고, Proxy가 다시 Security Filter Chain 그룹을 선택하도록 동작한다. 
+
+`WebSecurityConfigurerAdapter`의 `configure(HttpSecurity http)` 메서드에서 안에서 설정하는 내용이 Security Filter Chain을 구성하는 것이라고 볼 수 있다. 두 개 이상의 필터 체인을 구성하고 싶으면 `WebSecurityConfigurerAdapter`를 상속받는 클래스를 여러개 정의하면 되는데 이 때 어떤 순서로 request를 처리할 것인지 필터의 순서가 중요하기 때문에 반드시 클래스에 `@Order`를 추가해주어야 한다.
+
+### Filters
+Security Filter Chain에는 다양한 필터들이 들어갈 수 있다. 필터는 넣거나 뺄 수 이고, 순서를 조정할 수 있지만 필터의 순서가 매우 critical 할 수 있기 때문에 기본 필터들은 그 순서가 어느정도 정해져 있다.
+
+<p align="center">
+    <img src="../image/spring_security_filter_list.png"  width="600" height="auth">
+</p>
+
+각 필터는 서로 다른 관심사를 해결한다.
+
+- HeaderWriterFilter : Http 해더를 검사한다. 써야 할 건 잘 써있는지, 필요한 해더를 더해줘야 할 건 없는가?
+- CorsFilter : 허가된 사이트나 클라이언트의 요청인가?
+- CsrfFilter : POST, PUT과 같이 리소스 변경 요청의 경우 내가 내보낸 리소스에서 올라온 요청인가?
+- LogoutFilter : 지금 로그아웃하겠다고 하는건가?
+- UsernamePasswordAuthenticationFilter : username / password 로 로그인을 하려고 하는가? 만약 로그인이면 여기서 처리하고 가야 할 페이지로 보내준다
+- ConcurrentSessionFilter : 동시에 여러군데서 로그인 하는걸 허용할 것인가?
+- BearerTokenAuthenticationFilter : Authorization 해더에 Bearer 토큰이 오면 인증 처리 해준다
+- BasicAuthenticationFilter : Authorization 해더에 Basic 토큰을 주면 검사해서 인증처리 해준다
+- RequestCacheAwareFilter : 방금 요청한 request 이력이 다음에 필요할 수 있으니 캐시에 담아놓는다
+- SecurityContextHolderAwareRequestFilter : 보안 관련 Servlet 3 스펙을 지원하기 위한 필터라고 한다
+- RememberMeAuthenticationFilter : 아직 Authentication 인증이 안된 경우라면 RememberMe 쿠키를 검사해서 인증 처리해준다
+- AnonymousAuthenticationFilter : 아직도 인증이 안되었으면 Anonymous 사용자라고 처리
+- SessionManagementFilter : 서버에서 지정한 세션정책을 검사
+- ExcpetionTranslationFilter : 이 이후에 인증이나 권한 예외가 발생하면 잡아서 처리해 해준다
+- FilterSecurityInterceptor : 여기까지 살아서 왔다면 인증이 있다는 거니, 들어가려고 하는 request에 들어갈 자격이 있는지 그리고 리턴한 결과를 보내줘도 되는건지 마지막으로 점검해준다
+- 그 밖에 OAuth2나 Saml2, Cas, X509 등에 관한 필터들도 있다
+
+경우에 따라 필터를 만들고 추가해 사용할수도 있다.
+
 
 ## Spring Security 아키텍처
 
