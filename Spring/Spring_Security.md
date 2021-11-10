@@ -1,8 +1,8 @@
 - [Spring Security](#spring-security)
-  - [Authentication(인증), Authorization(인가)](#authentication인증-authorization인가)
-    - [Authentication](#authentication)
+  - [Spring Security가 궁극적으로 이루고자 하는 목표](#spring-security가-궁극적으로-이루고자-하는-목표)
+    - [Authentication(인증)](#authentication인증)
       - [다양한 인증 방법](#다양한-인증-방법)
-    - [Authorization](#authorization)
+    - [Authorization(인가)](#authorization인가)
   - [Spring Security Filter](#spring-security-filter)
     - [Filters](#filters)
   - [Spring Security 아키텍처](#spring-security-아키텍처)
@@ -35,11 +35,9 @@
 
 <br/>
 
-## Authentication(인증), Authorization(인가)
+## Spring Security가 궁극적으로 이루고자 하는 목표
 
-Spring Security가 궁금적으로 이루고자 하는 목표
-
-### Authentication
+### Authentication(인증)
 - 사용자가 누구인지 확인하는 절차
 - "당신은 누구입니까? 당신이 누구인지 증명하십시오"
 - 인증은 서비스를 이용하는 중에도 계속 이루어져야 한다
@@ -49,7 +47,7 @@ Spring Security가 궁금적으로 이루고자 하는 목표
 2. 나의 ID와 패스워드를 서버에 주고 그 응답으로 아무나 해독이 불가능한 key를 받는다(나랑 서버밖에 모르는 값) → 그 key를 모든 요청에 포함해서 보낸다
 3. 소셜 로그인 (인증 위임)
 
-### Authorization
+### Authorization(인가)
 - 인증 이후에 리소스에 대한 권한을 통제하는 것을 의미
 - "당신은 무엇을 할 수 있습니까?"
 - 클라이언트가 요청한 작업이 허가된 작업인지 확인하는 절차
