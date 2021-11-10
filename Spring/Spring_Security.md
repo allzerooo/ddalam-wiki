@@ -14,6 +14,9 @@
     - [적용할 수 있는 Annotation](#적용할-수-있는-annotation)
   - [메모리 사용자](#메모리-사용자)
     - [방법](#방법)
+  - [Authentication (인증, 로그인)](#authentication-인증-로그인)
+    - [`Authentication`](#authentication)
+      - [`Authentication`을 제공하는 필터들](#authentication을-제공하는-필터들)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -221,30 +224,71 @@ public class Controller {
    ```
    yml에는 사용자를 한 명만 추가할 수 있다
 3. `WebSecurityConfigurerAdapter` 사용하기
-   `WebSecurityConfigurerAdapter` 사용해 사용자를 추가하면 yml에 추가한 사용자는 더 이상 인식되지 않는다
-   ```java
-   public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    
+    `WebSecurityConfigurerAdapter` 사용해 사용자를 추가하면 yml에 추가한 사용자는 더 이상 인식되지 않는다
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser(User.builder()
-                            .username("user2")
-                            .password(passwordEncoder().encode("2222"))   // 패스워드를 인코딩하지 않으면 에러가 난다 -> passwordEncoder() 추가
-                            .roles("USER"))
-                .withUser(User.builder()
-                            .username("admin")
-                            .password(passwordEncoder().encode("3333"))
-                            .roles("ADMIN"));
-    }
+    ```java
+      public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // Spring Security가 기본으로 사용하는 인코더
-    }
-  }
-   ```
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.inMemoryAuthentication()
+                    .withUser(User.builder()
+                                .username("user2")
+                                .password(passwordEncoder().encode("2222"))   // 패스워드를 인코딩하지 않으면 에러가 난다 -> passwordEncoder() 추가
+                                .roles("USER"))
+                    .withUser(User.builder()
+                                .username("admin")
+                                .password(passwordEncoder().encode("3333"))
+                                .roles("ADMIN"));
+        }
+
+        @Bean
+        PasswordEncoder passwordEncoder() {
+            return new BCryptPasswordEncoder(); // Spring Security가 기본으로 사용하는 인코더
+        }
+      }
+    ```
 4. `UserDetailService` 사용하기
+
+<br/>
+
+## Authentication (인증, 로그인)
+
+로그인을 했다는 것은 `authenticated`가 `true`인 `Authentication` 객체를 `SecurityContext`에 갖고 있는 상태를 말한다. 단, `Authentication`이 `AnonymousAuthenticationToken`이 아니어야 한다.
+
+### `Authentication`
+
+- 일종의 통행증 같은 것. 인증된 사용자니까 접근 권한이 있는 곳에 접근할 수 있다는
+- `Authentication`은 인터페이스이고, 구현체들은 대부분 authenticationToken이라고 네이밍 되어있다.
+- 가지고 있는 정보들
+  - Set<GrantedAuthority> authorities : 인증된 권한 정보
+  - principal : 인증 대상에 관한 정보. 주로 UserDetails 객체가 옴
+  - credentials : 인증 확인을 위한 정보. 주로 비밀번호가 오지만, 인증 후에는 보안을 위해 삭제함.
+  - details : request에 대한 detail 정보. 그 밖에 필요한 정보. IP, 세션정보, 기타 인증요청에서 사용했던 정보들.
+  - boolean authenticated : 인증이 되었는지를 체크함.
+
+<p align="center">
+  <img src="../image/spring_security_authentication_structure.png"  width="600" height="auto">
+</p>
+
+일부 필터들이 `Authentication`을 제공하는 역할을 한다. 
+
+- AuthenticationProvider : `Authentication` 제공자
+- AuthenticationManager : AuthenticationProvider를 관리
+- ProviderManager : AuthenticationManager의 구현체
+
+#### `Authentication`을 제공하는 필터들
+- UsernamePasswordAuthenticationFilter : 폼 로그인 -> UsernamePasswordAuthenticationToken
+- RememberMeAuthenticationFilter : remember-me 쿠키 로그인 -> RememberMeAuthenticationToken
+- AnonymousAuthenticationFilter : 로그인하지 않았다는 것을 인증함 -> AnonymousAuthenticationToken
+- SecurityContextPersistenceFilter : 기존 로그인을 유지함(기본적으로 session을 이용함. session은 `Authentication`을 담고 있다가 이후 로그인에서 이 필터를 통해 `SecurityContextHolder`에 `Authentication`을 다시 넣어준다)
+- BearerTokenAuthenticationFilter : JWT 로그인
+- BasicAuthenticationFilter : ajax 로그인(`Authorization` 헤더에 username/password를 담아서 Base64로 인코딩해서 보내면 이 필터에서 인증 후 바료 요청을 수행해준다. 로그인 페이지가 필요없는 경우에, session을 사용하는 경우에 많이 사용) -> UsernamePasswordAuthenticationToken
+- OAuth2LoginAuthenticationFilter : 소셜 로그인 -> OAuth2LoginAuthenticationToken, OAuth2AuthenticationToken
+- OpenIDAuthenticationFilter : OpenID 로그인
+- Saml2WebSsoAuthenticationFilter : SAML2 로그인
+- ... 기타
 
 <br/>
 
