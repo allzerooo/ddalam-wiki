@@ -173,7 +173,7 @@ public class Controller {
     }
   }
    ```
-
+4. `UserDetailService` 사용하기
 
 ## Spring Security Config
 - `WebSecurityConfigurerAdapter`를 상속해 구현하는 config class
