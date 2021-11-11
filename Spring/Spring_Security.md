@@ -265,22 +265,34 @@ public class Controller {
 
 ### `Authentication`
 
-- 일종의 통행증 같은 것. 인증된 사용자니까 접근 권한이 있는 곳에 접근할 수 있다는
-- `Authentication`은 인터페이스이고, 구현체들은 대부분 authenticationToken이라고 네이밍 되어있다.
-- 가지고 있는 정보들
-  - Set<GrantedAuthority> authorities : 인증된 권한 정보
-  - principal : 인증 대상에 관한 정보. 주로 UserDetails 객체가 옴
-  - credentials : 인증 확인을 위한 정보. 주로 비밀번호가 오지만, 인증 후에는 보안을 위해 삭제함.
-  - details : request에 대한 detail 정보. 그 밖에 필요한 정보. IP, 세션정보, 기타 인증요청에서 사용했던 정보들.
-  - boolean authenticated : 인증이 되었는지를 체크함.
-
 <p align="center">
   <img src="../image/spring_security_authentication_structure.png"  width="600" height="auto">
 </p>
 
+<p align="center">
+  <img src="../image/spring_security_authentication_structure_2.png"  width="500" height="auto">
+</p>
+
+<p align="center">
+  <img src="../image/spring_security_authentication_provider.png"  width="400" height="auto">
+</p>
+
+- 일종의 통행증 같은 것. 인증된 사용자니까 접근 권한이 있는 곳에 접근할 수 있다는
+- `Authentication`은 인터페이스이고, 구현체들은 대부분 authenticationToken이라고 네이밍 되어있다
+- 인증을 받기 위한 정보, 인증을 하기 위한 정보, 인증 결과가 하나의 객체에 다 들어있다. 인증을 제공해줄 제공자(AuthenticationProvider)가 어떤 인증에 대해 허가를 내줄 것인지 판단하기 위해 입력된 인증 정보를 보고 허가된 인증을 내어주는 방식이다. 그래서 AuthenticationProvider는 처리 가능한 Authentication에 대해 알려주는 support 메서드를 지원하고, authenticate()에서 Authentication을 입력 값과 동시에 출력 값으로도 사용한다
+- Authentication 객체는 SecurityContetxtHolder를 통해 세션이 있건 없건 언제든 접근할 수 있도록 필터체인에서 보장해준다
+- 가지고 있는 정보들
+  - Set<GrantedAuthority> authorities : 인증된 권한 정보
+    - 어떤 권한을 가지는지를 나타내는 `GrantedAuthority` 인터페이스를 구현한 객체들을 가짐
+  - principal : 인증 대상(인증 해줘야될 객체)에 관한 정보. 주로 UserDetails 객체가 옴
+  - credentials : 인증을 받기 위해 필요한 정보. 주로 비밀번호가 오지만, 인증 후에는 보안을 위해 삭제함
+  - details : request에 대한 detail 정보. 그 밖에 필요한 정보. IP, 세션정보, 기타 인증요청에서 사용했던 정보들
+  - boolean authenticated : 인증이 되었는지를 체크함
+
 일부 필터들이 `Authentication`을 제공하는 역할을 한다. 
 
 - AuthenticationProvider : `Authentication` 제공자
+  - Authentication을 받아서 인증을 하고 인증된 결과를 다시 Authentication 객체로 전달한다
 - AuthenticationManager : AuthenticationProvider를 관리
 - ProviderManager : AuthenticationManager의 구현체
 
