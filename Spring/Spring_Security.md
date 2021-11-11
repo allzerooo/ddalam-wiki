@@ -17,6 +17,11 @@
   - [Authentication (인증, 로그인)](#authentication-인증-로그인)
     - [`Authentication`](#authentication)
       - [`Authentication`을 제공하는 필터들](#authentication을-제공하는-필터들)
+    - [폼 로그인](#폼-로그인)
+      - [`DefaultLogoutPageGeneratingFilter`](#defaultlogoutpagegeneratingfilter)
+      - [`UsernamePasswordAuthenticationFilter`](#usernamepasswordauthenticationfilter)
+      - [`DefaultLogoutPageGeneratingFilter`](#defaultlogoutpagegeneratingfilter-1)
+      - [`LogoutFilter`](#logoutfilter)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -289,6 +294,145 @@ public class Controller {
 - OpenIDAuthenticationFilter : OpenID 로그인
 - Saml2WebSsoAuthenticationFilter : SAML2 로그인
 - ... 기타
+
+### 폼 로그인
+
+#### `DefaultLogoutPageGeneratingFilter`
+- 별도의 로그인 페이지를 설정하지 않았을 때 제공되는 필터
+- GET /login을 처리해 기본 로그인 폼이 있는 페이지를 제공한다
+
+  ```java
+  public class DefaultLogoutPageGeneratingFilter extends OncePerRequestFilter {
+
+    private RequestMatcher matcher = new AntPathRequestMatcher("/logout", "GET");
+
+    ...
+
+    private void renderLogout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+      StringBuilder sb = new StringBuilder();
+      sb.append("<!DOCTYPE html>\n");
+      sb.append("<html lang=\"en\">\n");
+      sb.append("  <head>\n");
+      sb.append("    <meta charset=\"utf-8\">\n");
+      sb.append("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n");
+      sb.append("    <meta name=\"description\" content=\"\">\n");
+      sb.append("    <meta name=\"author\" content=\"\">\n");
+      sb.append("    <title>Confirm Log Out?</title>\n");
+      sb.append("    <link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css\" "
+          + "rel=\"stylesheet\" integrity=\"sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M\" "
+          + "crossorigin=\"anonymous\">\n");
+      sb.append("    <link href=\"https://getbootstrap.com/docs/4.0/examples/signin/signin.css\" "
+          + "rel=\"stylesheet\" crossorigin=\"anonymous\"/>\n");
+      sb.append("  </head>\n");
+      sb.append("  <body>\n");
+      sb.append("     <div class=\"container\">\n");
+      sb.append("      <form class=\"form-signin\" method=\"post\" action=\"" + request.getContextPath()
+          + "/logout\">\n");
+      sb.append("        <h2 class=\"form-signin-heading\">Are you sure you want to log out?</h2>\n");
+      sb.append(renderHiddenInputs(request)
+          + "        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Log Out</button>\n");
+      sb.append("      </form>\n");
+      sb.append("    </div>\n");
+      sb.append("  </body>\n");
+      sb.append("</html>");
+      response.setContentType("text/html;charset=UTF-8");
+      response.getWriter().write(sb.toString());
+    }
+
+    ...
+
+  }
+  ```
+
+#### `UsernamePasswordAuthenticationFilter`
+- POST /login 을 처리
+  ```java
+    http.formLogin()
+  ```
+  위 내용에 설정된다
+- 주요 설정 정보
+  - filterProcessingUrl : 로그인을 처리해 줄 URL (POST) (기본 값은 /login)
+  - username parameter : POST에 username에 대한 값을 넘겨줄 인자의 이름
+  - password parameter : POST에 password에 대한 값을 넘겨줄 인자의 이름
+  - 로그인 성공시 처리 방법
+    - defaultSuccessUrl : 로그인 성공 시 이동할 URL, alwaysUse 옵션 설정이 중요 (false로 설정하지 않으면 루트 페이지로 이동, false로 설정할 경우 로그인을 요청했던 페이지로 이동)
+    - successHandler
+  - 로그인 실패시 처리 방법
+    - failureUrl
+    - failureHandler
+  - authenticationDetailSource : Authentication 객체의 details 에 들어갈 정보를 직접 만들어 줌.
+- 주요 로직
+  ```java
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+        throws AuthenticationException {
+      if (this.postOnly && !request.getMethod().equals("POST")) {
+        throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
+      }
+      String username = obtainUsername(request);
+      username = (username != null) ? username : "";
+      username = username.trim();
+      String password = obtainPassword(request);
+      password = (password != null) ? password : "";
+      UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+      // Allow subclasses to set the "details" property
+      setDetails(request, authRequest);
+      return this.getAuthenticationManager().authenticate(authRequest); // authentication manager에게 인증을 위임 → authentication provider들에게 인증을 처리할 수 있는지 물어봄(?) → authentication provider들 중 하나라도 인증을 처리할 수 있다면 그 결과로 authentication을 넘겨줌
+    }
+  ```
+  - request에서 username, password를 꺼내서 `UsernamePasswordAuthenticationToken`을 생성하는데 이때까지는 authenticated가 false인 상황
+  - `this.getAuthenticationManager().authenticate(authRequest);` 이 때 details가 필요할 수 있어서 위 라인에서 `setDetails`를 한다
+  - `UsernamePasswordAuthenticationFilter`를 커스터마이징 해야 될 때가 있는데 그 때 details에 들어갈 정보를 직접 넣어줄 수 있도록 `authenticationDetailSource` 제공된다
+
+#### `DefaultLogoutPageGeneratingFilter`
+- 별도의 로그아웃 페이지를 설정하지 않았을 때 제공되는 필터
+- GET /logout을 처리해 기본 로그아웃 폼이 있는 페이지를 제공한다
+
+#### `LogoutFilter`
+- POST /logout이 요청되었을 때 동작하는 filter
+- logout URL을 변경할 수 있다
+  ```java
+    private void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+      if (requiresLogout(request, response)) { // logout URL일 때만 처리, 나머지는 통과
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (this.logger.isDebugEnabled()) {
+          this.logger.debug(LogMessage.format("Logging out [%s]", auth));
+        }
+        this.handler.logout(request, response, auth); // handler에게 logout 처리 요청
+        this.logoutSuccessHandler.onLogoutSuccess(request, response, auth);
+        return;
+      }
+      chain.doFilter(request, response);
+    }
+  ```
+- `LogoutHandler`
+  ```java
+    public interface LogoutHandler {
+
+      void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication);
+
+    }
+  ```
+  - 구현체들
+    - SecurityContextLogoutHandler : 세션과 SecurityContext 를 clear 함.
+    - CookieClearingLogoutHandler : clear 대상이 된 쿠키들을 삭제함.
+    - CsrfLogoutHandler : csrfTokenRepository 에서 csrf 토큰을 clear 함.
+    - HeaderWriterLogoutHandler
+    - RememberMeServices : remember-me 쿠키를 삭제함.
+    - LogoutSuccessEventPublishingLogoutHandler : 로그아웃이 성공하면 이벤트를 발행함.
+- `LogoutSuccessHandler`
+  - `LogoutHandler`가 처리 성공 시 `LogoutSuccessHandler`에게 그 다음 처리를 넘김
+  ```java
+    public interface LogoutSuccessHandler {
+
+      void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
+          throws IOException, ServletException;
+
+    }
+  ```
+  - 구현체 
+    - SimpleUrlLogoutSuccessHandler
 
 <br/>
 
