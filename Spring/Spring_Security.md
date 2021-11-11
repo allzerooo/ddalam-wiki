@@ -16,6 +16,7 @@
     - [방법](#방법)
   - [Authentication (인증, 로그인)](#authentication-인증-로그인)
     - [`Authentication`](#authentication)
+      - [AuthenticationProvider, AuthenticationManager](#authenticationprovider-authenticationmanager)
       - [`Authentication`을 제공하는 필터들](#authentication을-제공하는-필터들)
     - [폼 로그인](#폼-로그인)
       - [`DefaultLogoutPageGeneratingFilter`](#defaultlogoutpagegeneratingfilter)
@@ -273,13 +274,8 @@ public class Controller {
   <img src="../image/spring_security_authentication_structure_2.png"  width="500" height="auto">
 </p>
 
-<p align="center">
-  <img src="../image/spring_security_authentication_provider.png"  width="400" height="auto">
-</p>
-
 - 일종의 통행증 같은 것. 인증된 사용자니까 접근 권한이 있는 곳에 접근할 수 있다는
 - `Authentication`은 인터페이스이고, 구현체들은 대부분 authenticationToken이라고 네이밍 되어있다
-- 인증을 받기 위한 정보, 인증을 하기 위한 정보, 인증 결과가 하나의 객체에 다 들어있다. 인증을 제공해줄 제공자(AuthenticationProvider)가 어떤 인증에 대해 허가를 내줄 것인지 판단하기 위해 입력된 인증 정보를 보고 허가된 인증을 내어주는 방식이다. 그래서 AuthenticationProvider는 처리 가능한 Authentication에 대해 알려주는 support 메서드를 지원하고, authenticate()에서 Authentication을 입력 값과 동시에 출력 값으로도 사용한다
 - Authentication 객체는 SecurityContetxtHolder를 통해 세션이 있건 없건 언제든 접근할 수 있도록 필터체인에서 보장해준다
 - 가지고 있는 정보들
   - Set<GrantedAuthority> authorities : 인증된 권한 정보
@@ -289,12 +285,56 @@ public class Controller {
   - details : request에 대한 detail 정보. 그 밖에 필요한 정보. IP, 세션정보, 기타 인증요청에서 사용했던 정보들
   - boolean authenticated : 인증이 되었는지를 체크함
 
-일부 필터들이 `Authentication`을 제공하는 역할을 한다. 
+
+#### AuthenticationProvider, AuthenticationManager
+
+<p align="center">
+  <img src="../image/spring_security_authentication_provider.png"  width="400" height="auto">
+</p>
+
+<p align="center">
+  <img src="../image/spring_security_authentication_manager.png"  width="500" height="auto">
+</p>
 
 - AuthenticationProvider : `Authentication` 제공자
   - Authentication을 받아서 인증을 하고 인증된 결과를 다시 Authentication 객체로 전달한다
-- AuthenticationManager : AuthenticationProvider를 관리
-- ProviderManager : AuthenticationManager의 구현체
+- AuthenticationManager : AuthenticationProvider들을 관리
+  - ProviderManager : AuthenticationManager의 구현체, 복수개 존재할 수 있다
+  - AuthenticationManager 직접 정의해서 제공하지 않는다면, AuthenticationManager를 만드는 `AuthenticationManagerFactoryBean`에서 `DaoAuthenticationProvider`를 기본 provider로 등록한 AuthenticationManager를 만든다
+  - DaoAuthenticationProvider는 반드시 1개의 UserDetailsService를 발견할 수 있어야 한다. 만약 없으면 InmemoryUserDetailsManager [(메모리 사용자)](#메모리-사용자)에 의해 기본 사용자가 등록되어 제공된다
+
+
+Authentication은 인증을 받기 위한 정보, 인증을 하기 위한 정보, 인증 결과가 하나의 객체에 다 들어있다. 인증을 제공해줄 제공자(AuthenticationProvider)가 어떤 인증에 대해 허가를 내줄 것인지 판단하기 위해 입력된 인증 정보를 보고 허가된 인증을 내어주는 방식이다. 그래서 AuthenticationProvider는 처리 가능한 Authentication에 대해 알려주는 support 메서드를 지원하고, authenticate()에서 Authentication을 입력 값과 동시에 출력 값으로도 사용한다.
+예를 들어, StudentManager라는 커스텀 AuthenticationProvider를 만들어본다면
+```java
+  public class StudentManager implements AuthenticationProvider, InitializingBean {
+
+      // StudentManager는 Student리스트를 가지고 있어야 된다. 따라서, 원래는 여기에서 DB 조회를 한다
+      private HashMap<String, Student> studentDB = new HashMap<>();
+
+      // Authentication Token을 StudentAuthenticationToken으로 발행해주기
+      @Override
+      public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+          StudentAuthenticationToken token = (StudentAuthenticationToken) authentication;
+          if (studentDB.containsKey(token.getCredentials())) {
+              Student student = studentDB.get(token.getCredentials());
+              // studentAuthenticationToken을 만들어서 return
+              return StudentAuthenticationToken.builder()
+                      .principal(student)
+                      .details(student.getUsername())
+                      .authenticated(true)
+                      .build();
+          }
+          return null;
+      }
+
+      @Override
+      public boolean supports(Class<?> authentication) {
+          // StudentAuthenticationToken을 처리할 수 있는 provider이다
+          return authentication == StudentAuthenticationToken.class;
+      }
+  }
+```
 
 #### `Authentication`을 제공하는 필터들
 - UsernamePasswordAuthenticationFilter : 폼 로그인 -> UsernamePasswordAuthenticationToken
