@@ -204,6 +204,7 @@ public class Controller {
   - `@EnableWebSecurity(debug = true)` : security 필터를 어떻게 구성했는지 터미널 로그로 확인할 수 있음
 - `@EnableGlobalMethodSecurity`
   - `@EnableGlobalMethodSecurity(prePostEnabled = true)` : 권한 체크 모듈이 작동됨
+  - `@PreAuthorize("hasAnyAuthority('ROLE_USER')")` 이와 같은 코드를 추가한 곳에서 권한 체크가 작동된다
 
 <br/>
 
@@ -358,9 +359,37 @@ public class Controller {
     - defaultSuccessUrl : 로그인 성공 시 이동할 URL, alwaysUse 옵션 설정이 중요 (false로 설정하지 않으면 루트 페이지로 이동, false로 설정할 경우 로그인을 요청했던 페이지로 이동)
     - successHandler
   - 로그인 실패시 처리 방법
-    - failureUrl
+    - failureUrl :  default URL은 "/login?error"
     - failureHandler
   - authenticationDetailSource : Authentication 객체의 details 에 들어갈 정보를 직접 만들어 줌.
+    ```java
+      @Component
+      public class CustomAuthDetails implements AuthenticationDetailsSource<HttpServletRequest, RequestInfo> {    // 넘겨줄 객체인 RequestInfo는 원하는대로 생성한 것
+
+          @Override
+          public RequestInfo buildDetails(HttpServletRequest request) {
+              // 로그인이 일어날 때 정보를 가져다가 RequestInfo에 넣어서 보내주기
+              return RequestInfo.builder()
+                      .remoteIp(request.getRemoteAddr())
+                      .sessionId(request.getSession().getId())
+                      .loginTime(LocalDateTime.now())
+                      .build();
+          }
+      }
+
+      public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+        private final CustomAuthDetails customAuthDetails;
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.formLogin(
+                    login -> login.loginPage("/login")
+                    .authenticationDetailsSource(customAuthDetails)
+                );
+        }
+      }
+    ```
 - 주요 로직
   ```java
     @Override
