@@ -23,6 +23,8 @@
       - [`UsernamePasswordAuthenticationFilter`](#usernamepasswordauthenticationfilter)
       - [`DefaultLogoutPageGeneratingFilter`](#defaultlogoutpagegeneratingfilter-1)
       - [`LogoutFilter`](#logoutfilter)
+    - [`BasicAuthenticationToken` 인증](#basicauthenticationtoken-인증)
+      - [`BasicAuthenticationFilter`](#basicauthenticationfilter)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -514,6 +516,35 @@ Authentication은 인증을 받기 위한 정보, 인증을 하기 위한 정보
   ```
   - 구현체 
     - SimpleUrlLogoutSuccessHandler
+
+### `BasicAuthenticationToken` 인증
+
+#### `BasicAuthenticationFilter`
+
+<p align="center">
+  <img src="../image/spring_security_basic_authentication_fiter.png"  width="500" height="auto">
+</p>
+
+<p align="center">
+  <img src="../image/spring_security_basic_authentication_spa.png"  width="500" height="auto">
+</p>
+
+- 기본적으로 로그인 페이지를 사용할 수 없는 상황에서 사용
+- 요청 헤더의 Autorization 필드에 ID/PW를 Base64로 인코딩한 Basic 토큰 값을 넣어서 보내면 BasicAuthenticationFilter가 헤더에서 이 토큰을 읽어서 인증을 시도한 다음, 인증이 되면 인증 토큰을 SecurityContextHolder에 넣어두는 작업을 한다
+- 토큰에 ID/PW가 포함되기 때문에 보안에 취약하며 https 프로토콜을 사용할 것을 권장한다
+- 보통 session을 사용할 때 BasicAuthenticationToken을 함께 사용한다. 로그인 되면 session에 Authentication이 저장되며, RememberMe를 설정한 경우에는 remember-me 쿠키가 브라우저에 저장되기 때문에 장시간 로그인을 거치지 않고 이용할 수 있기 때문에 최초 로그인시에만 인증을 처리하도록 사용한다
+- 에러가 나면 401 (UnAuthorized) 에러를 보낸다
+- 설정 방법
+  ```java
+    public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+      @Override
+      protected void configure(HttpSecurity http) throws Exception {
+          http
+              .httpBasic();
+      }
+    }
+  ```
 
 <br/>
 
