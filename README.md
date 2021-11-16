@@ -16,10 +16,15 @@
     <li><a href="CS/etc.md#멀티태스킹">멀티태스킹</a></li>
     <li><a href="CS/etc.md#멀티쓰레딩">멀티쓰레딩</a></li>
     <li><a href="CS/etc.md#교착상태">교착상태</a></li>
-    <li><a href="CS/etc.md#IP 주소">IP 주소</a></li>
     <li><a href="CS/etc.md#URL">URL</a></li>
-    <li><a href="CS/network.md#internet-network">인터넷</a></li>
     <li><a href="CS/oop.md"">객체지향 프로그래밍<a>
+    <li><a href="CS/etc.md#컴파일, 컴파일러">컴파일, 컴파일러</a></li>
+    <li>
+        <details>
+            <summary>운영체제</summary>
+            <ul><li><a href=""></a></li></ul>
+        </details>
+    </li>
     <li>
         <details>
             <summary>네트워크</summary>
@@ -54,7 +59,6 @@
             <ul><li>탐색</li></ul>
         </details>
     </li>
-    <li><a href="CS/etc.md#컴파일, 컴파일러">컴파일, 컴파일러</a></li>
 </ul>
 </ul>
 
@@ -240,24 +244,6 @@
 
 <br/>
 
-## 👀 Front-end
-<ul>
-    <li>
-        <details>
-            <summary>Vue</summary>
-            <ul>
-                <li><a href="Front-end/vue.md#lifecycle">라이프사이클</a></li>
-            </ul>
-            <summary>미분류</summary>
-            <ul>
-                <li><a href="Front-end/미분류.md">라이프사이클</a></li>
-            </ul>
-        </details>
-    </li>
-</ul>
-
-<br/>
-
 ## 🤡 ETC
 <ul>
     <li><a href="etc/framework_library.md">프레임워크, 라이브러리</a></li>
@@ -298,6 +284,24 @@
             <ul><li><a href="etc/Docker.md#dockerfile">Dockerfile</a></li></ul>
             <ul><li><a href="etc/Docker.md#docker-compose-cli">Docker Compose CLI</a></li></ul>
             <ul><li><a href="etc/Docker.md#etc">etc</a></li></ul>
+        </details>
+    </li>
+</ul>
+
+<br/>
+
+## 👀 Front-end
+<ul>
+    <li>
+        <details>
+            <summary>Vue</summary>
+            <ul>
+                <li><a href="Front-end/vue.md#lifecycle">라이프사이클</a></li>
+            </ul>
+            <summary>미분류</summary>
+            <ul>
+                <li><a href="Front-end/미분류.md">라이프사이클</a></li>
+            </ul>
         </details>
     </li>
 </ul>
