@@ -11,6 +11,8 @@
       - [null이 아닌 값을 포함하는 Optional 만들기](#null이-아닌-값을-포함하는-optional-만들기)
       - [null 값을 저장할 수 있는 Optional 만들기](#null-값을-저장할-수-있는-optional-만들기)
     - [맵으로 Optional의 값을 추출하고 변환하기](#맵으로-optional의-값을-추출하고-변환하기)
+      - [`map`](#map)
+      - [`flatMap`](#flatmap)
   - [Optional 객체 생성하기 - ```of()``` 또는 ```ofNullable()``` 사용](#optional-객체-생성하기---of-또는-ofnullable-사용)
   - [Optional 초기화 - ```empty()```](#optional-초기화---empty)
   - [Optional 객체의 값 가져오기 - ```get()``` 또는 ```orElse()``` 또는 ```orElseGet()``` 또는 ```orElseThrow()``` 사용](#optional-객체의-값-가져오기---get-또는-orelse-또는-orelseget-또는-orelsethrow-사용)
@@ -71,8 +73,29 @@ Optional<Car> optCar = Optional.ofNullable(car);
 car가 null이면 빈 Optional 객체가 반환된다
 
 ### 맵으로 Optional의 값을 추출하고 변환하기
+#### `map`
+```java
+Optional<Insurance> optInsurance = Optional.ofNullable(insurance);
+Optional<String> name = optInsurance.map(Insurance::getName);
+```
+<p align="center">
+    <img src="../image/optional_map.jpeg"  width="400" height="auto">
+</p>
+Optional이 값을 포함하면 map의 인수로 제공된 함수가 값을 바꾼다. Optional이 비어있으면 아무 일도 일어나지 않는다
 
-
+#### `flatMap`
+```java
+Optional<Person> optPerson = Optional.of(person);
+Optional<String> name = 
+    optPerson.map(Person::getCar)
+             .map(Car::getInsurance)
+             .map(Insurance::getName);
+```
+map()은 Optional<T> 형식의 객체를 반환하기 때문에 이러한 중첩 구조를 처리할 수 없다. flatMap은 Optional<Optional<T>>와 같은 이차원 Optional을 일차원 Optional로 다룰 수 있도록 해준다.
+<p align="center">
+    <img src="../image/optional_flatMap.jpeg"  width="400" height="auto">
+</p>
+Optional의 flatMap 메서드로 전달된 함수는 Optional에 저장된 정사각형을 Optional에 저장된 삼각형으로 바꾼다. map 메서드였다면 Optional 내부에 다른 Optional 그리고 그 내부에 삼각형이 저장되었겠지만 flatMap 메서드 덕분에 이차원 Optional이 하나의 삼각형을 포함하는 하나의 Optional로 바뀐다.
 
 Optional<T>는 지네릭 클래스로 T타입의 객체를 감싸는 래퍼 클래스이다. 값을 Optional 객체에 담아서 사용하면 매번 if문으로 값이 null인지 확인하는 대신 Optional에 정의된 메서드를 통해 간단히 처리할 수 있다.
 
