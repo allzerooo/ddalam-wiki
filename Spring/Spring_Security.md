@@ -534,6 +534,7 @@ Authentication은 인증을 받기 위한 정보, 인증을 하기 위한 정보
 - 토큰에 ID/PW가 포함되기 때문에 보안에 취약하며 https 프로토콜을 사용할 것을 권장한다
 - 보통 session을 사용할 때 BasicAuthenticationToken을 함께 사용한다. 로그인 되면 session에 Authentication이 저장되며, RememberMe를 설정한 경우에는 remember-me 쿠키가 브라우저에 저장되기 때문에 장시간 로그인을 거치지 않고 이용할 수 있어서 최초 로그인시에만 인증을 처리하도록 사용한다
 - 에러가 나면 401 (UnAuthorized) 에러를 보낸다
+- 기본적으로 UsernamePasswordAuthenticationToken을 사용해 인증한다
 - 설정 방법
   ```java
     public class SecurityConfig extends WebSecurityConfigurerAdapter {
