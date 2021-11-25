@@ -12,8 +12,10 @@
       - [PasswordEncoder 전략](#passwordencoder-전략)
   - [Spring Security Config](#spring-security-config)
     - [적용할 수 있는 Annotation](#적용할-수-있는-annotation)
-  - [메모리 사용자](#메모리-사용자)
-    - [방법](#방법)
+  - [사용자](#사용자)
+    - [메모리 사용자](#메모리-사용자)
+      - [방법](#방법)
+    - [데이터베이스 사용자](#데이터베이스-사용자)
   - [Authentication (인증, 로그인)](#authentication-인증-로그인)
     - [`Authentication`](#authentication)
       - [AuthenticationProvider, AuthenticationManager](#authenticationprovider-authenticationmanager)
@@ -211,10 +213,11 @@ public class Controller {
 
 <br/>
 
-## 메모리 사용자
+## 사용자
+### 메모리 사용자
 간단히 특정된 소스를 위한 서비스나 테스트를 위한 사용자
 
-### 방법
+#### 방법
 
 1. 기본 사용자 로그인 (처음 설정되어 있는)
   - ID : user
@@ -258,7 +261,12 @@ public class Controller {
         }
       }
     ```
-4. `UserDetailService` 사용하기
+### 데이터베이스 사용자
+UserDetails를 구현한 User 객체와 UserDetailsService를 구현하면 Spring Security가 나머지는 쉽게 쓸 수 있도록 지원해준다.
+
+<p align="center">
+  <img src="../image/spring_security_dao_authentication_provider.png"  width="600" height="auto">
+</p>
 
 <br/>
 
