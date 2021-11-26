@@ -267,6 +267,9 @@ UserDetails를 구현한 User 객체와 UserDetailsService를 구현하면 Sprin
 <p align="center">
   <img src="../image/spring_security_dao_authentication_provider.png"  width="600" height="auto">
 </p>
+<p align = "center" style="font-size: 12px; corlor: #a2a6a3;">SecurityConfig 블럭 내부 UsernamePasswordAuthenticationToken 오타 → UsernamePasswordAuthenticationFilter</p>
+
+UsernamePasswordAuthenticationFilter는 UsernamePasswordAuthenticationToken를 ProviderManager에게 넘겨준다. 기본적으로는 DaoAuthenticationProvider가 UsernamePasswordAuthenticationToken를 처리해주는데 이 때 UserDetailsService 빈이 있으면 토큰을 넘겨서 UserDetails라는 Principal 객체를 받도록 되어있다. 인증이 된 사용자라면 Principal 객체를 UsernamePasswordAuthenticationToken에 넣어서 리턴을 한다.
 
 <br/>
 
