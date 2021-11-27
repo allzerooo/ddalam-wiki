@@ -6,6 +6,9 @@ Effective Java(조슈아 블로크)
 
 - [Effectvie Java](#effectvie-java)
   - [객체 생성과 파괴](#객체-생성과-파괴)
+    - [Item 1. Constructor 대신 Static Factory Method를 고려하라](#item-1-constructor-대신-static-factory-method를-고려하라)
+      - [장점](#장점)
+      - [단점](#단점)
     - [<a name="itme7"></a>아이템 7. 다 쓴 객체 참조를 해제하라](#아이템-7-다-쓴-객체-참조를-해제하라)
     - [<a name="itme8"></a>아이템 8. finalizer와 cleaner 사용을 피하라](#아이템-8-finalizer와-cleaner-사용을-피하라)
     - [<a name="itme9"></a>아이템 9. try-finally 보다는 try-with-resources를 사용하라](#아이템-9-try-finally-보다는-try-with-resources를-사용하라)
@@ -23,6 +26,20 @@ Effective Java(조슈아 블로크)
 <br/>
 
 ## 객체 생성과 파괴
+
+### Item 1. Constructor 대신 Static Factory Method를 고려하라
+
+#### 장점
+1. 이름을 가질 수 있다
+2. Simple하고 명확하게 사용할 수 있다
+3. 인스턴스를 매번 생성할 필요는 없다
+   - Flyweight pattern - Collection Object
+   - Singleton pattern - Single Object
+   (Singleton의 경우 한 객체, Flyweight의 경우 multiple한 객체를 다룬다)
+
+#### 단점
+1. Static Factory method만 제공하면 Costructor가 없을 수 있어 상속받은 Class를 만들 수 없다(장점이 되는 상황이 있을수도 있다)
+2. 프로그래머에게 인지가 잘 되지 않을 수 있다(생성자가 익숙)
 
 ### <a name="itme7"></a>아이템 7. 다 쓴 객체 참조를 해제하라
 
