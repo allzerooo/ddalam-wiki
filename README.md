@@ -93,22 +93,6 @@
     <li><a href="Java/thread.md">쓰레드</a></li>
     <li>
         <details>
-            <summary>Effective Java</summary>
-            <ul>
-                <li><a href="Java/EffectiveJava.md#item7">객체 생성과 파괴 - 아이템 7. 다 쓴 객체 참조를 헤제하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item8">객체 생성과 파괴 - 아이템 8. finalizer와 cleaner 사용을 피하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item9">객체 생성과 파괴 - 아이템 9. try-finally 보다는 try-with-resources를 사용하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item10">모든 객체의 공통 메서드 - 아이템 10. equals는 일반 규약을 지켜 재정의하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item11">모든 객체의 공통 메서드 - 아이템 11. equals를 재정의하려거든 hashCode도 재정의하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item12">모든 객체의 공통 메서드 - 아이템12. toString을 항상 재정의하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item12">모든 객체의 공통 메서드 - 아이템13. clone 재정의는 주의해서 진행하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item61">일반적인 프로그래밍 원칙 - 아이템61. 박싱된 기본 타입보다는 기본 타입을 사용하라</a></li>
-                <li><a href="Java/EffectiveJava.md#item69">예외 - 예외는 진짜 예외 상황에만 사용하라</a></li>
-            </ul>
-        </details>
-    </li>
-    <li>
-        <details>
             <summary>객체 지향 프로그래밍</summary>
             <ul>
                 <li><a href="Java/객체지향프로그래밍.md#polymorphism">다형성</a></li>
@@ -137,6 +121,22 @@
                 <li><a href="Java/optional.md#값이-없는-상황">값이 없는 상황</a></li>
                 <li><a href="Java/optional.md#optional-클래스">Optional 클래스</a></li>
                 <li><a href="Java/optional.md#optional-적용-패턴">Optional 적용 패턴</a></li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>Effective Java</summary>
+            <ul>
+                <li><a href="Java/effective_java.md#item7">객체 생성과 파괴 - 아이템 7. 다 쓴 객체 참조를 헤제하라</a></li>
+                <li><a href="Java/effective_java.md#item8">객체 생성과 파괴 - 아이템 8. finalizer와 cleaner 사용을 피하라</a></li>
+                <li><a href="Java/effective_java.md#item9">객체 생성과 파괴 - 아이템 9. try-finally 보다는 try-with-resources를 사용하라</a></li>
+                <li><a href="Java/effective_java.md#item10">모든 객체의 공통 메서드 - 아이템 10. equals는 일반 규약을 지켜 재정의하라</a></li>
+                <li><a href="Java/effective_java.md#item11">모든 객체의 공통 메서드 - 아이템 11. equals를 재정의하려거든 hashCode도 재정의하라</a></li>
+                <li><a href="Java/effective_java.md#item12">모든 객체의 공통 메서드 - 아이템12. toString을 항상 재정의하라</a></li>
+                <li><a href="Java/effective_java.md#item12">모든 객체의 공통 메서드 - 아이템13. clone 재정의는 주의해서 진행하라</a></li>
+                <li><a href="Java/effective_java.md#item61">일반적인 프로그래밍 원칙 - 아이템61. 박싱된 기본 타입보다는 기본 타입을 사용하라</a></li>
+                <li><a href="Java/effective_java.md#item69">예외 - 예외는 진짜 예외 상황에만 사용하라</a></li>
             </ul>
         </details>
     </li>
