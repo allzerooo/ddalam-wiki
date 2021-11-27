@@ -27,6 +27,11 @@
       - [`LogoutFilter`](#logoutfilter)
     - [`BasicAuthenticationToken` 인증](#basicauthenticationtoken-인증)
       - [`BasicAuthenticationFilter`](#basicauthenticationfilter)
+    - [OAuth2](#oauth2)
+    - [JWT 토큰 (Bearer 토큰)](#jwt-토큰-bearer-토큰)
+  - [인증을 유지하는 방식](#인증을-유지하는-방식)
+    - [세션](#세션)
+    - [메모리그리드](#메모리그리드)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
     - [세션의 단점](#세션의-단점)
@@ -557,6 +562,15 @@ Authentication은 인증을 받기 위한 정보, 인증을 하기 위한 정보
       }
     }
   ```
+### OAuth2
+
+### JWT 토큰 (Bearer 토큰)
+
+## 인증을 유지하는 방식
+
+### 세션
+
+### 메모리그리드
 
 <br/>
 
