@@ -1,19 +1,24 @@
 # Effectvie Java
 
-Effective Java(조슈아 블로크)를 읽고, 정리
+Effective Java(조슈아 블로크)
 
 <br/>
 
-- [객체 생성과 파괴 - 아이템7. 다 쓴 객체 참조를 해제하라](#item7)
-- [객체 생성과 파괴 - 아이템8. finalizer와 cleaner 사용을 피하라](#item8)
-- [객체 생성과 파괴 - 아이템9. try-finally 보다는 try-with-resources를 사용하라](#item9)
-- [모든 객체의 공통 메서드 - 아이템10. equals는 일반 규약을 지켜 재정의하라](#item10)
-- [모든 객체의 공통 메서드 - 아이템11. equals를 재정의하려거든 hashCode도 재정의하라](#item11)
-- [모든 객체의 공통 메서드 - 아이템12. toString을 항상 재정의하라](#item12)
-- [모든 객체의 공통 메서드 - 아이템13. clone 재정의는 주의해서 진행하라](#item13)
-- [모든 객체의 공통 메서드 - 아이템14. Comparable을 구현할지 고려하라](#item14)
-- [일반적인 프로그래밍 원칙 - 아이템61. 박싱된 기본 타입보다는 기본 타입을 사용하라](#item61)
-- [예외 - 예외는 진짜 예외 상황에만 사용하라](#item69)
+- [Effectvie Java](#effectvie-java)
+  - [객체 생성과 파괴](#객체-생성과-파괴)
+    - [<a name="itme7"></a>아이템 7. 다 쓴 객체 참조를 해제하라](#아이템-7-다-쓴-객체-참조를-해제하라)
+    - [<a name="itme8"></a>아이템 8. finalizer와 cleaner 사용을 피하라](#아이템-8-finalizer와-cleaner-사용을-피하라)
+    - [<a name="itme9"></a>아이템 9. try-finally 보다는 try-with-resources를 사용하라](#아이템-9-try-finally-보다는-try-with-resources를-사용하라)
+  - [모든 객체의 공통 메서드](#모든-객체의-공통-메서드)
+    - [<a name="itme10"></a>아이템 10. equals는 일반 규약을 지켜 재정의하라](#아이템-10-equals는-일반-규약을-지켜-재정의하라)
+    - [<a name="itme11"></a>아이템11. equals를 재정의하려거든 hashCode도 재정의하라](#아이템11-equals를-재정의하려거든-hashcode도-재정의하라)
+    - [<a name="itme12"></a>아이템12. toString을 항상 재정의하라](#아이템12-tostring을-항상-재정의하라)
+    - [<a name="itme13"></a>아이템13. clone 재정의는 주의해서 진행하라](#아이템13-clone-재정의는-주의해서-진행하라)
+    - [<a name="itme14"></a>아이템14. Comparable을 구현할지 고려하라](#아이템14-comparable을-구현할지-고려하라)
+  - [일반적인 프로그래밍 원칙](#일반적인-프로그래밍-원칙)
+    - [<a name="itme61"></a>아이템61. 박싱된 기본 타입보다는 기본 타입을 사용하라](#아이템61-박싱된-기본-타입보다는-기본-타입을-사용하라)
+  - [예외](#예외)
+    - [<a name="itme69"></a>아이템69. 예외는 진짜 예외 상황에만 사용하라](#아이템69-예외는-진짜-예외-상황에만-사용하라)
 
 <br/>
 
