@@ -569,8 +569,21 @@ Authentication은 인증을 받기 위한 정보, 인증을 하기 위한 정보
 ## 인증을 유지하는 방식
 
 ### 세션
+톰캣과 같은 WAS가 지원하는 세션을 이용하는 방법
+
+<br/>
+
+Spring Security는 세션에 관계없이 Authentication이라는 통행증을 발급, 다음 요청이 왔을 때 이 Authentication을 어떻게 유지시켜 줄 것인가라는 관심사를 가지고 있다. 이를 위해 Spring Security는 `SecurityContextPersistenceFilter`, `RememberMeAuthenticationFilter`, `AnonymousAuthenticationFilter` 등과 같이 인증을 보조해주는 필터를 제공한다.
+
+#### SecurityContextPersistenceFilter
+
+<p align="center">
+  <img src="../image/spring_security_security_context_persistance_filter.png"  width="500" height="auto">
+</p>
 
 ### 메모리그리드
+세션을 이용하기 어려운 경우 Redis나 DB를 이용해서 인증을 유지하는 방법
+- OAuth2, JWT 토큰을 사용하는 경우는 서버를 스케일 아웃할 것을 고려하는 큰 서비스이기 때문에 메모리그리드 방법을 고려하게 된다
 
 <br/>
 
