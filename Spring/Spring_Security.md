@@ -576,6 +576,12 @@ Authentication은 인증을 받기 위한 정보, 인증을 하기 위한 정보
 Spring Security는 세션에 관계없이 Authentication이라는 통행증을 발급, 다음 요청이 왔을 때 이 Authentication을 어떻게 유지시켜 줄 것인가라는 관심사를 가지고 있다. 이를 위해 Spring Security는 `SecurityContextPersistenceFilter`, `RememberMeAuthenticationFilter`, `AnonymousAuthenticationFilter` 등과 같이 인증을 보조해주는 필터를 제공한다.
 
 #### SecurityContextPersistenceFilter
+- SecurityContext를 저장하는 SecurityContextRepository를 가지고 있다
+- SecurityContextRepository는 여러 구현체가 있는데 기본적으로 HttpSessionSecurityContextRepository로 되어있다
+- 인증을 하게되면 그 이후부터는 Session에서 SecurityContext를 가져다가 SecurityContextHolder에 넣어준다
+- 그 이후 필터들은 SecurityContextHolder에 SecurityContext가 있기 때문에 인증이 된 것으로 간주한다
+- ThreadLocal이 작업을 완료하면 SecurityContext를 클리어 해준다
+
 
 <p align="center">
   <img src="../image/spring_security_security_context_persistance_filter.png"  width="500" height="auto">
