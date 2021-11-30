@@ -250,19 +250,6 @@
     <li><a href="etc/framework_library.md">프레임워크, 라이브러리</a></li>
     <li><a href="etc/refactoring.md">리팩토링</a></li>
     <li><a href="etc/programming_language.md">프로그래밍 언어</a></li>
-    <li><a href="etc/design_pattern.md">디자인 패턴</a></li>
-    <li>
-        <details>
-            <summary>Elasticsearch</summary>
-            <ul><li><a href="etc/Elasticsearch.md#elasticsearch-분산-검색-엔진">Elasticsearch: 분산 검색 엔진</a></li></ul>
-            <ul>
-                <li><a href="etc/Elasticsearch.md#검색">검색</a></li>
-                <ul>
-                    <li><a href="etc/Elasticsearch.md#query-dsl-1">Query DSL</a></li>
-                </ul>
-            </ul>
-        </details>
-    </li>
     <li><a href="etc/cluster.md">cluster</a></li>
     <li><a href="etc/binary_code_&_bytecode.md">바이너리 코드(Binary code), 바이트코드(Bytecode)</a></li>
     <li><a href="etc/proxy.md">프록시(Proxy)</a></li>
@@ -279,12 +266,31 @@
     <li><a href="etc/ApolloFederation.md">Apollo Federation</a></li>
     <li>
         <details>
+            <summary>Elasticsearch</summary>
+            <ul><li><a href="etc/Elasticsearch.md#elasticsearch-분산-검색-엔진">Elasticsearch: 분산 검색 엔진</a></li></ul>
+            <ul>
+                <li><a href="etc/Elasticsearch.md#검색">검색</a></li>
+                <ul>
+                    <li><a href="etc/Elasticsearch.md#query-dsl-1">Query DSL</a></li>
+                </ul>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Docker</summary>
             <ul><li><a href="etc/Docker.md#docker란">Docker란?</a></li></ul>
             <ul><li><a href="etc/Docker.md#docker-architecture">Docker architecture</a></li></ul>
             <ul><li><a href="etc/Docker.md#dockerfile">Dockerfile</a></li></ul>
             <ul><li><a href="etc/Docker.md#docker-compose-cli">Docker Compose CLI</a></li></ul>
             <ul><li><a href="etc/Docker.md#etc">etc</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>Design Pattern</summary>
+            <ul><li><a href="etc/design_pattern.md#design-pattern">Design Pattern</a></li></ul>
+            <ul><li><a href="etc/design_pattern.md#디자인-패턴의-필요성">디자인 패턴의 필요성</a></li></ul>
         </details>
     </li>
 </ul>

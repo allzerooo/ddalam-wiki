@@ -32,6 +32,8 @@ Effective Java(조슈아 블로크)
 - 제때 파괴됨을 보장하고 파괴 전에 수행해야 할 정리 작업을 관리하는 요령
 
 ### Item 1. Constructor 대신 Static Factory Method를 고려하라
+실무
+- DTO → VO로 컨버팅 or Entity → DTO로 컨버팅 하는 경우에 많이 사용
 
 #### 장점
 1. 이름을 가질 수 있다
@@ -59,6 +61,16 @@ Effective Java(조슈아 블로크)
 #### 정적 팩터리 메서드에 흔히 사용하는 명명 방식들
 
 **<em>정적 팩터리 메서드와 public 생성자는 각자의 쓰임새가 있으니 상대적인 장단점을 이해하고 사용하는 것이 좋다. 그렇다고 하더라도 정적 팩터리를 사용하는게 유리한 경우가 더 많으므로 무작정 public 생성자를 제공하던 습관이 있다면 고치자</em>**
+
+
+
+### Item 2. 많은 parameter가 있는 Constructor는 Builder를 고려하라
+실무
+- 사람이 식별할 수 있는 정도의 파라미터를 가지면 Builder를 사용하지 않는다
+
+
+
+### Item 3. private Constructor나 Enum type으로 Singleton임을 보증하라
 
 ### <a name="itme7"></a>아이템 7. 다 쓴 객체 참조를 해제하라
 
