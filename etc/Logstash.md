@@ -127,6 +127,9 @@ filter {
 ```
 `split` 옵션을 적용해 공백 기준으로 문자를 분리
 
+## logstash.yml
+Logstash 설정 파일로 Logstash 실행을 제어하는 옵션들을 설정
+
 <br/>
 
 ---
