@@ -1,4 +1,63 @@
+- [Stream](#stream)
+   - [Stream이 제공하는 유용한 기능](#stream이-제공하는-유용한-기능)
+
 # Stream
+
+## Stream이 제공하는 유용한 기능
+
+저칼로리 요리명을 반환하고, 칼로리를 기준으로 요리를 정렬하는 Java 7 코드
+```java
+public static List<String> getLowCaloricDishesNamesInJava7(List<Dish> dishes) {
+   List<Dish> lowCaloricDishes = new ArrayList<>();
+
+   // 칼로리가 400보다 작은 요리를 list에 추가
+   for (Dish d : dishes) {
+      if (d.getCalories() < 400) {
+         lowCaloricDishes.add(d);
+      }
+   }
+
+   // 선택된 요리를 칼로리를 기준으로 정렬
+   Collections.sort(lowCaloricDishes, new Comparator<Dish>() {
+      @Override
+      public int compare(Dish d1, Dish d2) {
+         return Integer.compare(d1.getCalories(), d2.getCalories());
+      }
+   });
+
+   // 정렬된 리스트에서 요리명을 얻기
+   List<String> lowCaloricDishesName = new ArrayList<>();
+   for (Dish d : lowCaloricDishes) {
+      lowCaloricDishesName.add(d.getName());
+   }
+
+   return lowCaloricDishesName;
+}
+```
+`lowCaloricDishes`는 컨테이너 역할만 하는 '가비지 변수'이다. Java 8에서는 이러한 세부 구현은 라이브러리 내에서 모두 처리한다.
+
+<br/>
+
+Java 8 코드
+```java
+public static List<String> getLowCaloricDishesNamesInJava8(List<Dish> dishes) {
+   return dishes.stream()
+      .filter(d -> d.getCalories() < 400)
+      .sorted(comparing(Dish::getCalories))
+      .map(Dish::getName)
+      .collect(toList());
+}
+```
+`stream()`을 `parallelStream()`으로 바꾸면 멀티코어 아키텍처에서 병렬로 실행할 수 있다
+
+<br/>
+
+1. 선언형 : 더 간결하고 가독성이 좋아진다
+   - 선언형으로 코드를 구현할 수 있다. 즉, 루프와 if 조건문 등의 제어 블록을 사용해서 어떻게 동작을 구현할지 지정할 필요 없이 '저칼로리 요리만 선택하라' 같은 동작의 수행을 지정할 수 있다.
+2. 조립할 수 있음 : 유연성이 좋아진다
+   - filter, sorted, map, collect 같은 여러 빌딩 블록 연산을 연결해서 복잡한 데이터 처리 파이프라인을 만들 수 있다
+3. 병렬성 : 성능이 좋아진다
+   - 데이터 처리 과정을 병렬화면서 스레드와 락을 걱정할 필요가 없다
 
 ## 정의
 많은 수의 데이터를 다룰 때, 데이터 소스(베열, 컬렉션, 파일 등)가 무엇이던 같은 방식으로 다룰 수 있도록 한 것
@@ -86,5 +145,9 @@ Stream<T>의 오토박싱, 언박싱으로 인한 비요율을 줄이기 위해 
 <br/>
 
 --- 
-참고
+
+<br/>
+
+출처 및 참고
 - Java의 정석 (남궁 성)
+- 모던 자바 인 액션(라울-게이브리얼 우르마, 마리오 푸스코, 앨런 마이크로프트)

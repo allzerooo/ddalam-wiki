@@ -80,7 +80,6 @@
     <li><a href="Java/interface.md">인터페이스</a></li>
     <li><a href="Java/Array.md">Array</a></li>
     <li><a href="Java/functinal_interface.md">함수형 인터페이스(functional interface)</a></li>
-    <li><a href="Java/stream.md">Stream</a></li>
     <li><a href="Java/CollectionsFramework.md">컬렉션 프레임워크</a></li>
     <li><a href="Java/Queue-class.md">Queue Class</a></li>
     <li><a href="Java/regular_expression.md">정규식</a></li>
@@ -111,6 +110,15 @@
                 <ul>
                     <li><a href="Java/inner_class.md#내부-클래스의-종류">내부 클래스의 종류</a></li>
                 </ul>
+            </ul>
+        </details>
+    </li>
+    <li><a href="Java/stream.md">Stream</a></li>
+    <li>
+        <details>
+            <summary>Stream</summary>
+            <ul>
+                <li><a href="Java/stream.md#stream이-제공하는-유용한-기능">Stream이 제공하는 유용한 기능</a></li>
             </ul>
         </details>
     </li>
