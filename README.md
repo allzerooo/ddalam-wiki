@@ -166,6 +166,12 @@
     <li><a href="Spring/Message_Internationalization.md">메시지, 국제화</a></li>
     <li>
         <details>
+            <summary>Properties</summary>
+            <ul><li><a href="Spring/spring_properties.md#spring-boot-properties">Spring Boot Properties</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Validation</summary>
             <ul><li><a href="Spring/validation.md#bindingresult">BindingResult</a></li></ul>
         </details>
