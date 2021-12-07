@@ -155,7 +155,6 @@
     <li><a href="Spring/IoC_DI_Container.md">IoC, DI, 컨테이너</a></li>
     <li><a href="Spring/spring_bean_lookup.md">스프링 빈 조회</a></li>
     <li><a href="Spring/singleton_container.md">싱글톤 컨테이너</a></li>
-    <li><a href="Spring/component_scan.md">컴포넌트 스캔</a></li>
     <li><a href="Spring/automatic_dependency_injection.md">의존관계 자동 주입</a></li>
     <li><a href="Spring/bean_life_cycle_callback.md">빈 생명주기 콜백</a></li>
     <li><a href="Spring/AOP.md">AOP</a></li>
@@ -170,6 +169,16 @@
         <details>
             <summary>Properties</summary>
             <ul><li><a href="Spring/spring_properties.md#spring-boot-properties">Spring Boot Properties</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>Component Scan</summary>
+            <ul><li><a href="Spring/component_scan.md#component-scan">Component Scan</a></li></ul>
+            <ul><li><a href="Spring/component_scan.md#spring-bean을-등록하는-방법">Spring Bean을 등록하는 방법</a></li></ul>
+            <ul><li><a href="Spring/component_scan.md#component-scan-적용-방법">Component Scan 적용 방법</a></li></ul>
+            <ul><li><a href="Spring/component_scan.md#componentscan을-사용할-때-의존관계-주입">@ComponentScan을 사용할 때 의존관계 주입</a></li></ul>
+            <ul><li><a href="Spring/component_scan.md#component-외-component-scan-대상">@Component 외 Component Scan 대상</a></li></ul>
         </details>
     </li>
     <li>

@@ -1,6 +1,6 @@
 # `@SpringBootApplication`
 
-스프링 부트 애플리케이션의 시작점
+Spring Boot 애플리케이션의 시작점
 
 ## `@SpringBootApplication` 코드
 ```java
