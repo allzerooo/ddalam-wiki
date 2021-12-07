@@ -31,7 +31,7 @@ public class AppConfig {
 
 `@ComponentScan`에 지정된 `basePackages` 또는 `basePackageClasses`에서부터 Spring이 모든 `@Component`를 탐색한다. 만약 지정된 base 정보가 없다면 `@ComponentScan`이 붙은 클래스의 패키지가 시작 위치가 된다. 
 
-`@ComponentScan`은 Spring Bean 등록을 위한 설정 정보(`@Configuration`이 있는)에 붙여주거나, Spring Boot 애플리케이션의 시작점인 <a href="Spring/@SpringBootApplication.md">@SpringBootApplication</a>에 `@ComponentScan`이 포함되어 있기 때문에 `@SpringBootApplication`를 프로젝트 루트에 두는 것이 관례이다
+`@ComponentScan`은 Spring Bean 등록을 위한 설정 정보(`@Configuration`이 있는)에 붙여주거나, Spring Boot 애플리케이션의 시작점인 <a href="https://github.com/ddalam/ddalam-wiki/blob/master/Spring/@SpringBootApplication.md">@SpringBootApplication</a>에 `@ComponentScan`이 포함되어 있기 때문에 `@SpringBootApplication`를 프로젝트 루트에 두는 것이 관례이다
 
 ## `@ComponentScan` 속성들
 - `basePackages` : 컴포넌트를 스캔할 패키지의 시작 위치를 지정
