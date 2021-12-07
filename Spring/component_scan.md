@@ -1,10 +1,12 @@
--[Component Scan](#component-scan)
+- [Component Scan](#component-scan)
   - [Spring Bean을 등록하는 방법](#spring-bean을-등록하는-방법)
     - [설정 정보에 등록한 Bean들을 나열](#설정-정보에-등록한-bean들을-나열)
+    - [Component Scan](#component-scan-1)
   - [Component Scan 적용 방법](#component-scan-적용-방법)
   - [`@ComponentScan` 속성들](#componentscan-속성들)
   - [`@ComponentScan`을 사용할 때 의존관계 주입](#componentscan을-사용할-때-의존관계-주입)
   - [`@Component` 외 Component Scan 대상](#component-외-component-scan-대상)
+    - [스프링 빈 중복 등록](#스프링-빈-중복-등록)
 
 # Component Scan
 
