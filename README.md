@@ -164,6 +164,7 @@
     <li><a href="Spring/HttpServletRequest.md">HttpServletRequest</a></li>
     <li><a href="Spring/Exception.md">Exception 처리</a></li>
     <li><a href="Spring/Message_Internationalization.md">메시지, 국제화</a></li>
+    <li><a href="Spring/@SpringBootApplication.md">@SpringBootApplication</a></li>
     <li>
         <details>
             <summary>Properties</summary>
