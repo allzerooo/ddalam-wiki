@@ -171,6 +171,7 @@
             <ul><li><a href="Spring/spring_properties.md#spring-boot-properties">Spring Boot Properties</a></li></ul>
         </details>
     </li>
+    <li><a href="Spring/@Configuration.md">@Configuration</a></li>
     <li>
         <details>
             <summary>Component Scan</summary>
