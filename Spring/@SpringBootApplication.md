@@ -21,3 +21,12 @@
 - `scanBasePackageClasses`
 - `nameGenerator`
 - `proxyBeanMethods`
+
+<br/>
+
+---
+
+<br/>
+
+출처 및 참고
+- [한 번에 끝내는 Spring 완.전.판 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_spring)
