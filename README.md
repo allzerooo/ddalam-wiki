@@ -167,8 +167,8 @@
     <li><a href="Spring/SpringApplication_class.md">SpringApplication Class</a></li>
     <li>
         <details>
-            <summary>Properties</summary>
-            <ul><li><a href="Spring/spring_properties.md#spring-boot-properties">Spring Boot Properties</a></li></ul>
+            <summary>Spring Boot Properties</summary>
+            <ul><li><a href="Spring/spring_boot_properties.md#spring-boot-properties">Spring Boot Properties</a></li></ul>
         </details>
     </li>
     <li><a href="Spring/@Configuration.md">@Configuration</a></li>
