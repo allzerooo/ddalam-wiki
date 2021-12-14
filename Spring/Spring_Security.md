@@ -1,7 +1,6 @@
 - [Spring Security](#spring-security)
   - [Spring Security가 궁극적으로 이루고자 하는 목표](#spring-security가-궁극적으로-이루고자-하는-목표)
     - [Authentication(인증)](#authentication인증)
-      - [다양한 인증 방법](#다양한-인증-방법)
     - [Authorization(인가)](#authorization인가)
   - [Spring Security Filter](#spring-security-filter)
     - [Filters](#filters)
@@ -31,6 +30,7 @@
     - [JWT 토큰 (Bearer 토큰)](#jwt-토큰-bearer-토큰)
   - [인증을 유지하는 방식](#인증을-유지하는-방식)
     - [세션](#세션)
+      - [SecurityContextPersistenceFilter](#securitycontextpersistencefilter)
     - [메모리그리드](#메모리그리드)
   - [토큰으로 인증하기](#토큰으로-인증하기)
     - [세션의 장점](#세션의-장점)
@@ -44,6 +44,8 @@
       - [Payload](#payload)
       - [Signature](#signature)
     - [Key Rolling](#key-rolling)
+    - [temp](#temp)
+      - [다양한 인증 방법](#다양한-인증-방법)
 
 # Spring Security
 
@@ -59,11 +61,6 @@
 - 사용자가 누구인지 확인하는 절차
 - "당신은 누구입니까? 당신이 누구인지 증명하십시오"
 - 인증은 서비스를 이용하는 중에도 계속 이루어져야 한다
-
-#### 다양한 인증 방법
-1. 모든 요청마다 나의 ID와 패스워드를 포함시켜서 요청한다
-2. 나의 ID와 패스워드를 서버에 주고 그 응답으로 아무나 해독이 불가능한 key를 받는다(나랑 서버밖에 모르는 값) → 그 key를 모든 요청에 포함해서 보낸다
-3. 소셜 로그인 (인증 위임)
 
 ### Authorization(인가)
 - 인증 이후에 리소스에 대한 권한을 통제하는 것을 의미
@@ -86,7 +83,7 @@ Spring Security는 여러 security 정책이 공존할 수 있다. 경우에 따
 `WebSecurityConfigurerAdapter`의 `configure(HttpSecurity http)` 메서드에서 안에서 설정하는 내용이 Security Filter Chain을 구성하는 것이라고 볼 수 있다. 두 개 이상의 필터 체인을 구성하고 싶으면 `WebSecurityConfigurerAdapter`를 상속받는 클래스를 여러개 정의하면 되는데 이 때 어떤 순서로 request를 처리할 것인지 필터의 순서가 중요하기 때문에 반드시 클래스에 `@Order`를 추가해주어야 한다.
 
 ### Filters
-Security Filter Chain에는 다양한 필터들이 들어갈 수 있다. 필터는 넣거나 뺄 수 이고, 순서를 조정할 수 있지만 필터의 순서가 매우 critical 할 수 있기 때문에 기본 필터들은 그 순서가 어느정도 정해져 있다.
+Security Filter Chain에는 다양한 필터들이 들어갈 수 있다. 필터는 넣거나 뺄 수 있고, 순서를 조정할 수 있지만 필터의 순서가 매우 critical 할 수 있기 때문에 기본 필터들은 그 순서가 어느정도 정해져 있다.
 
 <p align="center">
     <img src="../image/spring_security_filter_list.png"  width="600" height="auth">
@@ -661,3 +658,9 @@ Secret Key 1개에 unique한 ID(kid 또는 key id라고 부름)를 연결시켜 
 출처 및 참고
 - [한번에 끝내는 Java/Spring 웹 개발 마스터 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_javaend)
 - [한 번에 끝내는 Spring 완.전.판](https://fastcampus.co.kr/dev_online_spring)
+
+### temp
+#### 다양한 인증 방법
+1. 모든 요청마다 나의 ID와 패스워드를 포함시켜서 요청한다
+2. 나의 ID와 패스워드를 서버에 주고 그 응답으로 아무나 해독이 불가능한 key를 받는다(나랑 서버밖에 모르는 값) → 그 key를 모든 요청에 포함해서 보낸다
+3. 소셜 로그인 (인증 위임)
