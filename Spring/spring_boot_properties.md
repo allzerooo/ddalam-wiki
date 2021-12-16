@@ -2,6 +2,7 @@
   - [Externalized Configuration](#externalized-configuration)
   - [외부 설정의 우선순위](#외부-설정의-우선순위)
   - [설정 파일을 Java 코드로 읽는 방법](#설정-파일을-java-코드로-읽는-방법)
+  - [Spring Configuration Processor](#spring-configuration-processor)
 
 # Spring Boot Properties
 - 스프링 부트의 기본 기능 전체를 튜닝하는 부트 전용 설정 프로퍼티
@@ -145,6 +146,65 @@
       }
       ```
 
+## Spring Configuration Processor
+application.properties/.yml 파일에 넣는 커스텀 설정의 자동 완성, 도움말 등을 지원하는 모듈
+
+1. build.gradle 설정
+    ```gradle
+    dependencies {
+      annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    }
+
+    compileJava {
+      inputs.files(processResources)
+    }
+    ```
+2. Java Class 생성
+    ```java
+    @Getter
+    @ConstructorBinding
+    @ConfigurationProperties("my")
+    public class MyProperties {
+
+      /* 제 키에요 */
+      private final Integer height;
+
+      public MyProperties(Integer height) {
+        this.height = height;
+      }
+
+    }
+    ```
+3. resources/META-INF/additional-spring-configuration-metadata.json
+    ```json
+    {
+      "properties": [
+        {
+          "name": "my.height",
+          "type": "java.lang.Integer"
+        }
+      ],
+      "hints": [
+        {
+          "name": "my.height",
+          "values": [
+            {
+              "value": 160,
+              "description": "나보다 작은 키"
+            },
+            {
+              "value": 170,
+              "description": "내 키"
+            },
+            {
+              "value": 180,
+              "description": "나보다 큰 키"
+            }
+          ]
+        }
+      ]
+    }
+    ```
 
 <br/>
 

@@ -172,6 +172,7 @@
             <ul><li><a href="Spring/spring_boot_properties.md#externalized-configuration">Externalized Configuration</a></li></ul>
             <ul><li><a href="Spring/spring_boot_properties.md#외부-설정의-우선순위">외부 설정의 우선순위</a></li></ul>
             <ul><li><a href="Spring/spring_boot_properties.md#설정-파일을-java-코드로-읽는-방법">설정 파일을 Java 코드로 읽는 방법</a></li></ul>
+            <ul><li><a href="Spring/spring_boot_properties.md#spring-configuration-processor">Spring Configuration Processor</a></li></ul>
         </details>
     </li>
     <li><a href="Spring/@Configuration.md">@Configuration</a></li>
