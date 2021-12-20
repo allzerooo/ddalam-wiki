@@ -12,11 +12,16 @@
         - 캐싱해서 성능 향성, I/O 감소
 - 메소드, 클래스에 적용 가능
 - 캐시 인프라는 Spring Boot 자동 설정으로 세팅되고, 프로퍼티로 관리 가능
+- 캐시 데이터는 In-memory에 저장되고, 저장하는 방법은 ConcurrentHashMap이다
 
 ## 적용 방법
-1. configuration class에 `@EnableCaching`을 추가
+1. 의존성 추가
+   ```gradle
+   implementation 'org.springframework.boot::spring-boot-starter-cache'
+   ```
+2. configuration class에 `@EnableCaching`을 추가
    - main application class에 추가(`@SpringBootApplication` 애노테이션에 `@Configuration`이 포함되어 있어 configuration class로 정의되어 있기 때문에) or 따로 configuration class를 생성한 후에 `@EnableCaching`을 적용
-2. 캐시를 적용하고 싶은 메서드, 클래스에 `@Cachable()`을 추가
+3. 캐시를 적용하고 싶은 메서드, 클래스에 `@Cachable()`을 추가
 
 ## 캐싱에서 생각해야 하는 것들
 - 무엇을 캐시할까?
