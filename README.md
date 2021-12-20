@@ -210,7 +210,7 @@
     <li>
         <details>
             <summary>Spring Data Elasticsearch</summary>
-            <ul><li><a href="Spring/Spring_Data_Elasticsearch.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
+            <ul><li><a href="Spring/spring_data_elasticsearch.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
         </details>
     </li>
 </ul>
