@@ -19,6 +19,7 @@
    ```gradle
    implementation 'org.springframework.boot::spring-boot-starter-cache'
    ```
+   * 추가하지 않아도 되긴 된다(애노테이션들이 잘 동작됨)
 2. configuration class에 `@EnableCaching`을 추가
    - main application class에 추가(`@SpringBootApplication` 애노테이션에 `@Configuration`이 포함되어 있어 configuration class로 정의되어 있기 때문에) or 따로 configuration class를 생성한 후에 `@EnableCaching`을 적용
 3. 캐시를 적용하고 싶은 메서드, 클래스에 `@Cachable()`을 추가
