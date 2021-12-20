@@ -207,6 +207,7 @@
         </details>
     </li>
     <li><a href="Spring/Lombok.md">Lombok</a></li>
+    <li><a href="Spring/spring_cache_abstraction.md">Spring Cache Abstraction</a></li>
     <li>
         <details>
             <summary>Spring Data Elasticsearch</summary>
