@@ -21,6 +21,10 @@
   - `@Getter` + `@FieldDefaults(makeFinal=true, level=AccessLevel.PRIVATE)` + `@AllArgsConstructor` + `@ToString` + `@EqualsAndHashCode`
 - `@Builder`
   - 모든 필드에 method chain 기법으로 접근이 가능하고, 접근하지 않아도 된다
+- `@AllArgsConstructor`
+  - `staticName`을 지정하면 생성자가 private으로 된다
+- `@NoArgsConstructor`
+  - 기본 생성자
 
 ## 각종 예상치 못한 동작
 - 사용자의 의도와 컴파일러의 눈을 피해가는 동작
