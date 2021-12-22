@@ -214,6 +214,12 @@
             <ul><li><a href="Spring/spring_data_elasticsearch.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>Spring Data Redis</summary>
+            <ul><li><a href="Spring/spring_data_redis.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
@@ -324,6 +330,12 @@
             <summary>Design Pattern</summary>
             <ul><li><a href="etc/design_pattern.md#design-pattern">Design Pattern</a></li></ul>
             <ul><li><a href="etc/design_pattern.md#디자인-패턴의-필요성">디자인 패턴의 필요성</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>Redis</summary>
+            <ul><li><a href="etc/redis.md">Redis란?</a></li></ul>
         </details>
     </li>
 </ul>
