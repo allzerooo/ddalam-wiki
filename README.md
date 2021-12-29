@@ -220,6 +220,7 @@
             <ul><li><a href="Spring/spring_data_redis.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
         </details>
     </li>
+    <li><a href="Spring/spring_cloud_vault.md">Spring Cloud Vault</a></li>
 </ul>
 
 <br/>
