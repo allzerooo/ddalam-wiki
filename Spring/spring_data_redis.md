@@ -1,9 +1,9 @@
 - [Spring Data Redis](#spring-data-redis)
-  - [의존성](#의존성)
-  - [설정](#설정)
-  - [데이터 직렬화](#데이터-직렬화)
-    - [JSON으로 직렬화](#json으로-직렬화)
-  - [TTL 설정](#ttl-설정)
+	- [의존성](#의존성)
+	- [설정](#설정)
+	- [데이터 직렬화](#데이터-직렬화)
+		- [JSON으로 직렬화](#json으로-직렬화)
+	- [TTL 설정](#ttl-설정)
 
 # Spring Data Redis
 
@@ -54,3 +54,12 @@ public class RedisConfig {
 	}
 }
 ```
+
+<br/>
+
+---
+
+<br/>
+
+출처 및 참고
+- [한 번에 끝내는 Spring 완.전.판 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_spring)
