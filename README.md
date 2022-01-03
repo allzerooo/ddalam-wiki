@@ -256,32 +256,13 @@
 <br/>
 
 ## 🦄 Test
-<details>
-    <summary>TDD</summary>
-    <ul>
-        <li><a href="Test/TDD/rhythm.md">TDD 리듬</a></li>
-    </ul>
-</details>
-<details>
-    <summary>JUnit5</summary>
-    <ul>
-        <li><a href="Test/JUnit5/assertions.md">Assertions</a></li>
-        <li><a href="Test/JUnit5/assertions.md">Parameterized Tests</a></li>
-        <li><a href="Test/JUnit5/assumption.md">조건에 따라 테스트 실행하기</a><Test//li>
-        <li><a href="Test/JUnit5/tag.md">태그</a></li>
-        <li><a href="Test/JUnit5/etc.md">etc</a></li>
-    </ul>
-</details>
-<details>
-    <summary>성능 테스트</summary>
-    <ul>
-        <li><a href="Test/performancTest/performanceTestTool.md">성능 테스트 툴</a></li>
-        <li><a href="Test/performancTest/apacheBench.md">ApacheBench</a></li>
-        <li><a href="Test/performancTest/jMeter.md">JMeter</a></li>
-    </ul>
-</details>
 <ul>
-<li><a href="Test/etc.md">etc</a></li>
+    <li>
+        <details>
+            <summary>JUnit5</summary>
+            <ul><li><a href="Test/JUnit5.md#junit-5">JUnit5</a></li></ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
