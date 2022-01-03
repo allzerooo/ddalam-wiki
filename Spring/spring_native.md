@@ -7,6 +7,7 @@
   - [사용법](#사용법)
 
 # Spring Native
+Spring 애플리케이션을 네이티브 실행 파일로 컴파일하는 지원을 제공
 
 ## 목표
 - GraalVM
@@ -104,3 +105,4 @@
 
 출처 및 참고
 - [한 번에 끝내는 Spring 완.전.판 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_spring)
+- [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/)
