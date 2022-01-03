@@ -51,7 +51,49 @@
 - sdkman
   ```bash
   curl -s "https://get.sdkman.io" | bash
-  source "~/.sdkman/bin
+  source "~/.sdkman/bin/sdkman-init.sh"
+  sdk help
+  ```
+- GraalVM
+  ```bash
+  sdk list java | grep GraalVM
+  sdk install java 21.1.0.r&{JAVA_VERSION}-grl
+  ```
+  - ex) java 21.1.0.r16-grl
+- docker
+  ```bash
+  docker run hello-world
+  ```
+  - rootless mode로 되어야 함(위 명령어가 sudo 없이 되어야 함. macOS는 되어 있음)
+- build.gradle
+  ```gradle
+  plugins {
+    ...
+    id 'org.springframework.experimental.aot'
+    id 'org.graalvm.buildtools.native'
+    ...
+  }
+
+  repositories {
+    ...
+    maven { url 'https://repo.spring.io/release' }
+    ...
+  }
+
+  bootBuildImage {
+    builder = 'packetobuildpacks/builder:tiny'
+    environment = ['BP_NATIVE_IMAGE': 'true']
+  }
+  ```
+- settings.gradle
+  ```gradle
+  pluginManagement {
+    repositories {
+      maven { url 'https://repo.spring.io/release' }
+      mavenCentral()
+      gradlePluginPortal()
+    }
+  }
   ```
 
 <br/>
