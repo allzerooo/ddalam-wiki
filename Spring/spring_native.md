@@ -27,7 +27,7 @@ Spring 애플리케이션을 네이티브 실행 파일로 컴파일하는 지�
 ### AOT (ahead-of-time compile)
 "미리 기계어로 번역한다"
 - vs JIT(just-in-time) - 기계어 번역 시점이 언제인가?
-  - JIT : 중간 언어(바이트코드) → 기계어(runtime)
+  - JIT : 중간 언어([바이트코드](https://github.com/ddalam/ddalam-wiki/blob/master/etc/binary_code_&_bytecode.md)) → 기계어(runtime)
   - AOT : 중간 언어(바이트코드) → 기계어(compile time)
 - vs Static Compiler - 무엇을 기계어로 번역하는가?
   - Static Compiler : 소스 코드 → 기계어(compile time)
