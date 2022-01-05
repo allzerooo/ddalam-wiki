@@ -6,7 +6,7 @@
 # Lombok
 
 - "Never write another getter or equals method again"
-- Boilerplate code를 줄여주는 도구
+- Boilerplate code를 줄여주는(자동으로 생성해 주는) 도구
   - Boilerplate code : 늘 똑같이 반복되는 코드
 - 생산성 향상에 기여
 
@@ -22,9 +22,22 @@
 - `@Builder`
   - 모든 필드에 method chain 기법으로 접근이 가능하고, 접근하지 않아도 된다
 - `@AllArgsConstructor`
+  - 모든 argument가 있는 생성자를 생성
   - `staticName`을 지정하면 생성자가 private으로 된다
 - `@NoArgsConstructor`
-  - 기본 생성자
+  - 기본 생성자를 생성
+- `@RequiredArgsConstructor`
+  - 필수 arguement(`final` 필드, `@NotNull`이 설정된 필드)가 있는 생성자를 생성
+- `Slf4j`
+  - Logger를 편하게 사용할 수 있다
+  ```java
+  private static final Logger log = LoggerFactory.getLogger(Member.class);
+  ```
+  - 위 코드를 클래스에 매번 추가하지 않아도 된다
+- `UtilityClass`
+  - 날짜 변환, 숫자 변환과 같은 static 메서드들을 정의해둔 클래스에 사용하면 좋은
+  - 상속할 수 없도록 final 클래스로 만들어주고, 생성자 접근하지 못하도록 생성자를 private로 만들어주고 등등
+
 
 ## 각종 예상치 못한 동작
 - 사용자의 의도와 컴파일러의 눈을 피해가는 동작
