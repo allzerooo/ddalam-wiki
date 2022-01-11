@@ -290,6 +290,7 @@
     <li><a href="etc/ApiGateway.md">Api Gateway</a></li>
     <li><a href="etc/SSE.md">SSE(Server-Sent Events)</a></li>
     <li><a href="etc/ApolloFederation.md">Apollo Federation</a></li>
+    <li><a href="etc/GraphQL.md">GraphQL</a></li>
     <li>
         <details>
             <summary>Elasticsearch</summary>
