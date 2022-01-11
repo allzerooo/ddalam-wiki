@@ -1,3 +1,26 @@
+- [GraphQL](#graphql)
+  - [Operation Type](#operation-type)
+  - [Query, Mutation](#query-mutation)
+    - [Fields](#fields)
+    - [Arguments](#arguments)
+    - [Aliases](#aliases)
+    - [Fragments](#fragments)
+      - [Using variables inside fragments](#using-variables-inside-fragments)
+    - [Operation name](#operation-name)
+    - [Variables](#variables)
+      - [Variable definitaions](#variable-definitaions)
+      - [Default variables](#default-variables)
+    - [Directives](#directives)
+    - [Mutations](#mutations)
+      - [Multiple fields in mutations](#multiple-fields-in-mutations)
+    - [Inline Fragments](#inline-fragments)
+      - [Meta fields](#meta-fields)
+  - [Schema, Type](#schema-type)
+  - [resolver](#resolver)
+  - [introspection](#introspection)
+
+<br/>
+
 # GraphQL
 
 - 클라언트가 서버로 부터 효율적으로 데이터를 가져오는 것이 목적
@@ -7,8 +30,38 @@
 - 불러오는 데이터의 종류를 쿼리 조합을 통해서 결정
 - 데이터를 가져오는 구체적인 과정(resolver)을 직접 구현해야 한다
 
-### query, mutation
-- query : 데이터를 읽는(R) 개념, mutation : 데이터를 변조(CUD)하는 개념
+## Operation Type
+`query`, `mutation`, `subscription`
+
+## Query, Mutation
+query : 데이터를 읽는(R) 개념, mutation : 데이터를 수정(CUD)하는 개념
+
+- `query` 키워드와 쿼리 이름을 모두 생략하는 축약형 구문 가능
+
+### Fields
+- 필드, 객체의 필드에 대한 질의 가능
+- 관련 객체 및 필드를 순회할 수 있으므로 하나의 요청으로 관련된 많은 데이터를 가져올 수 있다
+  - REST 아키텍처에서는 여러 번 요청을 해야된다
+
+### Arguments
+- 필드에 인수를 전달할 수 있다
+
+### Aliases
+
+### Fragments
+- 재사용 가능한 단위
+
+#### Using variables inside fragments
+- fragment에서 query 또는 mutation에 정의된 변수에 접근할 수 있다
+
+### Operation name
+```graphql
+query HeroNameAndFriends {
+    ...
+}
+```
+`HeroNameAndFriends`이 operation name
+
 - 일반 쿼리와 오퍼레이션 네임 쿼리
   - 오퍼레이션 네임 쿼리
     - 쿼리용 함수
@@ -16,14 +69,49 @@
     - 이 개념 덕분에 한번의 네트워크 왕복으로 원하는 모든 데이터를 가져올 수 있다
     - 클라이언트 프로그래머가 작성하고 관리
 
-### schema, type
+### Variables
+쿼리의 동적 값들을 사전으로 전달하는 방법을 사용하는데, 이러한 값들을 의미한다
 
-### resolver
+#### Variable definitaions
+```graphql
+($episode: Episode)
+```
+- `$episode` : 변수, `Episode` : 변수의 타입
+- 변수는 scalar, enum, input object 타입이어야 한다
+- 변수 정의는 선택 사항이거나 필수 사항일 수 있다(`!`가 있으면 필수 사항)
+  
+#### Default variables
+```graphql
+($episode: Episode = JEDI)
+```
+
+### Directives
+- 변수를 사용하여 쿼리의 구조와 모양을 동적으로 변경하는 방법
+- field, fragment에 사용될 수 있다
+- `@include(if: Boolean)` : 인수가 true인 경우에만 결과에 이 필드를 포함
+- `@skip(if: Boolean)` : 인수가 true인 경우 이 필드를 건너뜀
+
+### Mutations
+데이터 수정을 위한 Operation Type
+
+#### Multiple fields in mutations
+query와 마찬가지로 여러 필드를 포함한 요청을 할 수 있는데, query는 병렬로 실행되는 반면 mutation은 차례로 실행된다. 따라서 N번의 mutation 요청을 보내면 먼저 실행된 요청이 완료된 후 다음 요청을 실행하는 것이 보장되기 때문에 race condition이 발생하지 않도록 해준다
+
+### Inline Fragments
+interface 또는 union 타입을 반환하는 필드를 조회하는 경우, inline fragement를 사용해서 구체적인 데이터 타입을 요청해야 한다
+
+#### Meta fields
+어떤 타입을 반환할지 모르는 상황이 있을 때 클라이언트에서 해당 데이터를 처리하는 방법을 결정하는 방법으로 쿼리의 어느 지점에서든 `__typename` 메타 필드를 요청하여 해당 지점의 객체 타입 이름을 가져올 수 있다
+
+## Schema, Type
+
+
+## resolver
 - 데이터를 가져오는 구체적인 과정을 담당
 - resolver를 통해 데이터 source의 종류에 상관없이 데이터를 가져올 수 있다(데이터베이스, 일반 파일, http 프로토콜 활용 등)
 - 쿼리 필드에 존재하는 각각의 함수
 
-### introspection
+## introspection
 - 현재 서버에 정의된 스키마의 실시간 정보를 공유할 수 있게 한다
 - 클라이언트 사이드에서는 API 연동규격서를 요청할 필요없이 스키마 정보로 쿼리문을 작성
 - introspection용 쿼리가 따로 존재
@@ -35,4 +123,5 @@
 <br/>
 
 출처 및 참고
+- [GraphQL](https://graphql.org/)
 - [GraphQL 개념잡기](https://tech.kakao.com/2019/08/01/graphql-basic/)
