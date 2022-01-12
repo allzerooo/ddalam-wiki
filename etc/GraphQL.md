@@ -16,6 +16,11 @@
     - [Inline Fragments](#inline-fragments)
       - [Meta fields](#meta-fields)
   - [Schema, Type](#schema-type)
+    - [Type system](#type-system)
+    - [Type language](#type-language)
+    - [Object types and fields](#object-types-and-fields)
+    - [Arguments](#arguments-1)
+    - [The Query and Mutation types](#the-query-and-mutation-types)
   - [resolver](#resolver)
   - [introspection](#introspection)
 
@@ -104,6 +109,34 @@ interface 또는 union 타입을 반환하는 필드를 조회하는 경우, inl
 어떤 타입을 반환할지 모르는 상황이 있을 때 클라이언트에서 해당 데이터를 처리하는 방법을 결정하는 방법으로 쿼리의 어느 지점에서든 `__typename` 메타 필드를 요청하여 해당 지점의 객체 타입 이름을 가져올 수 있다
 
 ## Schema, Type
+
+### Type system
+
+### Type language
+특정 프로그래밍 언어에 의존하지 않는 "GraphQL schema language"를 사용
+
+### Object types and fields
+GraphQL 스키마의 가장 기본적인 구성 요소는 가져올 수 있는 객체의 type과 객체가 포함하는 필드들이다
+```graphql
+type Character {
+    name: String!
+    appearsIn: [Episode!]!
+}
+```
+- `Character` : GraphQL Object Type. 일부 필드를 가지는 type이며, 스키마에 있는 대부분의 타입은 Object type이다
+- `name`, `appearsIn` : `Character` 타입의 필드. `Character` 타입에 대한 쿼리 연산으로 나타날 수 있는 필드
+- `String` : 내장된 Scalar 타입 중 하나
+- `String!` : 해당 필드가 non-nullable 임을 의미
+- `[Episode!]!` : `Episode` 객채의 배열을 의미. 또한 null을 허용하지 않기 때문에 `appearsIn` 필드를 쿼리할 때 항상 0개 이상의 항목을 포함하는 배열이 기대된다
+
+### Arguments
+- Object 타입의 모든 필드는 0개 이상의 인수를 가질 수 있다
+- 모든 인수는 이름을 가지며, 인수는 이름으로 전달된다
+- 인수는 선택 또는 필수 사항일 수 있으며, 인수가 선택 사항인 경우에는 기본 값을 정의할 수 있다
+
+### The Query and Mutation types
+- 스키마의 대부분의 유형은 Object 타입이지만, 모든 GraphQL 서비스에는 query 타입이 있으며 mutation 타입은 있을 수도 있고 없을 수도 있다
+- 쿼리의 진입점을 정의한다
 
 
 ## resolver
