@@ -11,6 +11,7 @@
       - [Images](#images)
       - [Containers](#containers)
   - [Dockerfile](#dockerfile)
+    - [`ENTRYPOINT`](#entrypoint)
   - [Docker Compose CLI](#docker-compose-cli)
     - [`docker-compose up`](#docker-compose-up)
   - [etc](#etc)
@@ -86,8 +87,11 @@ docker는 environment disparity라는 문제점을 해결해준다
 - 컨테이너가 제거됐을 때, 영구 저장소에 저장되지 않은 변경 사항은 사라진다
 
 ## Dockerfile
-- 도커는 도커파일의 지침을 읽어 자동으로 이미지를 빌디할 수 있다
+- 도커는 도커파일의 지침을 읽어 자동으로 이미지를 빌드할 수 있다
 - 도커파일은 모든 명령을 포함하는 텍스트 문서이다
+
+### `ENTRYPOINT`
+- 실행 파일로 실행할 컨테이너를 구성할 수 있다
 
 ## Docker Compose CLI
 
