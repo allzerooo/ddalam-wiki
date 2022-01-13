@@ -5,6 +5,10 @@
   - [run](#run)
   - [네트워크](#네트워크)
   - [호스트와 컨테이너의 파일 시스템 연결](#호스트와-컨테이너의-파일-시스템-연결)
+  - [Image 만드는 법](#image-만드는-법)
+    - [commit](#commit)
+    - [Dockerfile & build](#dockerfile--build)
+    - [commit과 build의 차이](#commit과-build의-차이)
   - [Docker architecture](#docker-architecture)
     - [Docker daemon (`dockerd`)](#docker-daemon-dockerd)
     - [Docker client (`docker`)](#docker-client-docker)
@@ -122,6 +126,16 @@ docker run -p 80:80 httpd
 ```bash
 docker run -p 8888:80 -v ~/Desktop/httpdocs:/usr/local/apache2/httpdocs/ httpd
 ```
+
+## Image 만드는 법 
+### commit
+사용 중인 컨테이너를 대상으로 commit 명령어를 실행하면 컨테이너가 이미지가 된다
+
+### Dockerfile & build
+만들고 싶은 이미지에 대해서 dockerfile의 형식에 맞게 dockerfile을 만들고, build 명령어를 실행하면 dockerfile을 바탕으로 새로운 이미지를 만든다
+
+### commit과 build의 차이
+commit은 이미 사용하고 있는 컨테이너가 있을 때 그 컨테이너를 이미지로 만드는 백업과 같은 느낌이고, build는 dockerfile을 통해서 만들고 싶은 이미지를 구체적으로 시간의 순서에 따라서 기록해서 만드는 이미지를 생성하는 느낌
 
 ## Docker architecture
 - 서버-클라이언트 구조를  사용한다
