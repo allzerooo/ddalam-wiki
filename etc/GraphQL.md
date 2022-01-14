@@ -27,6 +27,13 @@
     - [Interfaces](#interfaces)
     - [Union types](#union-types)
     - [Input Types](#input-types)
+  - [Validation](#validation)
+  - [Execution](#execution)
+    - [Root fields & resolvers](#root-fields--resolvers)
+    - [Asynchronous resolvers](#asynchronous-resolvers)
+    - [Trival resolvers](#trival-resolvers)
+    - [Scalar coercion](#scalar-coercion)
+    - [List resolvers](#list-resolvers)
   - [resolver](#resolver)
   - [introspection](#introspection)
 
@@ -208,6 +215,57 @@ query {
 - 복잡한 객체를 전달
 - `type` 대신 `input` 키워드를 사용한다
 - 필드는 인수를 가질 수 없다
+
+## Validation
+
+## Execution
+- type system 없이 쿼리를 실행할 수 없다
+- 쿼리의 각 필드는 function 또는 method로 생각할 수 있다
+- 각 필드는 GraphQL 서버 개발자가 제공하는 resolver라 불리는 함수로 뒷받침된다
+- 필드가 실행되면 해당 리졸버가 호출되어 값을 생성한다
+- 쿼리는 항상 스칼라 값에서 끝나고, 스칼라 값에 도달할 때까지 계속된다
+
+### Root fields & resolvers
+- 모든 GraphQL 서버의 최상위 수준에는 GraphQL API에 대한 모든 가능한 진입점을 나타내는 타입이 있으면 이를 root 타입 또는 query 타입이라고 한다
+- JavaScript 예제
+  ```graphql
+  Query: {
+    human(obj, args, context, info) {
+      return context.db.loadHumanByID(args.id).then(
+        userData => new Human(userData)
+      )
+    }
+  }
+  ```
+  - human이라는 필드를 제공하는 query type
+  - resolver 함수는 데이터베이스에 액세스해서 Human 객체를 구성하고, 반환한다
+- resolver 함수는 4개의 인자를 받는다
+  - obj : root query 타입 필드에서는 자주 사용되지 않는 이전 객체
+  - args : 쿼리 필드에 제공된 인수
+  - context : 모든 리졸버에 제공되며 현재 로그인한 사용자 또는 데이터베이스 액세스와 같은 중요한 컨텍스트 정보를 보유하는 값
+  - info : 현재 쿼리와 관련된 필드별 정보 및 스키마 세부 정보를 담고 있는 값
+
+### Asynchronous resolvers
+- 데이터베이스에서 로드하는 것은 비동기 작업이므로 리졸버는 Promise, Futures, Deferred와 같은 개념을 사용해 객체를 구성, 반환한다
+- 리졸버 함수는 Promise, Futures, Deferred 등을 인식해야 하지만, query는 그렇지 않다
+- GraphQL은 Promise, Futures와 같은 작업이 완료될 때까지 기다리며 최적의 동시성을 사용하여 완료한다
+
+### Trival resolvers
+```graphql
+Human: {
+  name(obj, args, context, info) {
+    return obj.name
+  }
+}
+```
+- GraphQL 서버는 다음에 수행할 작업을 결정하는데 사용되는 type system으로 구동된다
+- name 리졸버가 호출되고 obj 인수는 이전 필드에서 반환된 새로운 Human 객체이다
+- 많은 GraphQL 라이브러리에서는 간단한 리졸버를 생략할 수 있으며 필드에 리졸버가 제공되지 않으면 동일한 이름의 속성을 읽고 반환해야 한다고 가정한다
+
+### Scalar coercion
+- name 필드가 해결되는 동안 appearsIn, starships 필드가 동시에 해결될 수 있다
+
+### List resolvers
 
 
 ## resolver
