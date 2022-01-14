@@ -21,6 +21,12 @@
     - [Object types and fields](#object-types-and-fields)
     - [Arguments](#arguments-1)
     - [The Query and Mutation types](#the-query-and-mutation-types)
+    - [Scalar types](#scalar-types)
+    - [Enumeration types](#enumeration-types)
+    - [Lists and Non-null](#lists-and-non-null)
+    - [Interfaces](#interfaces)
+    - [Union types](#union-types)
+    - [Input Types](#input-types)
   - [resolver](#resolver)
   - [introspection](#introspection)
 
@@ -133,10 +139,75 @@ type Character {
 - Object 타입의 모든 필드는 0개 이상의 인수를 가질 수 있다
 - 모든 인수는 이름을 가지며, 인수는 이름으로 전달된다
 - 인수는 선택 또는 필수 사항일 수 있으며, 인수가 선택 사항인 경우에는 기본 값을 정의할 수 있다
+```graphql
+type Starship {
+  id: ID!
+  name: String!
+  length(unit: LengthUnit = METER): Float
+}
+```
 
 ### The Query and Mutation types
-- 스키마의 대부분의 유형은 Object 타입이지만, 모든 GraphQL 서비스에는 query 타입이 있으며 mutation 타입은 있을 수도 있고 없을 수도 있다
-- 쿼리의 진입점을 정의한다
+- 스키마의 대부분의 유형은 Object 타입이지만, 모든 GraphQL 서비스에는 query 타입이 있으며 mutation 타입은 있을수도 있고 없을수도 있다
+- 모든 GraphQL 쿼리의 진입점을 정의한다
+```graphql
+type Query {
+  hero(episode: Episode): Character
+  droid(id: ID!): Droid
+}
+```
+```graphql
+query {
+  hero {
+    name
+  }
+  droid(id: "2000") {
+    name
+  }
+}
+```
+
+### Scalar types
+- 스칼라 타입을 정의할수도 있다. 정의한 타입을 직렬화, 역직렬화, 검증하는 방법은 구현에 달려 있다. 예를 들어, Date 타입을 항상 정수 타임스탬프로 직렬화 되도록 지정할 수 있다.
+
+### Enumeration types
+
+### Lists and Non-null
+- ex1) List 자체는 null일 수 있지만 null 멤버는 포함할 수 없다
+    ```graphql
+    myField: [String!]
+    ```
+    ```graphql
+    myField: null // valid
+    myField: [] // valid
+    myField: ['a', 'b'] // valid
+    myField: ['a', null, 'b'] // error
+    ```
+- ex2) List 자체는 null일 수 없지만 null 멤버는 포함할 수 있다
+    ```graphql
+    myField: [String]!
+    ```
+    ```graphql
+    myField: null // error
+    myField: [] // valid
+    myField: ['a', 'b'] // valid
+    myField: ['a', null, 'b'] // valid
+    ```
+
+### Interfaces
+
+### Union types
+- 타입들의 공통 필드를 지정하지 못한다
+- 스키마에서 SearchResult 타입을 반환할 때마다 Human, Droid, Starship을 얻을 수 있다
+  ```graphql
+  union SearchResult = Human | Droid | Starship
+  ```
+- union 타입의 구성은 구체적인 object 타입이어야 한다
+
+### Input Types
+- 복잡한 객체를 전달
+- `type` 대신 `input` 키워드를 사용한다
+- 필드는 인수를 가질 수 없다
 
 
 ## resolver
