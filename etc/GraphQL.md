@@ -36,6 +36,8 @@
     - [List resolvers](#list-resolvers)
   - [resolver](#resolver)
   - [introspection](#introspection)
+  - [Java Library](#java-library)
+    - [GraphQL Spring Boot](#graphql-spring-boot)
 
 <br/>
 
@@ -277,6 +279,13 @@ Human: {
 - 현재 서버에 정의된 스키마의 실시간 정보를 공유할 수 있게 한다
 - 클라이언트 사이드에서는 API 연동규격서를 요청할 필요없이 스키마 정보로 쿼리문을 작성
 - introspection용 쿼리가 따로 존재
+
+<br/>
+
+## Java Library
+
+### GraphQL Spring Boot
+- GraphQL Java Tools로 스키마 기반 API 사용
 
 <br/>
 
