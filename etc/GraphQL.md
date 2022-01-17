@@ -38,6 +38,7 @@
   - [introspection](#introspection)
   - [Java Library](#java-library)
     - [GraphQL Spring Boot](#graphql-spring-boot)
+      - [포함된 기능](#포함된-기능)
 
 <br/>
 
@@ -285,7 +286,12 @@ Human: {
 ## Java Library
 
 ### GraphQL Spring Boot
+#### 포함된 기능
 - GraphQL Java Tools로 스키마 기반 API 사용
+- GraphQL-Java Annotation으로 annotation 기반 스키마를 선택적으로 사용
+- schema introspection과 query 디버깅을 위한 내장된 GraphQL 도구
+- GraphQL API를 대화형 그래프로 나타내는 GraphQL Voyager 도구
+- 
 
 <br/>
 
