@@ -39,6 +39,9 @@
   - [Java Library](#java-library)
     - [GraphQL Spring Boot](#graphql-spring-boot)
       - [포함된 기능](#포함된-기능)
+      - [About GraphQL Java Spring Boot](#about-graphql-java-spring-boot)
+        - [Starters](#starters)
+        - [Schema, Query 생성](#schema-query-생성)
 
 <br/>
 
@@ -291,7 +294,89 @@ Human: {
 - GraphQL-Java Annotation으로 annotation 기반 스키마를 선택적으로 사용
 - schema introspection과 query 디버깅을 위한 내장된 GraphQL 도구
 - GraphQL API를 대화형 그래프로 나타내는 GraphQL Voyager 도구
-- 
+
+#### About GraphQL Java Spring Boot
+
+##### Starters
+- graphql-spring-boot-starter : GraphQL Servlet, GraphQL Java Tools를 사용해 Spring Boot 애플리케이션을 GraphQL 서버로 전환
+- graphql-spring-boot-starter-test : `@GraphQLTest` annotation과 같은 테스트 기능을 프로젝트에 추가
+
+##### Schema, Query 생성
+- yml에서 `graphql.tools.schema-location-pattern=**/*.graphqls` 가 기본 값으로 되어있어 graphql 파일이 어느 곳에서나 로드되는 것을 알 수 있다.
+- `*.graphql` 파일은 graphql 서버에서 사용 가능한 쿼리, 객체 등을 정의
+
+```graphql
+type Query {
+  bankAccount(id: ID): BankAccount
+}
+```
+
+```graphql
+type BankAccount {
+  id: ID!
+  name: String!
+  currency: Currency!
+}
+```
+
+```graphql
+enum Currency {
+  CHF
+  USD
+}
+```
+
+```java
+@Component
+public class BankAccountResolver implements GraphQLQueryResolver {
+  public BankAccount bankAccount(UUID id) {
+    return BankAccount.builder().id(id).currency(Currency.USD).name("aaaa").build();
+  }
+}
+```
+- `bankAccount()`는 query의 `bankAccount` 필드와 일치
+
+```java
+@Value
+@Builder
+public class BankAccount {
+  UUID id;
+  String name;
+  Currency currency;
+}
+```
+
+```java
+public enum Currency {
+  CHF,
+  USD
+}
+```
+
+**request**
+```graphql
+{
+  bankAccount(id: "skskskssksksksksk") {
+    id
+    name
+    currency
+  }
+}
+```
+
+**response**
+```graphql
+{
+  "data": {
+    "bankAccount": {
+      "id": "skskskssksksksksk",
+      "name": "aaaa",
+      "currency": "USD"
+    }
+  }
+}
+```
+
 
 <br/>
 
@@ -302,3 +387,4 @@ Human: {
 출처 및 참고
 - [GraphQL](https://graphql.org/)
 - [GraphQL 개념잡기](https://tech.kakao.com/2019/08/01/graphql-basic/)
+- [Spring Boot GraphQL Tutorial](https://www.youtube.com/watch?v=rH2kdMPUQpQ&list=PLiwhu8iLxKwL1TU0RMM6z7TtkyW-3-5Wi&index=2)
