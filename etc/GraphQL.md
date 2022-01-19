@@ -42,6 +42,7 @@
       - [About GraphQL Java Spring Boot](#about-graphql-java-spring-boot)
         - [Starters](#starters)
         - [Schema, Query 생성](#schema-query-생성)
+        - [`DataFetchingEnvironment`](#datafetchingenvironment)
 
 <br/>
 
@@ -376,6 +377,9 @@ public enum Currency {
   }
 }
 ```
+
+##### `DataFetchingEnvironment`
+리졸버의 마지막 매개변수로 지정하면 프레임워크가 자동으로 이를 삽입하고, 액세스 권한을 부여한다
 
 
 <br/>
