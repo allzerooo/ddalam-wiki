@@ -44,6 +44,8 @@
       - [Payload](#payload)
       - [Signature](#signature)
     - [Key Rolling](#key-rolling)
+  - [권한 체크](#권한-체크)
+    - [`FilterSecurityInterceptor`](#filtersecurityinterceptor)
     - [temp](#temp)
       - [다양한 인증 방법](#다양한-인증-방법)
 
@@ -648,6 +650,38 @@ HEADER.PAYLOAD.SIGNATURE
 JWT의 Secret Key가 노출되면 모든 데이터가 유출될 수 있다. 이런 문제를 방지하기 위해 Secret Key를 여러개 두고, 수시로 [추가, 삭제, 변경]해서 Secret Key 중 1개가 노출되어도 다른 Secret Key와 데이터는 안전한 상태가 되도록 하는 것을 Key Rolling이라고 한다(Key Rolling이 필수는 아니다).
 
 Secret Key 1개에 unique한 ID(kid 또는 key id라고 부름)를 연결시켜 둔다. 그리고 JWT 토큰을 만들 때 헤더에 kid를 포함해 제공하고, 서버에서 토큰을 해서할 때 kid로 Secret Key를 찾아서 Signature를 검증한다.
+
+## 권한 체크
+
+### `FilterSecurityInterceptor`
+
+<br/>
+스프링의 권한을 체크하는 것들을 SecurityInterceptor라고 한다
+
+<p align="center">
+    <img src="../image/spring_security_security_interceptor.png"  width="800" height="auth">
+</p>
+
+컨트롤러에 들어오는 요청은 컨트롤러 앞에서 인터셉터가 가로채서 컨트롤러를 사용할 수 있는지 검사를 하고, 서비스 레이어에서도 인터셉터들이 동작을 한다. 
+
+<p align="center">
+    <img src="../image/spring_security_filter_security_interceptor.png"  width="800" height="auth">
+</p>
+
+`FilterSecurityInterceptor`는 `FilterSecurityInterceptor`와 `MethodSecurityInterceptor`로 나뉜다. `FilterSecurityInterceptor`는 필터에서 권한 검사를 하고, `MethodSecurityInterceptor`는 메서드에서 권한 검사를 한다. `FilterSecurityInterceptor`는 security config에서 설정한 권한 정보들을 참고해 체크를 한다. security 입장에서는 인증된 이후 최초의 방어선인 것이다. 그 이후 컨트롤러 레이어, 서비스 레이어에서 보안을 2차, 3차 방어하게 된다.
+
+`AbstractSecurityInterceptor`의 `AccessDecisionManager`는 권한 검사를 해주는 매니저이다. `AccessDecisionManager` 밑의 Access voter들이 투표를 한다. 만약 해당 지점을 통과할 수 없다면 Access Denied를 발생시킨다. 필터에 선언된 권한들이라면 `FilterSecurityInterceptor`에서 권한 검사를 하고, 메서드에 선언된 권한들이라면 `MethodSecurityInterceptor`에서 권한 검사를 한다. 
+
+```java
+http
+  .authrizeRequest(request -> 
+    request
+      .antMatchers("/").permitAll()
+      .anyRequest().authenticated()
+  )
+```
+이렇게 구성된게 `FilterSecurityInterceptor`에서 검사하는 것들이다.
+
 
 <br/>
 
