@@ -46,6 +46,12 @@
     - [Key Rolling](#key-rolling)
   - [권한 체크](#권한-체크)
     - [`FilterSecurityInterceptor`](#filtersecurityinterceptor)
+    - [`ExceptionTranslationFilter`](#exceptiontranslationfilter)
+      - [`AuthenticationEntryPoint`](#authenticationentrypoint)
+      - [`AuthenticationException`](#authenticationexception)
+  - [Authorization](#authorization)
+    - [권한 처리에 관여하는 것들](#권한-처리에-관여하는-것들)
+    - [인증과 권한의 구조](#인증과-권한의-구조)
     - [temp](#temp)
       - [다양한 인증 방법](#다양한-인증-방법)
 
@@ -677,11 +683,106 @@ http
   .authrizeRequest(request -> 
     request
       .antMatchers("/").permitAll()
+      .antMatchers("/admin/**").hasRole("ADMIN")
       .anyRequest().authenticated()
   )
 ```
-이렇게 구성된게 `FilterSecurityInterceptor`에서 검사하는 것들이다.
+이렇게 구성된게 `FilterSecurityInterceptor`에서 검사하는 것들이다. 디테일한 것들은 메서드에 애노테이션(`@PreAuthorize`, `@PostAuthorize` 와 같은)을 사용해 `MethodSecurityInterceptor`에서 처리하도록 한다.
 
+
+<p align="center">
+    <img src="../image/spring_security_filter_security_interceptor_invoke.png"  width="800" height="auth">
+</p>
+
+- beforeInvodation : Security Config 에서 설정한 접근 제한을 체크합니다.
+- finallyInvocation : RunAs(임시 권한을 부여하는) 권한을 제거합니다.
+- afterInvocation : AfterInvocationManager 를 통해 체크가 필요한 사항을 체크합니다. 특별히 설정하지 않으면 AfterInvocationManager 는 null 입니다.
+
+### `ExceptionTranslationFilter`
+`FilterSecurityInterceptor`나 애플리케이션에서 발생한 오류를 가로채 처리하는 작업을 한다
+- `AuthenticationException`과 `AccessDeniedException`만 처리한다
+- 그 밖의 오류는 보통 ControllerAdvice를 이용해서 처리하는 것을 권장한다
+
+<p align="center">
+    <img src="../image/spring_security_exception_translation_filter.png"  width="800" height="auth">
+</p>
+
+401 에러와 403 에러에 대응한다고 볼 수 있다
+
+- 401 : 인증 실패
+  - AuthenticationException
+  - 다시 로그인 해야 하므로 AuthenticationEntryPoint 로 처리를 넘깁니다.
+  - AuthenticationException이 발생했다고 서버가 반드시 401 에러를 내려보내는 것은 아닙니다. 해당 에러를 401 오류로 처리하는 코드를 넣어햐 합니다. 필요에 따라서는 403 오류코드로 처리하기도 합니다.
+
+- 403 : 권한 없음
+  - AccessDeniedException
+  - Anonymous 유저이거나 RememberMe 유저이면 다시 로그인 하도록 AuthenticationEntryPoint 로 처리를 넘깁니다.
+  - 그 밖의 유저는 권한없음 페이지로 이동하거나 권한없음 메시지를 받습니다.
+
+#### `AuthenticationEntryPoint`
+- void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException;
+- 웹페이지라면 로그인 페이지로 이동하고, 클라이언트 애플리케이션이라면 재로그인하라는 메시지를 보냅니다.
+
+#### `AuthenticationException`
+- InsufficientAuthenticationException : credential 값이 부족할 때
+- AccountStatusException :
+  - LockedException
+  - CredentialsExpiredException
+  - DisabledException
+  - LockedException
+- AuthenticationCredentialsNotFoundException : 서블릿 컨텍스트에서 Authentication이 없을 때
+- AuthenticationServiceException : 서버 문제로 인증 서비스를 처리해 줄 수 없을 때. (500)
+- BadCredentialsException : credentials 값이 invalid 할 때
+- RememberMeAuthenticationException
+  - CookieTheftException
+  - InvalidCookieException
+- InsufficientAuthenticationException :
+- AuthenticationServiceException
+  - InternalAuthenticationServiceException
+- NonceExpiredException
+- ProviderNotFoundException
+- PreAuthenticatedCredentialsNotFoundException
+- SessionAuthenticationException
+- UsernameNotFoundException
+
+<br/>
+
+## Authorization
+
+<p align="center">
+    <img src="../image/spring_security_authorization.png"  width="800" height="auth">
+</p>
+
+- SecurityFilerChain 당 한개의 FilterSecurityInterceptor를 둘 수 있고, 각 SecurityInterceptor당 한개의 AccessDecisionManager 를 둘 수 있습니다. 반면 Method 권한 판정은 Global 한 권한 위원회를 둡니다. 그래서 GlobalMethodSecurityConfiguration 을 통해 AccessDecisionManager 를 설정합니다.
+- 인증이 모든 요청에 대해 공통적으로 처리해야 하는 것인데 반해 권한은 상황상황에 맞게 처리해야 하는 특징이 있습니다.
+- 그래서 인증을 처리하는 코드는 필터와 어울리고, 권한은 interceptor 와 어울려 동작합니다. 필터는 servlet container 가 제공하는 구조를 스프링이 자체 filterchain 을 만들어서 관리하는 방식으로 처리하고 있고, interceptor 는 스프링이 빈을 등록하고 프락시 객체를 가지고 엮어주는 과정에서 각 PointCut에 의해 구분된 JoinPoint에 interceptor 가 Advice 하는 메커니즘으로 작동합니다.
+- 필터 위에 상주하는 Interceptor 를 FilterSecurityInterceptor라 하고 Method 위에 annotation의 형태로 상주하는 Interceptor 를 MethodSecurityInterceptor 라고 합니다. FilterInterceptor 는 필터 설정에서 설정하고 MethodInterceptor 는 annotation 으로 설정합니다. @EnableGlobalMethodSecurity 를 설정해줘야 MethodSecurityInterceptor 가 동작합니다.
+
+### 권한 처리에 관여하는 것들
+- 접근하려고 하는 사람이 어떤 접근 권한을 가지고 있는가?
+  - GrantedAuthority
+    - Role Based
+    - Scope Based
+    - User Defined
+- 접근하려고 하는 상황에서는 체크해야 할 내용은 무엇인가?
+  - SecurityMetadataSource, ConfigAttribute
+  - 정적인 경우와 동적인 경우
+  - AccessDecisionVoter 가 vote 해줌
+- 여러가지 판단 결과가 나왔을 때 취합은 어떤 방식으로 할 것인가?
+  - AccessDecisionManager : 권한 위원회
+    - AffirmativeBased : 긍정 위원회
+    - ConsensusBased : 다수결 위원회
+    - UnanimouseBased : 만장일치 위원회
+
+### 인증과 권한의 구조 
+
+<p align="center">
+    <img src="../image/spring_security_authentication_authorization_architecture.png"  width="800" height="auth">
+</p>
+
+- 인증이 AuthenticationFilter 를 가지고 Authentication을 발급해주는 관계였다면, 권한은 SecurityInterceptor 에서 Access Granted 와 Denied 를 판정하는 결과를 만들어 내는 대응 관계를 가지고 있습니다.
+- 인증이 제공해 주는 권한과 각 Interceptor가 위치한 포인트의 조건들(ConfigAttribute) 들을 가지고 판정을 내려주는 Voter 들에 따라 Granted / Denied 가 구분이 됩니다. 그렇지만 권한은 인증보다 훨씬 상황이 다양하다고 볼 수 있습니다.
+- AccessDecisionManager 는 인터페이스입니다. 반드시 Voter 를 구현해서 처리해야 할 필요는 없습니다. 솔직히 Application을 구현한다면 Voter 없이 구현하는 것이 간단할 수 있습니다.
 
 <br/>
 
