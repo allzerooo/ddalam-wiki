@@ -7,6 +7,7 @@
     - [`@MockBean`](#mockbean)
   - [Controller 테스트](#controller-테스트)
   - [Service 테스트](#service-테스트)
+  - [테스트 순서](#테스트-순서)
 
 # JUnit 5
 Java의 Unit 테스트를 위한 프래임워크
@@ -110,6 +111,15 @@ public class MemberControllerTest {
 ```
 
 ## Service 테스트
+
+## 테스트 순서
+내부적으로 정해진 순서가 있다. 하지만 이 순서는 JUnit 내부 구현 로직에 따라 언제든 바뀔 수 있기 때문에 이 순서에 의지해서는 안된다. 어떻게 순서를 정하는지 드러내지 않은 이유는 각 테스트가 제대로 작성된 유닛 테스트라면 다른 유닛 테스트와는 독립적으로 실행이 가능해야 된다(서로 의존성이 없어야 된다). 
+
+하지만 경우에 따라 특정 순서대로 테스트를 실행하고 싶을 때도 있다(ex 시나리오 테스트). 이 경우에는 `@TestInstance(Lifecycle.PER_CLASS)`와 함께 `@TestMethodOrder`를 사용할 수 있다. `@TestMethodOrder`에는 `MethodOrderer`의 구현체를 넘겨준다. 기본적으로 3개의 구현체를 제공한다.
+- Alphanumeric
+- OrderAnnoation
+- Random
+
 
 
 ---
