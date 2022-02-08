@@ -64,7 +64,7 @@
 
 <br/>
 
-## 🦕 Java
+## 🐯 Java
 <ul>
     <li><a href="Java/characteristic.md">Java 언어의 장단점 or 특징</a></li>
     <li><a href="Java/JVM.md">JVM</a></li>
@@ -144,7 +144,7 @@
 
 <br/>
 
-## 🐬 Spring
+## 🌱 Spring
 <ul>
     <li><a href="Spring/spring_framework_and_spring_boot.md">Spring Framework와 Spring Boot</a></li>
     <li><a href="Spring/configuration.md">Configuration</a></li>
