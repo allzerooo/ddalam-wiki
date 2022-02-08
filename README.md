@@ -212,6 +212,7 @@
         <details>
             <summary>Spring Data JPA</summary>
             <ul><li><a href="Spring/spring_data_jpa.md#orm-jpa-jpql">ORM, JPA, JPQL</a></li></ul>
+            <ul><li><a href="Spring/spring_data_jpa.md#hibernate-vs-spring-data-jpa">Hibernate vs. Spring Data JPA</a></li></ul>
         </details>
     </li>
     <li>

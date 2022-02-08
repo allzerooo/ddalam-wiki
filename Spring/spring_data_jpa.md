@@ -4,6 +4,13 @@
     - [JPA (Jakarta(Java) Persistence API)](#jpa-jakartajava-persistence-api)
       - [Persistence (영속성)](#persistence-영속성)
     - [JPQL (Jakarta(Java) Persistence Query Language)](#jpql-jakartajava-persistence-query-language)
+  - [Hibernate vs. Spring Data JPA](#hibernate-vs-spring-data-jpa)
+    - [Hibernate](#hibernate)
+      - [Hibernate Query Language](#hibernate-query-language)
+      - [Criteria Query](#criteria-query)
+      - [Native SQL Query](#native-sql-query)
+    - [Spring Data JPA](#spring-data-jpa-1)
+      - [Spring Data JPA를 사용하면](#spring-data-jpa를-사용하면)
 
 # Spring Data JPA
 
@@ -51,6 +58,49 @@
 - JPA 프레임워크를 사용한다면
   - 특별한 요구사항이 있지 않은 한, JPQL을 몰라도 된다
   - JPQL을 직접 코드에서 사용하고 있다면, 반드시 필요했던 일인지 검토하기
+
+## Hibernate vs. Spring Data JPA
+
+### Hibernate
+"MORE THAN AN ORM, DISCOVER THE HIBERNATE GALAXY."
+- 자바 생태계를 대표하는 ORM framework
+- 스프링 부트에서 채택한 메인 ORM framework
+- JPA 표준 스펙을 구현한 JPA Provider
+- 고성능, 확장성, 안정성을 표방
+- 다양한 하위 제품들로 나뉨
+  - Hibernate ORM
+  - Hibernate Validator
+  - Hibernate Reactive
+
+#### Hibernate Query Language
+하이버네이트가 사용하는 SQL 스타일 비표준 쿼리 언어
+- 객체 모델에 초점을 맞춰 설계됨
+- JPQL의 바탕이 됨(JPQL은 HQL의 subset)
+  - JPQL은 완벽한 HQL 문장이지만, 반대로는 성립하지 않음
+  
+#### Criteria Query
+type-safety를 제공하는 JPQL의 대안 표현법
+
+#### Native SQL Query
+특정 DB에 정속된 SQL도 사용 가능
+
+### Spring Data JPA
+스프링에서 제공하는 JPA 추상화 모듈
+- JPA 구현체의 사용을 한 번 더, Repository 라는 개념으로 추상화
+- JPA 구현체의 사용을 감추고, 다양한 지원과 설정 방법을 제공
+- JPA 기본 구현체로 Hibernate 사용
+- Querydsl 지원
+
+#### Spring Data JPA를 사용하면
+JPA, 즉 하이버네이트 구현체를 몰라도 되어야 한다
+- EntityManager를 직접 사용하지 않는다
+- JPQL을 직접 사용하지 않는다
+- persist(), merge(), close() 를 직접 사용하지 않는다
+- 트랜잭션을 getTransaction(), commit(), rollback() 으로 관리하지 않는다
+- 코드가 하이버네이트를 직접 사용하고 있다면
+  - 꼭 필요한 코드인지, 아니면 Spring Data JPA로 할 수 있는 일인지 확인
+  - 그 코드는 하이버네이트와 직접적인 연관 관계를 가지게 됨
+  - 추상화의 이점을 포기하게 되는 셈
 
 <br/>
 
