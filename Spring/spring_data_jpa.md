@@ -11,6 +11,7 @@
       - [Native SQL Query](#native-sql-query)
     - [Spring Data JPA](#spring-data-jpa-1)
       - [Spring Data JPA를 사용하면](#spring-data-jpa를-사용하면)
+  - [in memory 테스트 DB - H2](#in-memory-테스트-db---h2)
 
 # Spring Data JPA
 
@@ -101,6 +102,16 @@ JPA, 즉 하이버네이트 구현체를 몰라도 되어야 한다
   - 꼭 필요한 코드인지, 아니면 Spring Data JPA로 할 수 있는 일인지 확인
   - 그 코드는 하이버네이트와 직접적인 연관 관계를 가지게 됨
   - 추상화의 이점을 포기하게 되는 셈
+
+## in memory 테스트 DB - H2
+"Java SQL database"
+- 스프링 부트가 지원하는, 가장 세팅하기 편한 인메모리 DB
+- 빠르다, 오픈소스, JDBC API
+- 다양한 모드 지원 : embedded, server, in-memory
+- 브라우저 콘솔 지원 (h2-console)
+- 경량jar : 약 2MB
+- 순수 자바로 구현
+- Compatibility mode : IBM DB2, Derby, HSQLDB, MSSQL, MySQL, Oracle, PostgreSQL
 
 <br/>
 

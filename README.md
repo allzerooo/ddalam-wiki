@@ -213,6 +213,7 @@
             <summary>Spring Data JPA</summary>
             <ul><li><a href="Spring/spring_data_jpa.md#orm-jpa-jpql">ORM, JPA, JPQL</a></li></ul>
             <ul><li><a href="Spring/spring_data_jpa.md#hibernate-vs-spring-data-jpa">Hibernate vs. Spring Data JPA</a></li></ul>
+            <ul><li><a href="Spring/spring_data_jpa.md#in-memory-테스트-db---h2">in memory 테스트 DB - H2</a></li></ul>
         </details>
     </li>
     <li>
