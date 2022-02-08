@@ -327,6 +327,13 @@
             <ul><li><a href="etc/redis.md">Redis란?</a></li></ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>Git</summary>
+            <ul><li><a href="etc/git.md#git">Git</a></li></ul>
+            <ul><li><a href="etc/git.md#git을-사용하는-이유">Git을 사용하는 이유</a></li></ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
@@ -348,8 +355,3 @@
 </ul>
 
 <br/>
-
-## 🍄 VCS
-<ul>
-    <li><a href="VCS/git.md#git-account-in-terminal">Terminal에서 현재 계정 확인하기</a></li>
-</ul>
