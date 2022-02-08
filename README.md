@@ -210,6 +210,12 @@
     <li><a href="Spring/spring_cache_abstraction.md">Spring Cache Abstraction</a></li>
     <li>
         <details>
+            <summary>Spring Data JPA</summary>
+            <ul><li><a href="Spring/spring_data_jpa.md#orm-jpa-jpql">ORM, JPA, JPQL</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Spring Data Elasticsearch</summary>
             <ul><li><a href="Spring/spring_data_elasticsearch.md#elasticsearch-operations">Elasticsearch Operations</a></li></ul>
         </details>
@@ -223,19 +229,6 @@
     <li><a href="Spring/spring_cloud_vault.md">Spring Cloud Vault</a></li>
     <li><a href="Spring/spring_native.md">Spring Native</a></li>
     <li><a href="Spring/data_source.md">DataSource</a></li>
-</ul>
-
-<br/>
-
-## 😛 ORM
-<ul>
-    <li>
-        <details>
-            <summary>JPA</summary>
-            <ul>
-            </ul>
-        </details>
-    </li>
 </ul>
 
 <br/>
@@ -272,7 +265,7 @@
 
 <br/>
 
-## 🤡 ETC
+## 😛 ETC
 <ul>
     <li><a href="etc/framework_library.md">프레임워크, 라이브러리</a></li>
     <li><a href="etc/refactoring.md">리팩토링</a></li>
