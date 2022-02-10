@@ -12,6 +12,8 @@
     - [Spring Data JPA](#spring-data-jpa-1)
       - [Spring Data JPA를 사용하면](#spring-data-jpa를-사용하면)
   - [in memory 테스트 DB - H2](#in-memory-테스트-db---h2)
+  - [주요 인터페이스](#주요-인터페이스)
+  - [`@Repository`](#repository)
 
 # Spring Data JPA
 
@@ -112,6 +114,23 @@ JPA, 즉 하이버네이트 구현체를 몰라도 되어야 한다
 - 경량jar : 약 2MB
 - 순수 자바로 구현
 - Compatibility mode : IBM DB2, Derby, HSQLDB, MSSQL, MySQL, Oracle, PostgreSQL
+
+## 주요 인터페이스
+단계별로 필요한 기능까지만 사용 가능
+- Repository: 기본 repository 인터페이스. 어떤 메소드도 제공하지 않음
+- CrudRepository: Repository + CRUD 기능 제공
+- PagingAndSortingRepository: CrudRepository + 페이징, 정렬 기능 제공
+- JpaRepository: PagingAndSortingRepository + Spring Data JPA repository 전체 기능
+
+## `@Repository`
+- 스프링 스테레오타입 애노테이션
+- persistence layer를 구현하는 클래스에 사용
+- @Component와 마찬가지로 해당 클래스를 빈으로 등록
+- DAO 패턴을 적용한 클래스에도 사용 가능
+- **persistence layer에서 발생하는 예외를 잡아서 DataAccessException으로 처리해줌**
+  - PersistenceExceptionTranslationPostProcessor
+- Spring Data JPA를 사용한다면, "직접 사용할 일은 없다"고 봐도 무방함
+  - JpaRepository 인터페이스의 기본 구현체인 SimpleJpaRepository에 @Repository가 포함되어 있기 때문에
 
 <br/>
 
