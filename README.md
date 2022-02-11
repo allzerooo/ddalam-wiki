@@ -175,6 +175,7 @@
             <ul><li><a href="Spring/spring_boot_properties.md#spring-configuration-processor">Spring Configuration Processor</a></li></ul>
         </details>
     </li>
+    <li><a href="Spring/data_source.md">DataSource</a></li>
     <li><a href="Spring/@Configuration.md">@Configuration</a></li>
     <li>
         <details>
@@ -230,7 +231,7 @@
     </li>
     <li><a href="Spring/spring_cloud_vault.md">Spring Cloud Vault</a></li>
     <li><a href="Spring/spring_native.md">Spring Native</a></li>
-    <li><a href="Spring/data_source.md">DataSource</a></li>
+    <li><a href="Spring/server_to_server.md">Server to Server</a></li>
 </ul>
 
 <br/>
