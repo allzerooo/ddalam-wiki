@@ -3,6 +3,12 @@
   - [`@WebMvcTest()`](#webmvctest)
     - [`MockMvc`](#mockmvc)
   - [Mockito](#mockito)
+    - [Mock을 사용하는 경우](#mock을-사용하는-경우)
+    - [Mock을 만드는 방법](#mock을-만드는-방법)
+      - [`Mockito.mock()` 메서드로 만드는 방법](#mockitomock-메서드로-만드는-방법)
+      - [`@Mock` 애노테이션으로 만드는 방법](#mock-애노테이션으로-만드는-방법)
+    - [Mock이 어떻게 동작해야 하는지 관리하는 방법](#mock이-어떻게-동작해야-하는지-관리하는-방법)
+    - [Mock의 행동을 검증하는 방법](#mock의-행동을-검증하는-방법)
     - [`@InjectMocks`](#injectmocks)
     - [`@MockBean`](#mockbean)
   - [Controller 테스트](#controller-테스트)
@@ -33,7 +39,60 @@ private MockMvc mockMvc;
 ```
 
 ## Mockito
-- spring-boot-stater-test에 내장되어 있음
+- Mock : 진짜 객체와 비슷하게 동작하지만 프로그래머가 직접 그 객체의 행동을 관리하는 객체
+- Mockito : Mock 프레임워크. Mock 객체를 쉽게 만들고 관리하고 검증할 수 있는 방법을 제공한다
+- `spring-boot-stater-test`에 내장되어 있음
+
+### Mock을 사용하는 경우
+- 인터페이스에 의존해서 개발할 때 구현체가 준비가 안됐거나
+- 구현체가 있더라도 구현체와 상관없이 테스트하고 싶을 때
+
+### Mock을 만드는 방법
+
+#### `Mockito.mock()` 메서드로 만드는 방법
+```java
+MemberService memberService = mock(MemberService.class);
+StudyRepository studyRepository = mock(StudyRepository.class);
+```
+
+#### `@Mock` 애노테이션으로 만드는 방법
+- 여러 테스트 메서드에서 사용할 때
+  ```java
+  @ExtendWith(MockitoExtension.class)
+  class StudyServiceTest {
+
+    @Mock
+    StudyRepository studentRepository;
+
+    @Test
+    void createStudy_2() {
+      StudyService studyService = new StudyService(studentRepository);
+
+      assertNotNull(studyService);
+    }
+
+  }
+  ```
+  - JUnit5 extension으로 `MockitoExtension`을 사용해야 한다
+- 특정 메서드에서만 사용하고 싶을 때
+  ```java
+  @ExtendWith(MockitoExtension.class)
+  class StudyServiceTest {
+
+    @Test
+    void createStudy_3(@Mock StudyRepository studentRepository) {
+      StudyService studyService = new StudyService(studentRepository);
+
+      assertNotNull(studyService);
+    }
+
+  }
+  ```
+  - JUnit5 extension으로 `MockitoExtension`을 사용해야 한다
+
+### Mock이 어떻게 동작해야 하는지 관리하는 방법
+
+### Mock의 행동을 검증하는 방법
 
 
 ### `@InjectMocks`
@@ -135,3 +194,13 @@ TODO
     - 테스트하고자 하는 동작, 그 결과를 받아오는 것
   - then
     - 예상한대로 동작하는지 검증
+
+
+<br/>
+
+---
+
+<br/>
+
+출처 및 참고
+- [더 자바, 애플리케이션을 테스트하는 다양한 방법](https://www.inflearn.com/course/the-java-application-test/dashboard)
