@@ -52,6 +52,7 @@
   - [Authorization](#authorization)
     - [권한 처리에 관여하는 것들](#권한-처리에-관여하는-것들)
     - [인증과 권한의 구조](#인증과-권한의-구조)
+    - [메서드 후처리](#메서드-후처리)
     - [temp](#temp)
       - [다양한 인증 방법](#다양한-인증-방법)
 
@@ -783,6 +784,19 @@ http
 - 인증이 AuthenticationFilter 를 가지고 Authentication을 발급해주는 관계였다면, 권한은 SecurityInterceptor 에서 Access Granted 와 Denied 를 판정하는 결과를 만들어 내는 대응 관계를 가지고 있습니다.
 - 인증이 제공해 주는 권한과 각 Interceptor가 위치한 포인트의 조건들(ConfigAttribute) 들을 가지고 판정을 내려주는 Voter 들에 따라 Granted / Denied 가 구분이 됩니다. 그렇지만 권한은 인증보다 훨씬 상황이 다양하다고 볼 수 있습니다.
 - AccessDecisionManager 는 인터페이스입니다. 반드시 Voter 를 구현해서 처리해야 할 필요는 없습니다. 솔직히 Application을 구현한다면 Voter 없이 구현하는 것이 간단할 수 있습니다.
+
+### 메서드 후처리
+메서드가 결과를 리턴한 다음 리턴된 객체에 사용자가 접근할 수 있는지
+
+- `MethodSecurityInterceptor`가 담당
+  - 중요한 멤버 변수
+    - `AccessDecisionManager` : 사전 체크를 담당. `@Secured`나 `@PreAuthorize`, `@PreFilter`를 처리
+    - `AfterInvocationManager`
+      - `@PostAuthorize`, `@PostFilter`를 처리
+      - Authentication만 가지고는 권한 체크를 충분히 했다고 볼 수 없다. 보통 어떤 객체의 값을 변경해야 하는 경우에는 메서드에 들어오기 전에, 값을 조회하려고 하는 경우에는 값을 가져온 이후에 각각 접근 권한을 체크해줘야 한다
+      - 체크해야 할 대상이 한개라면 Pre/PostAuthorized로 체크를 하면 되지만, 대상이 복수개라면 보통은 리스트로 묶이기 때문에 대상을 filtering을 해서 들어가거나 넘겨야 한다
+      - 물론 메서드를 처리하는 중간에 권한을 검사해야 하는 경우도 있다. 이 경우는 Proxy 빈의 특징을 잘 파악해서 메서드 간에 권한 검사가 충분히 이루어지도록 annotation을 설계해서 처리할 수 있다
+    - `RunAsManager`
 
 <br/>
 
