@@ -93,7 +93,7 @@
     ```java
     public class Settings {
 
-        private static volatile Settings instnace;
+        private static volatile Settings instnace; // volatile 키워드를 추가해줘야 한다
 
         private Settings() {}
 
@@ -110,7 +110,23 @@
         }
     }
     ```
+    `getInstance()`가 호출될 때마다 매번 `synchronized`가 걸리지 않기 때문에 성능면에서 더 효율적이다. 인스턴스가 이미 있는 경우에는 `synchronized`를 스킵한다. 그리고 인스턴스를 필요로 하는 시점에 만들 수 있다는 장점이 있다. 이 코드는 Java 1.5 부터 동작하는 코드이고, `volatile` 키워드를 왜 써야되는지까지 이해하려면 복잡한 코드이다.
+4. static inner 클래스 사용하기
+    ```java
+    public class Settings {
 
+        private Settings() {}
+        
+        private static class SettingsHolder {
+            private static final Settings INSTANCE = new Settings();
+        }
+
+        public static Settings getInstance() {
+            return SettingsHolder.INSTANCE;
+        }
+    }
+    ```
+    `getInstance()`가 호출될 때 `SettingsHolder` 클래스가 로딩이 되고, 그 때 인스턴스를 만들기 때문에 lazy loading도 가능한 코드가 된다. double checked locking 처럼 코드를 이해하는데 필요한 이론적 배경도 필요없다.
 
 <br/>
 
