@@ -38,6 +38,7 @@
   - ServletRequest, SEvletResponse, HttpSession
   - WebRequest, NativeWebReqeust
   - @RequestParam, @PathVariable
+    - @RequestParam 생략하면 required = false로 적용됨
   - @RequestBody, HttpEntity<B>
   - @ModelAttribute, @SettionAttribute, Model, ModelMap
   - @RequestHeader, @CookieValue
