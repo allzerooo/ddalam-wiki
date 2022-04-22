@@ -274,6 +274,7 @@
             <ul><li><a href="Test/Mockito.md#mock을-만드는-방법">Mock을 만드는 방법</a></li></ul>
             <ul><li><a href="Test/Mockito.md#mock이-어떻게-동작해야-하는지-관리하는-방법-stubbing">Mock이 어떻게 동작해야 하는지 관리하는 방법 (Stubbing)</a></li></ul>
             <ul><li><a href="Test/Mockito.md#mock-객체-확인">Mock 객체 확인</a></li></ul>
+            <ul><li><a href="Test/Mockito.md#bdd-스타일-mockito-api">BDD 스타일 Mockito API</a></li></ul>
         </details>
     </li>
 </ul>

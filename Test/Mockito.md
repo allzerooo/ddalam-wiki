@@ -5,6 +5,9 @@
     - [`@Mock` 애노테이션으로 만드는 방법](#mock-애노테이션으로-만드는-방법)
   - [Mock이 어떻게 동작해야 하는지 관리하는 방법 (Stubbing)](#mock이-어떻게-동작해야-하는지-관리하는-방법-stubbing)
   - [Mock 객체 확인](#mock-객체-확인)
+  - [BDD 스타일 Mockito API](#bdd-스타일-mockito-api)
+    - [BDD(Behavior Driven Development)](#bddbehavior-driven-development)
+    - [BddMockito](#bddmockito)
 
 # Mockito
 - Mock : 진짜 객체와 비슷하게 동작하지만 프로그래머가 직접 그 객체의 행동을 관리하는 객체
@@ -138,6 +141,30 @@ Mock 객체가 어떻게 사용이 됐는지 확인할 수 있다
 - 특정 시점 이후에 아무 일도 벌어지지 않았는지
   - [Finding redundant invocations](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#finding_redundant_invocations)
 
+## BDD 스타일 Mockito API
+
+### BDD(Behavior Driven Development)
+- 애플리케이션이 어떻게 “행동”해야 하는지에 대한 공통된 이해를 구성하는 방법으로, TDD에서 창안
+- 행동에 대한 스팩
+  - Title
+  - Narrative
+    - As a / I want / so that
+  - Acceptance criteria
+    - Given / When / Then
+
+### BddMockito
+Mockito는 BddMockito라는 클래스를 통해 BDD 스타일의 API를 제공한다
+
+- `when` → `given`
+  ```java
+  given(memberService.findById(1L)).willReturn(Optional.of(member));
+  given(studyRepository.save(study)).willReturn(study);
+  ```
+- `verify` → `then`
+  ```java
+  then(memberService).should(times(1)).notify(study);
+  then(memberService).shouldHaveNoMoreInteractions();
+  ```
 
 <br/>
 
