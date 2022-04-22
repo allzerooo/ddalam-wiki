@@ -364,3 +364,17 @@
 </ul>
 
 <br/>
+
+## 🦊 Lecture
+<ul>
+    <li>
+        <details>
+            <summary>자바 플레이그라운드 with TDD, 클린코드</summary>
+            <ul>
+                <li><a href="lecture/자바 플레이그라운드 with TDD, 클린코드/README.md">목표</a></li>
+            </ul>
+        </details>
+    </li>
+</ul>
+
+<br/>
