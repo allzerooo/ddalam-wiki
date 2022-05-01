@@ -5,7 +5,7 @@
 </p>
 
 1. Java 코드를 작성
-2. JDK의 Java Compiler로 .java 파일 컴파일하기 (bytecode 생성)
+2. JDK의 Java Compiler로 .java 파일 [컴파일](https://github.com/ddalam/ddalam-wiki/blob/master/Java/JVM.md#jvm-java-virtual-machine)하기 (JVM이 해석할 수 있는 bytecode로)
    ```bash
    $ javac Hello.java
    ```
@@ -17,9 +17,13 @@
 
 <br/>
 
-## 바이트코드
-
-JVM이 실행하는 명령어 형태
+- Java 컴파일러 : `javac`
+- 상위 버전의 Java로 컴파일된 바이트코드는 하위 버전의 자바로 실행할 수 없다(반대는 가능하다)
+  - `UnsupportedClassVersionError` 가 발생한다
+   <p align="center">
+      <img src="../image/unsupportedclassversionerror.png"  width="620" height="auto">
+   </p>
+- 컴파일 할 때 옵션(`source`, `target`)을 주면 하위 버전의 자바로도 실행할 수 있다
 
 <br/>
 
