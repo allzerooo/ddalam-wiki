@@ -24,7 +24,7 @@ Java 애플리케이션은 JVM을 거쳐 OS → 하드웨어로 전달된다. �
 
 <br/>
 
-java.exe 명령어가 실행되면서 JVM은 [바이트 코드](../etc/binary_code_&_bytecode.md) 파일(Hello.class)을 메모리로 로드 → **해당 운영체제에 맞게 기계어로 번역** → `main()` 메서드를 찾아 실행
+java.exe 명령어가 실행되면서 JVM은 [바이트코드](../etc/binary_code_&_bytecode.md) 파일(Hello.class)을 메모리로 로드 → **해당 운영체제에 맞게 기계어로 번역** → `main()` 메서드를 찾아 실행
 
 <br/>
 
