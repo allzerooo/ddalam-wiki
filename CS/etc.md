@@ -13,6 +13,9 @@
 - [컴파일, 컴파일러](#컴파일-컴파일러)
   - [컴파일](#컴파일)
   - [컴파일러](#컴파일러)
+- [프로그래밍 언어를 실행하는 방법](#프로그래밍-언어를-실행하는-방법)
+  - [인터프리터 방식](#인터프리터-방식)
+  - [컴파일러 방식](#컴파일러-방식)
 
 <br/>
 
@@ -142,6 +145,19 @@ http://www.codechobo.com:80/sample/hello.html?referer=codechobo#index1
 
 <br/>
 
+## 프로그래밍 언어를 실행하는 방법
+
+### 인터프리터 방식
+- 중간 코드로 변환해 한 줄씩 기계어로 번역하며 실행
+- 컴파일러 방식 대비 생산속도는 빠르지만, 실행 속도는 느리다
+
+### 컴파일러 방식
+- 실행하기 전에 프로그램 코드 전체를 기계어로 번역해서 번역된 기계어를 한번에 실행
+- 컴파일 과정에서 에러를 발견할 수 있어서 실행할 때의 오류를 미리 알 수 있다
+- 인터프리터 방식 대비 생산 속도는 느리지만, 실행 속도는 빠르다
+
+<br/>
+
 ---
 
 참고
@@ -149,3 +165,4 @@ http://www.codechobo.com:80/sample/hello.html?referer=codechobo#index1
 - [위키백과 - 메모리 누수](https://ko.wikipedia.org/wiki/%EB%A9%94%EB%AA%A8%EB%A6%AC_%EB%88%84%EC%88%98)
 - [클래스101 강의 - 현직 대기업 개발자 푸와 함께하는 진짜 백엔드 시스템 실무!](https://class101.net/products/T6HT0bUDKIH1V5i3Ji2M)
 - Java의 정석 - 남궁 성
+- [Live Study 1주차 - JVM은 무엇이며 자바 코드는 어떻게 실행하는 것인가](https://youngjinmo.github.io/2021/01/livestudy-week-01/#bytecode)
