@@ -305,6 +305,14 @@
     <li><a href="etc/GraphQL.md">GraphQL</a></li>
     <li>
         <details>
+            <summary>JPA</summary>
+            <ul><li><a href="etc/JPA/hibernate.md#hibernate">hibernate</a></li></ul>
+            <ul><li><a href="etc/JPA/setting.md#jpa-설정하기">JPA 설정하기</a></li></ul>
+            <ul><li><a href="etc/JPA/run.md#jpa-구동-방식">JPA 구동 방식</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Elasticsearch</summary>
             <ul><li><a href="etc/Elasticsearch.md#elasticsearch-분산-검색-엔진">Elasticsearch: 분산 검색 엔진</a></li></ul>
             <ul>
