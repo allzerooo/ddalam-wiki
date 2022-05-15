@@ -7,7 +7,7 @@ Java로 작성된 애플리케이션은 모두 이 가상 컴퓨터(JVM)에서�
 <br/>
 
 <p align="center">
-    <img src="../image/jvm.png"  width="220" height="auto">
+    <img src="../image/JVM.png"  width="220" height="auto">
 </p>
 
 <br/>
@@ -32,6 +32,10 @@ java.exe 명령어가 실행되면서 JVM은 [바이트코드](../etc/binary_cod
 
 <p align="center">
     <img src="../image/JVM_component.png"  width="800" height="auto">
+</p>
+
+<p align="center">
+    <img src="../image/JVM_component_2.png"  width="800" height="auto">
 </p>
 
 JVM은 크게 
@@ -69,7 +73,7 @@ Loading 작업은 보통 `static main()` 메서드부터 시작된다.
 ### 런타임 데이터 영역(Runtime Data Area)
 JVM이 프로그램을 실행하기 위해 운영체제로부터 할당받은 메모리 영역이다.
 
-#### Method Area
+#### Method(Static) Area
 - JVM 내 스레드들이 공유하는 자원
 - 클래스에서 필요한 패키지 클래스, 런타임 상수풀, 인터페이스, 상수, static 변수, final 변수, 필드 데이터, 생성자 등 모든 메서드 정보가 적재된 후 항상 상주하는 영역
   - 이 영역 덕분에 `Math.abs(-10)`과 같이 `Math` 클래스의 메서드를 초기화 없이 바로 사용할 수 있다
@@ -79,6 +83,14 @@ JVM이 프로그램을 실행하기 위해 운영체제로부터 할당받은 �
 - 객체들을 위한 영역으로 `new`를 통해 생성된 객체, 배열, immutable 객체 등의 값이 저장된다
 - Stack Area의 변수나 다른 객체의 필드에서 참조할 수 있다
 - 객체를 참조하는 곳이 없을 때 Garbage Collector에 의해 이 영역에서 제거된다
+
+<p align="center">
+    <img src="../image/JVM_heap_area.png"  width="500" height="auto">
+</p>
+
+- Eden, Survivor1, Survivor2, Old, Permanent 영역으로 구성되어 있다
+  - 효율적인 GC를 위해서
+  
 
 #### Stack Area
 - 스레드마다 하나씩 존재, 스레드가 시작될 때 할당된다
@@ -97,6 +109,22 @@ JVM이 프로그램을 실행하기 위해 운영체제로부터 할당받은 �
 #### Native Method Stack
 - 자바 외 다른 언어로 작성된 네이티브 코드를 수행하기 위한 메모리 영역
 - 다른 언어에서 제공되는 Method 정보가 저장
+
+### 실행 엔진(Execution Engine)
+Class Loader에 의해 Runtime Data Area에 적재된 .class 파일들을 하나의 명령단위로 읽어서 컴퓨터가 이해할 수 있는 기계어로 번역하고 명령을 실행한다. Interpreter 방식과 JIT(Just-In-Time) 방식이 존재한다
+
+#### Garbage Collector
+- Runtime Data Area 중 Heap 영역에 더 이상 사용되지 않는 객체들을 제거하는 역할을 한다
+- GC가 수행되는 동안 GC를 실행하는 스레드 외 모든 스레드가 일시정지 된다
+- Minor GC와 Major GC로 구분된다
+  - Minor GC
+    - `new`를 통해 객체를 생성하면 Eden 영역에 생성 → Eden 영역이 가득차면 → 첫 GC가 일어난다
+      - Eden 영역에서 참조되지 않는 객체들을 제거하고, 참조되는 객체를 S1 영역으로 이동시킨다
+      - 또 Eden 영역이 가득차면 참조되는 객체를 S2 영역으로 이동시키고, S1 영역에서 참조되는 객체를 S2 영역으로 이동시키고 age를 +1 한다
+    - 이렇게 Eden → S1 → S2로의 이동이 반복적으로 일어나게 되면 오랫동안 살아남는 객체는 age가 계속 증가하는데 어느 정도 age가 증가하면 Old 영역으로 객체를 옮긴다
+  - Major GC (Full GC)
+    - Old 영역에 있는 모든 객체를 검사하고, 최조되지 않는 객체들을 모아 한번에 제거한다
+    - 이 때는 GC를 제외한 모든 스레드가 중지된다
 
 
 <br/>
