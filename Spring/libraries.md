@@ -9,6 +9,11 @@
     - [`spring-boot-starter-jdbc`](#spring-boot-starter-jdbc)
     - [`hibernate-core`](#hibernate-core)
     - [`spring-data-jpa`](#spring-data-jpa)
+  - [`spring-boot-starter-test`](#spring-boot-starter-test)
+    - [`junit`](#junit)
+    - [`spring-test`](#spring-test)
+    - [`mokito`](#mokito)
+    - [`assertj`](#assertj)
 
 # Spring Boot 라이브러리
 
@@ -36,3 +41,17 @@
 - HicariCP : 커넥션 풀, Spring Boot 2부터 기본
 ### `hibernate-core`
 ### `spring-data-jpa`
+
+## `spring-boot-starter-test`
+
+### `junit`
+테스트 프레임워크
+
+### `spring-test`
+스프링 통합 테스트 지원
+
+### `mokito`
+목 라이브러리
+
+### `assertj`
+테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리
