@@ -354,6 +354,12 @@
             <ul><li><a href="etc/git.md#git을-사용하는-이유">Git을 사용하는 이유</a></li></ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>아키텍처</summary>
+            <ul><li><a href="etc/Architecture/Hexagonal_Architecture.md#hexagonal-architecture">Hexagonal Architecture</a></li></ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
