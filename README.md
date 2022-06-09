@@ -304,12 +304,14 @@
     <li><a href="etc/SSE.md">SSE(Server-Sent Events)</a></li>
     <li><a href="etc/ApolloFederation.md">Apollo Federation</a></li>
     <li><a href="etc/GraphQL.md">GraphQL</a></li>
+    <li><a href="etc/ORM.md">ORM</a></li>
     <li>
         <details>
             <summary>JPA</summary>
             <ul><li><a href="etc/JPA/hibernate.md#hibernate">hibernate</a></li></ul>
             <ul><li><a href="etc/JPA/setting.md#jpa-설정하기">JPA 설정하기</a></li></ul>
             <ul><li><a href="etc/JPA/run.md#jpa-구동-방식">JPA 구동 방식</a></li></ul>
+            <ul><li><a href="etc/JPA/association_mapping.md#연관관계-매핑">연관관계 매핑</a></li></ul>
         </details>
     </li>
     <li>
