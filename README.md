@@ -240,18 +240,32 @@
 
 <br/>
 
-## 🐥 SQL
+## 🐥 DB
 <ul>
     <li>
         <details>
-            <summary>MySql</summary>
+            <summary>RDB</summary>
             <ul>
-                <li><a href="SQL/MySQL/window_function.md">윈도우 함수(Window Function)</a></li>
-                <li><a href="SQL/MySQL/timezone.md">Timezone</a></li>
+                <li>
+                    <details>
+                        <summary>SQL</summary>
+                        <ul>
+                            <li><a href="DB/RDB/SQL/window_function.md">윈도우 함수(Window Function)</a></li>
+                            <li><a href="DB/RDB/SQL/timezone.md">Timezone</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>ERD</summary>
+                        <ul>
+                            <li><a href="DB/RDB/ERD.md#관계선">관계선</a></li>
+                        </ul>
+                    </details>
+                </li>
             </ul>
         </details>
     </li>
-    <li><a href="SQL/쿼리문_합치기.md">쿼리문 합치기</a></li>
 </ul>
 
 <br/>
