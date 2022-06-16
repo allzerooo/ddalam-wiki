@@ -17,7 +17,7 @@
     <li><a href="CS/etc.md#멀티쓰레딩">멀티쓰레딩</a></li>
     <li><a href="CS/etc.md#교착상태">교착상태</a></li>
     <li><a href="CS/etc.md#URL">URL</a></li>
-    <li><a href="CS/oop.md"">객체지향 프로그래밍<a>
+    <li><a href="CS/oop.md">객체지향 프로그래밍</a></li>
     <li><a href="CS/etc.md#컴파일, 컴파일러">컴파일, 컴파일러</a></li>
     <li>
         <details>
@@ -35,7 +35,7 @@
             <ul><li><a href="CS/network.md#port">PORT</a></li></ul>
             <ul><li><a href="CS/network.md#dnsdomain-name-system">DNS(Domain Name System)</a></li></ul>
             <ul><li><a href="CS/network.md#웹-브라우저-요청-흐름">웹 브라우저 요청 흐름</a></li></ul>
-            <ul><li><a href="CS/network.md#socket_and_port"">Socket과 Port</a></li></ul>
+            <ul><li><a href="CS/network.md#socket_and_port">Socket과 Port</a></li></ul>
         </details>
     </li>
     <li>
@@ -59,7 +59,6 @@
             <ul><li>탐색</li></ul>
         </details>
     </li>
-</ul>
 </ul>
 
 <br/>
@@ -140,6 +139,21 @@
             <ul>
                 <li><a href="Java/effective_java.md#객체-생성과-파괴">객체 생성과 파괴</a></li>
             </ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>JPA</summary>
+            <ul><li><a href="Java/JPA/hibernate.md#hibernate">hibernate</a></li></ul>
+            <ul><li><a href="Java/JPA/setting.md#jpa-설정하기">JPA 설정하기</a></li></ul>
+            <ul><li><a href="Java/JPA/run.md#jpa-구동-방식">JPA 구동 방식</a></li></ul>
+            <ul><li><a href="Java/JPA/association_mapping.md#연관관계-매핑">연관관계 매핑</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>jOOQ</summary>
+            <ul><li><a href="Java/jOOQ/jOOQ.md">jOOQ</a></li></ul>
         </details>
     </li>
 </ul>
@@ -266,6 +280,13 @@
             </ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>트랜잭션</summary>
+            <ul><li><a href="DB/transaction.md">트랜잭션</a></li></ul>
+            <ul><li><a href="DB/transaction.md#트랜잭션-acid">트랜잭션 ACID</a></li></ul>
+        </details>
+    </li>
 </ul>
 
 <br/>
@@ -319,15 +340,6 @@
     <li><a href="etc/ApolloFederation.md">Apollo Federation</a></li>
     <li><a href="etc/GraphQL.md">GraphQL</a></li>
     <li><a href="etc/ORM.md">ORM</a></li>
-    <li>
-        <details>
-            <summary>JPA</summary>
-            <ul><li><a href="etc/JPA/hibernate.md#hibernate">hibernate</a></li></ul>
-            <ul><li><a href="etc/JPA/setting.md#jpa-설정하기">JPA 설정하기</a></li></ul>
-            <ul><li><a href="etc/JPA/run.md#jpa-구동-방식">JPA 구동 방식</a></li></ul>
-            <ul><li><a href="etc/JPA/association_mapping.md#연관관계-매핑">연관관계 매핑</a></li></ul>
-        </details>
-    </li>
     <li>
         <details>
             <summary>Elasticsearch</summary>
