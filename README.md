@@ -306,6 +306,13 @@
     </li>
     <li>
         <details>
+            <summary>AssertJ</summary>
+            <ul><li><a href="Test/AssertJ.md#assertj">AssertJ</a></li></ul>
+            <ul><li><a href="Test/AssertJ.md#junit-vs-assertj">JUnit vs AssertJ</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Mockito</summary>
             <ul><li><a href="Test/Mockito.md#mockito">Mockito</a></li></ul>
             <ul><li><a href="Test/Mockito.md#mock을-사용하는-경우">Mock을 사용하는 경우</a></li></ul>
