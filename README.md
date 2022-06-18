@@ -388,6 +388,13 @@
             <ul><li><a href="etc/Architecture/Hexagonal_Architecture.md#hexagonal-architecture">Hexagonal Architecture</a></li></ul>
         </details>
     </li>
+    <li>
+        <details>
+            <summary>RabbitMQ</summary>
+            <ul><li><a href="etc/RabbitMQ.md#rabbitmq">RabbitMQ</a></li></ul>
+        </details>
+    </li>
+    <li><a href="etc/AMQP.md">AMQP</a></li>
 </ul>
 
 <br/>
