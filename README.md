@@ -194,6 +194,12 @@
         </details>
     </li>
     <li><a href="Spring/data_source.md">DataSource</a></li>
+    <li>
+        <details>
+            <summary>트랜잭션</summary>
+            <ul><li><a href="Spring/transaction.md#트랜잭션-추상화">트랜잭션 추상화</a></li></ul>
+        </details>
+    </li>
     <li><a href="Spring/@Configuration.md">@Configuration</a></li>
     <li>
         <details>

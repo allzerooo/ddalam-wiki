@@ -19,8 +19,6 @@ O
 DB/RDB/ERD.md,e/f/efc3248d44be2b7d2d637aea00705fdcb9868db7
 F
 Java/primitive_type.md,6/a/6aaffc9e9d4f146a7f063a4195f92b594d298260
-A
-DB/transaction.md,e/d/ed21ef4bcc676386cc4ebeb6717d36ddbd323c0d
 >
 etc/GraphQL.md,3/0/305d6cd50977c4283c7e60c389a5d7f660de3794
 O
