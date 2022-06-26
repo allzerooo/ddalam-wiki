@@ -25,3 +25,14 @@ O
 Java/JPA/persistence_context.md,5/0/5018f2e8d4747d35571311c993476b6ee0bc3382
 @
 Java/variable.md,1/d/1ddda4e6d0308d7122bebeafe03a5abb0e0cbec3
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+;
+etc/AMQP.md,6/6/66aeae858e1cdf7a43016d41b3d7ab88d27dfedb
+?
+etc/RabbitMQ.md,3/0/307f4dba67c5fd39329658be7a358a62e7780850
+A
+DB/transaction.md,e/d/ed21ef4bcc676386cc4ebeb6717d36ddbd323c0d
+?
+Test/AssertJ.md,6/d/6d402a9c31e6afe9e55847a9bd7a845722c2baae
