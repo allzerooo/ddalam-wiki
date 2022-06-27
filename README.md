@@ -147,6 +147,7 @@
             <ul><li><a href="Java/JPA/hibernate.md#hibernate">hibernate</a></li></ul>
             <ul><li><a href="Java/JPA/setting.md#jpa-설정하기">JPA 설정하기</a></li></ul>
             <ul><li><a href="Java/JPA/run.md#jpa-구동-방식">JPA 구동 방식</a></li></ul>
+            <ul><li><a href="Java/JPA/association.md">연관관계</a></li></ul>
             <ul><li><a href="Java/JPA/association_mapping.md#연관관계-매핑">연관관계 매핑</a></li></ul>
             <ul><li><a href="Java/JPA/fetch_type.md">즉시 로딩, 지연 로딩</a></li></ul>
         </details>

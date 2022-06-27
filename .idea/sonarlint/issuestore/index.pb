@@ -13,8 +13,6 @@ C
 Java/JPA/setting.md,d/1/d1cf853085ebd755cac5938edc3b1ac6c99714d3
 E
 Java/JPA/hibernate.md,1/f/1f9a2583fd69499bc35421f1024f34915c468cbf
-O
-Java/JPA/association_mapping.md,c/a/ca833748d044bdbd1374d024b7ebca655c101d9d
 =
 DB/RDB/ERD.md,e/f/efc3248d44be2b7d2d637aea00705fdcb9868db7
 F
@@ -36,3 +34,5 @@ A
 DB/transaction.md,e/d/ed21ef4bcc676386cc4ebeb6717d36ddbd323c0d
 ?
 Test/AssertJ.md,6/d/6d402a9c31e6afe9e55847a9bd7a845722c2baae
+E
+Spring/transaction.md,a/9/a9b9801b0ea9f40449e550ca807ea7c6fc21c06c
