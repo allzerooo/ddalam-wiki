@@ -221,6 +221,16 @@
     </li>
     <li>
         <details>
+            <summary>Bean Validation</summary>
+            <ul><li><a href="Spring/BeanValidation/bean_validation.md">Bean Validation</a></li></ul>
+            <ul><li><a href="Spring/BeanValidation/spring_bean_validation.md">Spring이 Bean Validation을 사용하는 방법</a></li></ul>
+            <ul><li><a href="Spring/BeanValidation/@Valid_@Validated.md">@Valid, @Validated</a></li></ul>
+            <ul><li><a href="Spring/BeanValidation/message_change.md">오류 메시지 변경</a></li></ul>
+            <ul><li><a href="Spring/BeanValidation/object_error.md">Object 오류 처리</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
             <summary>Spring Security</summary>
             <ul><li><a href="Spring/Spring_Security.md#spring-security">Spring Security</a></li></ul>
             <ul><li><a href="Spring/Spring_Security.md#spring-security가-궁극적으로-이루고자-하는-목표">Spring Security가 궁극적으로 이루고자 하는 목표</a></li></ul>
