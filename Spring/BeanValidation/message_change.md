@@ -24,7 +24,7 @@ NotBlank 와 같은 오류 코드를 기반으로 `MessageCodesResolver` 를 통
 
 <br/>
 
-`[errors.properties](http://errors.properties)` 에 오류 메시지를 등록하면 변경 가능하다
+`errors.properties` 에 오류 메시지를 등록하면 변경 가능하다
 
 <br/>
 
