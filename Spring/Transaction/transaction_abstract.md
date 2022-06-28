@@ -1,6 +1,6 @@
 - [트랜잭션](#트랜잭션)
-  - [트랜잭션 추상화](#트랜잭션-추상화)
-    - [PlatformTransactionManager](#platformtransactionmanager)
+    - [트랜잭션 추상화](#트랜잭션-추상화)
+        - [PlatformTransactionManager](#platformtransactionmanager)
 
 # 트랜잭션
 
@@ -33,7 +33,7 @@ public interface PlatformTransactionManager extends TransactionManager {
 ```
 
 - `getTransaction()` : 트랜잭션을 시작한다
-  - 이름이 `getTransaction()` 인 이유는 기존에 이미 진행중인 트랜잭션이 있는 경우 해당 트랜잭션에 참여할 수 있기 때문이다
+    - 이름이 `getTransaction()` 인 이유는 기존에 이미 진행중인 트랜잭션이 있는 경우 해당 트랜잭션에 참여할 수 있기 때문이다
 - `commit()` : 트랜잭션을 커밋한다
 - `rollback()` : 트랜잭션을 롤백한다
 

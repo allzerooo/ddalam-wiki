@@ -198,8 +198,10 @@
     <li><a href="Spring/data_source.md">DataSource</a></li>
     <li>
         <details>
-            <summary>트랜잭션</summary>
-            <ul><li><a href="Spring/transaction.md#트랜잭션-추상화">트랜잭션 추상화</a></li></ul>
+            <summary>Transaction</summary>
+            <ul><li><a href="Spring/Transaction/transaction_abstract.md">트랜잭션 추상화</a></li></ul>
+            <ul><li><a href="Spring/Transaction/transaction_usage.md">트랜잭션 사용 방법</a></li></ul>
+            <ul><li><a href="Spring/Transaction/declarative_transaction.md">선언적 트랜잭션</a></li></ul>
         </details>
     </li>
     <li><a href="Spring/@Configuration.md">@Configuration</a></li>
