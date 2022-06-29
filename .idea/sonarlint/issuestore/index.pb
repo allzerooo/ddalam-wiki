@@ -42,3 +42,15 @@ O
 Java/JPA/association_mapping.md,c/a/ca833748d044bdbd1374d024b7ebca655c101d9d
 F
 Java/JPA/fetch_type.md,c/3/c3105dcb0bb2ea4133e9656200652372630a6e1d
+W
+'Spring/BeanValidation/message_change.md,f/1/f16b88a02a0ba412fdcf9ecc232e2136c7ecc1ac
+Z
+*Spring/BeanValidation/@Valid_@Validated.md,d/a/da995c0268e205d59bb4d960363f8707d3771e65
+U
+%Spring/BeanValidation/object_error.md,1/2/128d2aba481156dcb7b2c4faf685253297331690
+D
+Spring/validation.md,0/1/01b2b459e3f28d89399fe8622ac820832f8abfd9
+X
+(Spring/BeanValidation/bean_validation.md,8/3/838a400ec84a13020f63d31c2b9ab8744527b44a
+_
+/Spring/BeanValidation/spring_bean_validation.md,c/0/c097645cfe125015a783c06500a6551e0c9e0ce8
