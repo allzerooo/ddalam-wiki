@@ -285,8 +285,9 @@
                     <details>
                         <summary>SQL</summary>
                         <ul>
-                            <li><a href="DB/RDB/SQL/window_function.md">윈도우 함수(Window Function)</a></li>
-                            <li><a href="DB/RDB/SQL/timezone.md">Timezone</a></li>
+                            <li><a href="DB/RDB/SQL/MySQL/window_function.md">윈도우 함수(Window Function)</a></li>
+                            <li><a href="DB/RDB/SQL/MySQL/timezone.md">Timezone</a></li>
+                            <li><a href="DB/RDB/SQL/MySQL/GROUP_CONCAT.md">GROUP_CONCAT</a></li>
                         </ul>
                     </details>
                 </li>
