@@ -11,8 +11,6 @@ A
 Java/JPA/run.md,2/f/2fec25eb565d285bdf8c82acbf602bcb5d85252e
 C
 Java/JPA/setting.md,d/1/d1cf853085ebd755cac5938edc3b1ac6c99714d3
-E
-Java/JPA/hibernate.md,1/f/1f9a2583fd69499bc35421f1024f34915c468cbf
 =
 DB/RDB/ERD.md,e/f/efc3248d44be2b7d2d637aea00705fdcb9868db7
 F
