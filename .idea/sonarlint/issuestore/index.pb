@@ -1,8 +1,4 @@
 
-M
-DB/RDB/SQL/window_function.md,5/8/58c8e562decc491fc95e671e79d2be94ce321d78
-F
-DB/RDB/SQL/timezone.md,5/5/551eb56342cbbe0d86781d992e68fd457611efb7
 A
 Java/jOOQ/jOOQ.md,6/3/6364eb733c09e680bb46bd00660c025e529a75e5
 ?
@@ -38,8 +34,6 @@ G
 Java/JPA/association.md,8/e/8e1f6f30e5ec9893caf0959be08609ec8c6ee9a3
 O
 Java/JPA/association_mapping.md,c/a/ca833748d044bdbd1374d024b7ebca655c101d9d
-F
-Java/JPA/fetch_type.md,c/3/c3105dcb0bb2ea4133e9656200652372630a6e1d
 W
 'Spring/BeanValidation/message_change.md,f/1/f16b88a02a0ba412fdcf9ecc232e2136c7ecc1ac
 Z
@@ -52,3 +46,15 @@ X
 (Spring/BeanValidation/bean_validation.md,8/3/838a400ec84a13020f63d31c2b9ab8744527b44a
 _
 /Spring/BeanValidation/spring_bean_validation.md,c/0/c097645cfe125015a783c06500a6551e0c9e0ce8
+E
+Java/JPA/hibernate.md,1/f/1f9a2583fd69499bc35421f1024f34915c468cbf
+A
+Java/JPA/flush.md,b/0/b03e6d116a85677c5ca925920fdbdc9473e265a3
+Z
+*Spring/Transaction/transaction_abstract.md,0/2/027c9a8517b630d8df970dc674605489176f33eb
+G
+etc/DDD/domain_model.md,c/4/c44d8fd7873acd9310481402306a20d4cab3d3da
+]
+-Spring/Transaction/declarative_transaction.md,b/7/b742671532b725a8f39bdaa684f0e52268f64025
+W
+'Spring/Transaction/transaction_usage.md,1/b/1b43bc66fb5c0d682f0711d097716c95260aaef5

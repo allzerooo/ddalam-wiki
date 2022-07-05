@@ -30,7 +30,7 @@ System.out.println("m = " + m.getTeam().getClass());
 m.getTeam().getName(); // Team의 값에 접근하는 시점에 쿼리가 나감
 ```
 
-- 네트워크를 2번 탐
+- 네트워크를 2번 탐 (지연로딩은 영속성 컨텍스트에서 조회하므로, 이미 조회된 경우 쿼리를 수행하지 않는다)
 
 <br/>
 
