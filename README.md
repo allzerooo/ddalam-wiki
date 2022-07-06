@@ -133,14 +133,7 @@
             </ul>
         </details>
     </li>
-    <li>
-        <details>
-            <summary>Effective Java</summary>
-            <ul>
-                <li><a href="Java/effective_java.md#객체-생성과-파괴">객체 생성과 파괴</a></li>
-            </ul>
-        </details>
-    </li>
+    <li><a href="Java/reflection.md">reflection</a></li>
     <li>
         <details>
             <summary>JPA</summary>
@@ -157,6 +150,14 @@
         <details>
             <summary>jOOQ</summary>
             <ul><li><a href="Java/jOOQ/jOOQ.md">jOOQ</a></li></ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>Effective Java</summary>
+            <ul>
+                <li><a href="Java/effective_java.md#객체-생성과-파괴">객체 생성과 파괴</a></li>
+            </ul>
         </details>
     </li>
 </ul>
