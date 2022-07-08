@@ -114,6 +114,7 @@
             </ul>
         </details>
     </li>
+    <li><a href="Java/wrapper_class.md">Wrapper 클래스</a></li>
     <li><a href="Java/stream.md">Stream</a></li>
     <li>
         <details>
