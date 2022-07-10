@@ -53,9 +53,15 @@ ex) `Integer i = Integer.valueOf("100")`
 
 ## autoboxing, unboxing
 
+- autoboxing : 기본형 값을 Wrapper 클래스의 객체로 자동 변환해주는 것 
+- unboxing : Wrapper 클래스 객체의 값을 기본형으로 자동 변환해주는 것
+- 참조형 기본형 간의 연산이 가능하며, 참조형 간의 연산도 가능하다
 
-
-
+```java
+ArrayList<Integer> list = new ArrayList<Integer>();
+list.add(10); // autoboxing
+int value = list.get(0); // unboxing
+```
 
 <br/>
 
