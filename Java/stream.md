@@ -128,8 +128,24 @@ public static List<String> getLowCaloricDishesNamesInJava8(List<Dish> dishes) {
       3. ...
 - 최종 연산이 수행되기 전까지 중간 연산이 수행되지 않는다(지연된 연산)
 
-<br/>
-<br/>
+## 연산 - 중간연산
+
+### `map`
+
+- 기존 Steam 요소들을 변환하여 새로운 Stream을 형성하는 연산
+- 저장된 값을 특정한 형태로 변환하는데 주로 사용
+- 인자로 함수형 인터페이스 fuction을 받는다
+
+```java
+List<String> list = Arrays.asList("a1", "a2", "b1");
+Stream<String> stream = list.stream();
+stream.map(String::toUpperCase).forEach(System.out::println);
+```
+```text
+A1
+A2
+B1
+```
 
 ## 기본형 데이터 소스 스트림
 
@@ -150,4 +166,4 @@ Stream<T>의 오토박싱, 언박싱으로 인한 비요율을 줄이기 위해 
 
 출처 및 참고
 - Java의 정석 (남궁 성)
-- 모던 자바 인 액션(라울-게이브리얼 우르마, 마리오 푸스코, 앨런 마이크로프트)
+- 모던 자바 인 액션 (라울-게이브리얼 우르마, 마리오 푸스코, 앨런 마이크로프트)
