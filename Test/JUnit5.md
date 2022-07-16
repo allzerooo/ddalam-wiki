@@ -11,6 +11,13 @@
 # JUnit 5
 Java의 Unit 테스트를 위한 프래임워크
 
+## 기본 Annotation
+### `@BeforeAll`
+테스트 함수가 불리기 전에 딱 한번 호출 됨
+
+### `@BeforeEach`
+각 테스트 함수가 불리기 전에 매번 호출 됨
+
 ## `@ExtendWith()`
 외부 기능을 사용해 테스트
 ```java
@@ -131,6 +138,17 @@ TODO
   - then
     - 예상한대로 동작하는지 검증
 
+---
+
+# AssertJ
+
+## Collection 테스트
+
+- `containsExactly` : 순서를 포함해서 정확히 일치
+
+## Exception 테스트
+
+- `assertThatThrownBy`
 
 <br/>
 
