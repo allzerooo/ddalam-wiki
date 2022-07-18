@@ -130,22 +130,84 @@ public static List<String> getLowCaloricDishesNamesInJava8(List<Dish> dishes) {
 
 ## 연산 - 중간연산
 
-### `map`
+### 필터링
+```java
+List<Dish> vegetarianMenu = menu.stream()
+        .filter(Dish::isVegetarian)
+        .collect(toList());
+```
 
-- 기존 Steam 요소들을 변환하여 새로운 Stream을 형성하는 연산
-- 저장된 값을 특정한 형태로 변환하는데 주로 사용
-- 인자로 함수형 인터페이스 fuction을 받는다
+### 고유 요소 필터링
+고유 여부는 스트림에서 만든 객체의 hashCode, equals로 결정된다
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 1, 3, 3, 2, 4);
+numbers.stream()
+        .filter(i -> i % 2 == 0)
+        .distinct()
+        .forEach(System.out::println);
+```
+
+### 프레디케이트를 이용한 슬라이싱
+```java
+List<String> sliceMenu = menu.stream()
+				.takeWhile(dish -> dish.getCalories() < 320)
+				.map(Dish::getName)
+				.collect(toList());
+```
+- 320 칼로리보다 크거나 같은 요리가 나왔을 때 반복 작업을 중단
+- 작은 리스트에서는 별거 아닌 것처러 보일 수 있지만 아주 많은 요소를 포함하는 스트림에서는 상당한 차이가 될 수 있다
 
 ```java
-List<String> list = Arrays.asList("a1", "a2", "b1");
-Stream<String> stream = list.stream();
-stream.map(String::toUpperCase).forEach(System.out::println);
+List<String> sliceMenu = menu.stream()
+				.dropWhile(dish -> dish.getCalories() < 320)
+				.map(Dish::getName)
+				.collect(toList());
 ```
-```text
-A1
-A2
-B1
+- 320 칼로리 이상의 요리를 선택
+- 프레디케이트가 처음으로 거짓이 되는 지점에서 작업을 중단하고 남은 모든 요소를 반환
+- 무한한 남은 요소를 가진 무한 스트림에서도 동작한다
+
+### 스트림 축소
+```java
+List<String> collect = menu.stream()
+				.filter(dish -> dish.getCalories() > 300)
+				.limit(3)
+				.map(Dish::getName)
+				.collect(toList());
 ```
+- 프레디케이트와 일치하는 처음 세 요소를 선택한 다음 즉시 결과를 반환
+- 소스가 정렬되어 있지 않았다면 limit의 결과도 정렬되지 않은 상태로 반환된다
+
+### 요소 건너뛰기
+```java
+List<String> collect = menu.stream()
+				.filter(dish -> dish.getCalories() > 300)
+				.skip(2)
+				.map(Dish::getName)
+				.collect(toList());
+```
+- 처음 n개 요소를 제외한 스트림을 반환
+- n개 이하의 요소를 포함하는 스트림에 skip(n)을 호출하면 빈 스트림이 반환
+
+### 스트림의 각 요소에 함수 적용하기
+```java
+List<String> words = Arrays.asList("Modern", "Java", "In", "Action");
+List<Integer> wordLengths = words.stream()
+        .map(String::length)
+        .collect(toList());
+```
+- map()의 인수로 제공된 함수는 각 요소에 적용되며 함수를 적용한 결과가 새로운 버전의 스트림을 만든다(매핑)
+
+### 스트림 평면화
+```java
+List<String> words = Arrays.asList("Hello", "World");
+List<String> collect = words.stream()
+        .map(word -> word.split(""))
+        .flatMap(Arrays::stream)
+        .distinct()
+        .collect(toList());
+```
+- flatMap은 하나의 평면화된 스트림을 반환한다
 
 ## 기본형 데이터 소스 스트림
 

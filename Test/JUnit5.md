@@ -145,6 +145,7 @@ TODO
 ## Collection 테스트
 
 - `containsExactly` : 순서를 포함해서 정확히 일치
+- `hasSize`
 
 ## Exception 테스트
 
