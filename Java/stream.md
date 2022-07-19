@@ -128,7 +128,7 @@ public static List<String> getLowCaloricDishesNamesInJava8(List<Dish> dishes) {
       3. ...
 - 최종 연산이 수행되기 전까지 중간 연산이 수행되지 않는다(지연된 연산)
 
-## 연산 - 중간연산
+## 연산 - 중간 연산
 
 ### 필터링
 ```java
@@ -208,6 +208,15 @@ List<String> collect = words.stream()
         .collect(toList());
 ```
 - flatMap은 하나의 평면화된 스트림을 반환한다
+
+## 연산 - 최종 연산
+
+### findFirst vs findAny
+병렬 실행에서는 첫 번째 요소를 찾기 어렵다. 따라서 요소의 반환 순서가 상관없다면 병렬 스트림에서는 제약이 적은 findAny를 사용한다
+
+### 리듀싱
+- 모든 스트림 요소를 처리해서 값으로 도출하는 질의
+- `reduce` 메서드의 장점과 병렬화
 
 ## 기본형 데이터 소스 스트림
 
