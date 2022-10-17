@@ -22,7 +22,7 @@
     <li>
         <details>
             <summary>운영체제</summary>
-            <ul><li><a href=""></a></li></ul>
+            <ul><li><a href="CS/OperatingSystem/thread.md#thread-safe">Thread-safe</a></li></ul>
         </details>
     </li>
     <li>
