@@ -57,7 +57,7 @@
   - 배열의 모든 요소를 문자열로 - `toString()`, `deepToString()`
   - 배열이 같은지 비교 - `equals()`, `deppToEquals()`
   - 배열을 리스트로 - `asList()`
-  - 여러 쓰레드가 작업을 나누어 처리하도록 - `parallelXXX()`
+  - 여러 스레드가 작업을 나누어 처리하도록 - `parallelXXX()`
   - 하나의 작업을 어려 작업으로 나누는 - `spliterator()`
   - 컬렉션을 스트림으로 변환하는 - `stream()`
 - `Arrays`에 정의된 메서드는 모두 static 메서드이다

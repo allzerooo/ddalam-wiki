@@ -12,7 +12,7 @@
     <li><a href="CS/etc.md#컴퓨터가 프로그램을 실행하는 과정">컴퓨터가 프로그램을 실행하는 과정</a></li>
     <li><a href="CS/etc.md#변수란">변수란</a></li>
     <li><a href="CS/etc.md#메모리 누수">메모리 누수</a></li>
-    <li><a href="CS/etc.md#프로세스와 쓰레드">프로세스와 쓰레드</a></li>
+    <li><a href="CS/etc.md#프로세스와 스레드">프로세스와 스레드</a></li>
     <li><a href="CS/etc.md#멀티태스킹">멀티태스킹</a></li>
     <li><a href="CS/etc.md#멀티쓰레딩">멀티쓰레딩</a></li>
     <li><a href="CS/etc.md#교착상태">교착상태</a></li>
@@ -22,7 +22,16 @@
     <li>
         <details>
             <summary>운영체제</summary>
-            <ul><li><a href="CS/OperatingSystem/thread.md#thread-safe">Thread-safe</a></li></ul>
+            <ul>
+                <li>
+                    <details>
+                        <summary>Thread</summary>
+                        <ul><li><a href="CS/OperatingSystem/thread.md#프로세스와-스레드">프로세스와 스레드</a></li></ul>
+                        <ul><li><a href="CS/OperatingSystem/thread.md#스레드">스레드</a></li></ul>
+                        <ul><li><a href="CS/OperatingSystem/thread.md#thread-safe">Thread-safe</a></li></ul>
+                    </details>
+                </li>
+            </ul>
         </details>
     </li>
     <li>
@@ -90,7 +99,7 @@
     <li><a href="Java/string_stringBuffer_stringBuilder.md">String, StringBuffer, StringBuilder</a></li>
     <li><a href="Java/anonymous_class.md">익명 클래스(anonymous class)</a></li>
     <li><a href="Java/Lambda_expression.md">람다식(Lambda expression)</a></li>
-    <li><a href="Java/thread.md">쓰레드</a></li>
+    <li><a href="Java/thread.md">스레드</a></li>
     <li>
         <details>
             <summary>객체 지향 프로그래밍</summary>
