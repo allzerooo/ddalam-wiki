@@ -28,7 +28,7 @@
                         <summary>Thread</summary>
                         <ul><li><a href="CS/OperatingSystem/thread.md#프로세스와-스레드">프로세스와 스레드</a></li></ul>
                         <ul><li><a href="CS/OperatingSystem/thread.md#스레드">스레드</a></li></ul>
-                        <ul><li><a href="CS/OperatingSystem/thread.md#thread-safe">Thread-safe</a></li></ul>
+                        <ul><li><a href="CS/OperatingSystem/thread.md#thread-safety">Thread safety</a></li></ul>
                     </details>
                 </li>
             </ul>
