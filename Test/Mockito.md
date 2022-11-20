@@ -89,7 +89,7 @@ Mock 객체를 조작해서 Mock 객체의 행동을 변경할 수 있다
 - void 메소드 특정 매개변수를 받거나 호출된 경우 예외를 발생 시킬 수 있다
   - [Subbing void methods with exceptions](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#5)
   ```java
-  doThrow(new IllegalArgumentException()).whend(memberService).validate(1L);  // validate -> MemberService의 메서드임
+  doThrow(new IllegalArgumentException()).when(memberService).validate(1L);  // validate -> MemberService의 메서드임
   memberService.validate(1L); // 예외가 발생함
   assertThrows(IllegalArgumentException.class, () -> {
     memberService.validate(1L);
