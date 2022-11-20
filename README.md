@@ -17,7 +17,6 @@
     <li><a href="CS/etc.md#멀티쓰레딩">멀티쓰레딩</a></li>
     <li><a href="CS/etc.md#교착상태">교착상태</a></li>
     <li><a href="CS/etc.md#URL">URL</a></li>
-    <li><a href="CS/oop.md">객체지향 프로그래밍</a></li>
     <li><a href="CS/etc.md#컴파일, 컴파일러">컴파일, 컴파일러</a></li>
     <li>
         <details>
